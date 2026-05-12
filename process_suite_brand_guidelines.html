@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Process Suite — Brand Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Playfair+Display+SC:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --tan-50:   #FAF6EF;
+    --tan-100:  #F0E8D5;
+    --tan-200:  #DFD0B0;
+    --tan-400:  #B89B6A;
+    --tan-600:  #8A6E42;
+    --tan-800:  #5C4520;
+    --tan-900:  #3A2A0E;
+    --slate-50: #F2F1EE;
+    --slate-200:#D0CEC8;
+    --slate-400:#8C8A84;
+    --slate-600:#5A5854;
+    --slate-800:#2E2D2A;
+    --teal-50:  #E4F2EE;
+    --teal-400: #1D9E75;
+    --teal-600: #186B56;
+    --teal-800: #0A3D30;
+    --dusty-400:#5A6480;
+    --dusty-600:#434E6B;
+    --font-brand: 'Playfair Display', Georgia, serif;
+    --font-sc:    'Playfair Display SC', Georgia, serif;
+    --font-ui:    system-ui, -apple-system, sans-serif;
+    --r-sm: 3px; --r-md: 6px; --r-lg: 10px; --r-xl: 18px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 14px; }
+  body {
+    background: var(--tan-50);
+    color: var(--slate-800);
+    font-family: var(--font-ui);
+    line-height: 1.65;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    border-bottom: 0.5px solid var(--tan-200);
+    padding: 4rem 0 3rem;
+    margin-bottom: 4rem;
+  }
+  .eyebrow {
+    font-family: var(--font-sc);
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    color: var(--tan-600);
+    text-transform: lowercase;
+    margin-bottom: 0.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--slate-800);
+    margin-bottom: 0.5rem;
+  }
+  .tagline {
+    font-family: var(--font-brand);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--tan-600);
+  }
+
+  /* ── SECTIONS ── */
+  section { margin-bottom: 5rem; }
+  .section-eyebrow {
+    font-family: var(--font-sc);
+    font-size: 8.5px;
+    letter-spacing: 0.2em;
+    color: var(--slate-400);
+    text-transform: lowercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--tan-200);
+  }
+  h2 {
+    font-family: var(--font-brand);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--slate-800);
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-family: var(--font-brand);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--slate-800);
+    margin-bottom: 0.5rem;
+  }
+  p { font-size: 13px; color: var(--slate-600); line-height: 1.75; max-width: 600px; margin-bottom: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── APPS ── */
+  .app-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--tan-200); border-radius: var(--r-lg); overflow: hidden; margin: 1.5rem 0; }
+  .app-card { background: white; padding: 1.5rem 1.25rem; }
+  .app-name { font-family: var(--font-brand); font-size: 20px; font-weight: 600; margin-bottom: 0.25rem; }
+  .app-tagline { font-family: var(--font-brand); font-style: italic; font-size: 12px; color: var(--slate-400); margin-bottom: 0.75rem; }
+  .app-desc { font-size: 12px; color: var(--slate-600); line-height: 1.6; margin-bottom: 1rem; }
+  .app-token { font-family: monospace; font-size: 10px; color: var(--slate-400); }
+  .accent-scene { color: var(--tan-600); border-top: 2.5px solid var(--tan-400); }
+  .accent-prov  { color: var(--teal-600); border-top: 2.5px solid var(--teal-400); }
+  .accent-works { color: var(--dusty-600); border-top: 2.5px solid var(--dusty-400); }
+
+  /* ── ICONS ── */
+  .icon-showcase {
+    background: var(--slate-800);
+    border-radius: var(--r-lg);
+    padding: 3rem 2rem;
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+  }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .icon-item-label {
+    font-family: var(--font-sc);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: var(--tan-400);
+    text-transform: lowercase;
+  }
+  .icon-sizes { display: flex; align-items: flex-end; gap: 10px; margin: 1rem 0; justify-content: center; }
+
+  /* ── COLORS ── */
+  .palette-group { margin-bottom: 2rem; }
+  .palette-label { font-size: 10px; color: var(--slate-400); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .swatch-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .swatch { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .swatch-box { width: 48px; height: 48px; border-radius: var(--r-sm); border: 0.5px solid rgba(0,0,0,0.07); }
+  .swatch-meta { text-align: center; }
+  .swatch-name { font-size: 9px; color: var(--slate-600); display: block; }
+  .swatch-hex  { font-size: 9px; color: var(--slate-400); font-family: monospace; display: block; }
+
+  /* ── TYPE ── */
+  .type-specimen { background: white; border: 0.5px solid var(--tan-200); border-radius: var(--r-md); padding: 1.25rem 1.5rem; margin-bottom: 8px; }
+  .type-meta { font-size: 10px; color: var(--slate-400); font-family: monospace; margin-top: 0.5rem; }
+  .scale-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 1rem 0; }
+  .scale-table td { padding: 6px 10px; border-bottom: 0.5px solid var(--tan-100); color: var(--slate-600); }
+  .scale-table td:first-child { font-family: monospace; color: var(--slate-800); width: 140px; }
+  .scale-table td:last-child { color: var(--slate-400); }
+
+  /* ── TOKENS ── */
+  .token-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 1rem 0; }
+  .token-row { display: flex; justify-content: space-between; padding: 6px 10px; background: white; border: 0.5px solid var(--tan-200); border-radius: var(--r-sm); }
+  .token-key { font-family: monospace; font-size: 11px; color: var(--slate-700); }
+  .token-val { font-size: 11px; color: var(--slate-400); font-family: monospace; }
+
+  /* ── CODE BLOCK ── */
+  .code-block {
+    background: var(--slate-800);
+    color: #D0CEC8;
+    font-family: monospace;
+    font-size: 11.5px;
+    line-height: 1.8;
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--r-md);
+    margin: 1.25rem 0;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .ck { color: #DFD0B0; }
+  .cv { color: #9FE1CB; }
+  .cc { color: #5F5E5A; }
+
+  /* ── SPLASH MOCKUP ── */
+  .splash-demo {
+    background: var(--slate-800);
+    border-radius: var(--r-lg);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  .splash-demo .eyebrow { color: var(--tan-400); margin-bottom: 0.5rem; }
+  .splash-demo h2 { font-size: 36px; color: #FAF6EF; margin-bottom: 0.25rem; border: none; }
+  .splash-demo .sub { font-family: var(--font-brand); font-style: italic; font-size: 15px; color: var(--tan-400); }
+
+  /* ── ICON USAGE TABLE ── */
+  .usage-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 1rem 0; }
+  .usage-table th { text-align: left; padding: 6px 10px; border-bottom: 0.5px solid var(--tan-200); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-400); font-weight: 400; }
+  .usage-table td { padding: 7px 10px; border-bottom: 0.5px solid var(--tan-100); color: var(--slate-600); vertical-align: middle; }
+  .usage-table td:first-child { font-family: monospace; color: var(--slate-800); }
+  .tag { display: inline-block; font-size: 10px; padding: 1px 7px; border-radius: 20px; background: var(--tan-100); color: var(--tan-800); margin: 1px; }
+  .tag-teal { background: var(--teal-50); color: var(--teal-800); }
+
+  /* ── RULE ── */
+  hr { border: none; border-top: 0.5px solid var(--tan-200); margin: 0; }
+
+  /* ── FOOTER ── */
+  footer { margin-top: 6rem; padding-top: 2rem; border-top: 0.5px solid var(--tan-200); display: flex; justify-content: space-between; align-items: baseline; }
+  .footer-mark { font-family: var(--font-sc); font-size: 9px; letter-spacing: 0.2em; color: var(--slate-400); text-transform: lowercase; }
+  .footer-version { font-family: monospace; font-size: 10px; color: var(--slate-400); }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="eyebrow">process suite · brand guidelines</div>
+  <h1>The Process Suite</h1>
+  <div class="tagline">Tools for making, tracking, and showing work.</div>
+</header>
+
+<!-- 01 NAMING -->
+<section>
+  <div class="section-eyebrow">01 — naming &amp; positioning</div>
+  <h2>The Suite</h2>
+  <p>Four apps. One design language. Each does a distinct job in a creative workflow — capturing, outlining, archiving, presenting — and can be used alone or together. Ideas begin in Seed, take structure in Scene Board, are documented in Provenance, and presented in Works. The suite name is "Process Suite" in formal contexts. Individual apps are always referred to by their single-word name only.</p>
+
+  <div class="app-grid" style="grid-template-columns: repeat(4,1fr);">
+    <div class="app-card" style="border-top: 2.5px solid #C87B5A;">
+      <div class="app-name" style="color:#A05A3C">Seed</div>
+      <div class="app-tagline">Where ideas take root.</div>
+      <div class="app-desc">Local-first idea capture. Fragments, thoughts, dialogue, images. The beginning of everything.</div>
+      <div class="app-token">--seed-accent: #C87B5A</div>
+    </div>
+    <div class="app-card accent-scene">
+      <div class="app-name" style="color:#8A6E42">Scene Board</div>
+      <div class="app-tagline">Structure before you shoot.</div>
+      <div class="app-desc">Project outliner and kanban board. Cards, scenes, sequences. Organize work before it exists.</div>
+      <div class="app-token">--scene-accent: #B89B6A</div>
+    </div>
+    <div class="app-card accent-prov">
+      <div class="app-name" style="color:#186B56">Provenance</div>
+      <div class="app-tagline">The work remembers.</div>
+      <div class="app-desc">Process history and version tracker. Show proof of work, document decisions, branch ideas.</div>
+      <div class="app-token">--prov-accent: #1D9E75</div>
+    </div>
+    <div class="app-card accent-works">
+      <div class="app-name" style="color:#434E6B">Works</div>
+      <div class="app-tagline">Present what you've made.</div>
+      <div class="app-desc">Portfolio formatter. Context, format, hierarchy. Show finished work the way it deserves to be seen.</div>
+      <div class="app-token">--works-accent: #5A6480</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 ICONS -->
+<section>
+  <div class="section-eyebrow">02 — icon system</div>
+  <h2>App Icons</h2>
+  <p>Each app has a geometric mark derived from its core function. All four share the same superellipse container, gradient treatment, and edge stroke — making them family at any size. The mark uses parchment white (#FAF6EF) at stepped opacity levels to convey depth and hierarchy without color.</p>
+
+  <div class="icon-showcase">
+    <!-- Seed -->
+    <div class="icon-item">
+      <svg width="96" height="96" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sdg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#C87B5A"/><stop offset="100%" stop-color="#8A422A"/></linearGradient>
+          <linearGradient id="sdhi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.13"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
+          <clipPath id="sdc"><rect width="120" height="120" rx="27"/></clipPath>
+        </defs>
+        <rect width="120" height="120" rx="27" fill="url(#sdg)"/>
+        <rect width="120" height="120" rx="27" fill="url(#sdhi)" clip-path="url(#sdc)"/>
+        <path d="M60 22 C66 22 70 26 70 31 C70 37 65 41 60 43 C55 41 50 37 50 31 C50 26 54 22 60 22Z" fill="#FAF6EF" opacity="0.93"/>
+        <line x1="56" y1="32" x2="64" y2="32" stroke="#C87B5A" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+        <line x1="60" y1="43" x2="60" y2="62" stroke="#FAF6EF" stroke-width="2" stroke-linecap="round" opacity="0.88"/>
+        <path d="M60 55 Q52 60 44 62" fill="none" stroke="#FAF6EF" stroke-width="1.6" stroke-linecap="round" opacity="0.82"/>
+        <path d="M60 55 Q68 60 76 62" fill="none" stroke="#FAF6EF" stroke-width="1.6" stroke-linecap="round" opacity="0.82"/>
+        <line x1="60" y1="62" x2="60" y2="78" stroke="#FAF6EF" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+        <path d="M60 70 Q50 75 38 76" fill="none" stroke="#FAF6EF" stroke-width="1.2" stroke-linecap="round" opacity="0.58"/>
+        <path d="M60 70 Q70 75 82 76" fill="none" stroke="#FAF6EF" stroke-width="1.2" stroke-linecap="round" opacity="0.58"/>
+        <line x1="60" y1="78" x2="60" y2="91" stroke="#FAF6EF" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
+        <path d="M60 85 Q54 88 48 89" fill="none" stroke="#FAF6EF" stroke-width="0.8" stroke-linecap="round" opacity="0.32"/>
+        <path d="M60 85 Q66 88 72 89" fill="none" stroke="#FAF6EF" stroke-width="0.8" stroke-linecap="round" opacity="0.32"/>
+        <path d="M44 62 Q38 65 34 68" fill="none" stroke="#FAF6EF" stroke-width="0.8" stroke-linecap="round" opacity="0.28"/>
+        <path d="M76 62 Q82 65 86 68" fill="none" stroke="#FAF6EF" stroke-width="0.8" stroke-linecap="round" opacity="0.28"/>
+        <path d="M38 76 Q33 79 30 83" fill="none" stroke="#FAF6EF" stroke-width="0.7" stroke-linecap="round" opacity="0.20"/>
+        <path d="M82 76 Q87 79 90 83" fill="none" stroke="#FAF6EF" stroke-width="0.7" stroke-linecap="round" opacity="0.20"/>
+        <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.15" clip-path="url(#sdc)"/>
+      </svg>
+      <div class="icon-item-label">Seed</div>
+    </div>
+    <!-- Scene Board -->
+    <div class="icon-item">
+      <svg width="96" height="96" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#C8A872"/><stop offset="100%" stop-color="#8A6840"/></linearGradient>
+          <linearGradient id="shi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.13"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
+          <clipPath id="sc"><rect width="120" height="120" rx="27"/></clipPath>
+        </defs>
+        <rect width="120" height="120" rx="27" fill="url(#sg)"/>
+        <rect width="120" height="120" rx="27" fill="url(#shi)" clip-path="url(#sc)"/>
+        <rect x="15" y="24" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.93"/>
+        <rect x="15" y="43" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.93"/>
+        <rect x="15" y="62" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.93"/>
+        <rect x="15" y="81" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.93"/>
+        <rect x="46" y="24" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.72"/>
+        <rect x="46" y="43" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.72"/>
+        <rect x="77" y="24" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.48"/>
+        <rect x="77" y="43" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.48"/>
+        <rect x="77" y="62" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.48"/>
+        <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.16" clip-path="url(#sc)"/>
+      </svg>
+      <div class="icon-item-label">Scene Board</div>
+    </div>
+    <!-- Provenance -->
+    <div class="icon-item">
+      <svg width="96" height="96" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#2DC490"/><stop offset="100%" stop-color="#0D6B52"/></linearGradient>
+          <linearGradient id="phi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.12"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
+          <clipPath id="pc"><rect width="120" height="120" rx="27"/></clipPath>
+        </defs>
+        <rect width="120" height="120" rx="27" fill="url(#pg)"/>
+        <rect width="120" height="120" rx="27" fill="url(#phi)" clip-path="url(#pc)"/>
+        <line x1="42" y1="26" x2="42" y2="94" stroke="#FAF6EF" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.5"/>
+        <path d="M42 52 Q42 44 54 44 L82 44" fill="none" stroke="#FAF6EF" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+        <circle cx="42" cy="30" r="6" fill="#FAF6EF" opacity="0.95"/>
+        <circle cx="42" cy="60" r="6" fill="#FAF6EF" opacity="0.75"/>
+        <circle cx="42" cy="88" r="6" fill="#FAF6EF" opacity="0.45"/>
+        <circle cx="82" cy="44" r="6" fill="#FAF6EF" opacity="0.82"/>
+        <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.16" clip-path="url(#pc)"/>
+      </svg>
+      <div class="icon-item-label">Provenance</div>
+    </div>
+    <!-- Works -->
+    <div class="icon-item">
+      <svg width="96" height="96" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#717D9A"/><stop offset="100%" stop-color="#3D4560"/></linearGradient>
+          <linearGradient id="whi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.11"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
+          <clipPath id="wc"><rect width="120" height="120" rx="27"/></clipPath>
+        </defs>
+        <rect width="120" height="120" rx="27" fill="url(#wg)"/>
+        <rect width="120" height="120" rx="27" fill="url(#whi)" clip-path="url(#wc)"/>
+        <rect x="15" y="15" width="56" height="32" rx="3" fill="#FAF6EF" opacity="0.93"/>
+        <rect x="77" y="15" width="28" height="32" rx="2.5" fill="#FAF6EF" opacity="0.58"/>
+        <rect x="77" y="53" width="28" height="52" rx="2.5" fill="#FAF6EF" opacity="0.30"/>
+        <rect x="15" y="55" width="54" height="4.5" rx="2" fill="#FAF6EF" opacity="0.42"/>
+        <rect x="15" y="64" width="40" height="4.5" rx="2" fill="#FAF6EF" opacity="0.28"/>
+        <rect x="15" y="78" width="50" height="4.5" rx="2" fill="#FAF6EF" opacity="0.22"/>
+        <rect x="15" y="87" width="32" height="4.5" rx="2" fill="#FAF6EF" opacity="0.14"/>
+        <rect x="15" y="96" width="44" height="4.5" rx="2" fill="#FAF6EF" opacity="0.10"/>
+        <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.14" clip-path="url(#wc)"/>
+      </svg>
+      <div class="icon-item-label">Works</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:2rem">Icon construction rules</h3>
+  <p>These rules apply to any future app added to the suite.</p>
+  <table class="usage-table">
+    <thead><tr><th>Property</th><th>Value</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Container</td><td>120×120 viewBox</td><td>Scale to any output size</td></tr>
+      <tr><td>Corner radius</td><td>rx=27 at 120px</td><td>~22.5% — scales proportionally</td></tr>
+      <tr><td>Mark color</td><td>#FAF6EF</td><td>Parchment white, always</td></tr>
+      <tr><td>Mark padding</td><td>15px from all edges</td><td>Equal on all four sides</td></tr>
+      <tr><td>Inner mark radii</td><td>rx=2.5–3</td><td>Subtle, not pill-shaped</td></tr>
+      <tr><td>Opacity steps</td><td>0.93 · 0.72 · 0.48</td><td>Foreground → receding</td></tr>
+      <tr><td>Gradient angle</td><td>top-left → bottom-right</td><td>x2=0.5, y2=1.4</td></tr>
+      <tr><td>Highlight overlay</td><td>white 0.11–0.13 → 0</td><td>Fades to 60% of height</td></tr>
+      <tr><td>Edge stroke</td><td>white, 1px, 0.14–0.16 opacity</td><td>Clipped to container</td></tr>
+      <tr><td>Gradients/shadows</td><td>None beyond the above</td><td>Flat mark only</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top:2rem">Export sizes</h3>
+  <table class="usage-table">
+    <thead><tr><th>Size</th><th>Use</th><th>Format</th></tr></thead>
+    <tbody>
+      <tr><td>16×16</td><td>Favicon, menu bar</td><td>PNG, ICO</td></tr>
+      <tr><td>32×32</td><td>Favicon @2x, toolbar</td><td>PNG, ICO</td></tr>
+      <tr><td>48×48</td><td>Windows taskbar, web</td><td>PNG, ICO</td></tr>
+      <tr><td>64×64</td><td>macOS Dock small</td><td>PNG → icns</td></tr>
+      <tr><td>96×96</td><td>Android hdpi</td><td>PNG</td></tr>
+      <tr><td>128×128</td><td>macOS standard</td><td>PNG → icns</td></tr>
+      <tr><td>180×180</td><td>iOS home screen</td><td>PNG</td></tr>
+      <tr><td>192×192</td><td>Android xxhdpi, PWA</td><td>PNG</td></tr>
+      <tr><td>256×256</td><td>macOS large, Windows</td><td>PNG → icns</td></tr>
+      <tr><td>512×512</td><td>macOS Retina, App Store</td><td>PNG → icns</td></tr>
+      <tr><td>1024×1024</td><td>App Store, advertising</td><td>PNG → icns</td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:1rem; font-size:12px; color: var(--slate-400)">To generate the .icns file on macOS: place the .iconset folder on your machine and run <code style="font-size:11px; background:var(--tan-100); padding:1px 5px; border-radius:3px">iconutil -c icns AppName.iconset</code> in Terminal.</p>
+</section>
+
+<!-- 03 COLOR -->
+<section>
+  <div class="section-eyebrow">03 — color</div>
+  <h2>Palette</h2>
+  <p>The foundation is warm parchment. Each app draws one accent from the shared palette. All three share the same neutral surfaces and text colors. Never use black or white directly — always pull from the ramps.</p>
+
+  <div class="palette-group">
+    <div class="palette-label">Shared surfaces &amp; neutrals</div>
+    <div class="swatch-row">
+      <div class="swatch"><div class="swatch-box" style="background:#FAF6EF"></div><div class="swatch-meta"><span class="swatch-name">tan-50</span><span class="swatch-hex">#FAF6EF</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#F0E8D5"></div><div class="swatch-meta"><span class="swatch-name">tan-100</span><span class="swatch-hex">#F0E8D5</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#DFD0B0"></div><div class="swatch-meta"><span class="swatch-name">tan-200</span><span class="swatch-hex">#DFD0B0</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#B89B6A"></div><div class="swatch-meta"><span class="swatch-name">tan-400</span><span class="swatch-hex">#B89B6A</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#8A6E42"></div><div class="swatch-meta"><span class="swatch-name">tan-600</span><span class="swatch-hex">#8A6E42</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#5C4520"></div><div class="swatch-meta"><span class="swatch-name">tan-800</span><span class="swatch-hex">#5C4520</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#2E2D2A"></div><div class="swatch-meta"><span class="swatch-name">slate-800</span><span class="swatch-hex">#2E2D2A</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#5A5854"></div><div class="swatch-meta"><span class="swatch-name">slate-600</span><span class="swatch-hex">#5A5854</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#8C8A84"></div><div class="swatch-meta"><span class="swatch-name">slate-400</span><span class="swatch-hex">#8C8A84</span></div></div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <div class="palette-label">Scene Board — Amber tan</div>
+    <div class="swatch-row">
+      <div class="swatch"><div class="swatch-box" style="background:#C8A872"></div><div class="swatch-meta"><span class="swatch-name">icon-light</span><span class="swatch-hex">#C8A872</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#B89B6A"></div><div class="swatch-meta"><span class="swatch-name">accent</span><span class="swatch-hex">#B89B6A</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#8A6E42"></div><div class="swatch-meta"><span class="swatch-name">accent-dark</span><span class="swatch-hex">#8A6E42</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#8A6840"></div><div class="swatch-meta"><span class="swatch-name">icon-dark</span><span class="swatch-hex">#8A6840</span></div></div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <div class="palette-label">Provenance — Archival teal</div>
+    <div class="swatch-row">
+      <div class="swatch"><div class="swatch-box" style="background:#2DC490"></div><div class="swatch-meta"><span class="swatch-name">icon-light</span><span class="swatch-hex">#2DC490</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#1D9E75"></div><div class="swatch-meta"><span class="swatch-name">accent</span><span class="swatch-hex">#1D9E75</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#186B56"></div><div class="swatch-meta"><span class="swatch-name">accent-dark</span><span class="swatch-hex">#186B56</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#0D6B52"></div><div class="swatch-meta"><span class="swatch-name">icon-dark</span><span class="swatch-hex">#0D6B52</span></div></div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <div class="palette-label">Works — Dusty slate</div>
+    <div class="swatch-row">
+      <div class="swatch"><div class="swatch-box" style="background:#717D9A"></div><div class="swatch-meta"><span class="swatch-name">icon-light</span><span class="swatch-hex">#717D9A</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#5A6480"></div><div class="swatch-meta"><span class="swatch-name">accent</span><span class="swatch-hex">#5A6480</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#434E6B"></div><div class="swatch-meta"><span class="swatch-name">accent-dark</span><span class="swatch-hex">#434E6B</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#3D4560"></div><div class="swatch-meta"><span class="swatch-name">icon-dark</span><span class="swatch-hex">#3D4560</span></div></div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <div class="palette-label">Seed — Burnt clay</div>
+    <div class="swatch-row">
+      <div class="swatch"><div class="swatch-box" style="background:#F5EAE4"></div><div class="swatch-meta"><span class="swatch-name">clay-50</span><span class="swatch-hex">#F5EAE4</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#E8C9BB"></div><div class="swatch-meta"><span class="swatch-name">clay-100</span><span class="swatch-hex">#E8C9BB</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#D4967E"></div><div class="swatch-meta"><span class="swatch-name">clay-200</span><span class="swatch-hex">#D4967E</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#C87B5A"></div><div class="swatch-meta"><span class="swatch-name">clay-400</span><span class="swatch-hex">#C87B5A</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#A05A3C"></div><div class="swatch-meta"><span class="swatch-name">clay-600</span><span class="swatch-hex">#A05A3C</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#8A422A"></div><div class="swatch-meta"><span class="swatch-name">clay-800</span><span class="swatch-hex">#8A422A</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#5C2610"></div><div class="swatch-meta"><span class="swatch-name">clay-900</span><span class="swatch-hex">#5C2610</span></div></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- 04 TYPOGRAPHY -->
+<section>
+  <div class="section-eyebrow">04 — typography</div>
+  <h2>Type System</h2>
+  <p>Two typefaces. Playfair Display for brand moments. System UI for all app chrome. Never mix them in the same context.</p>
+
+  <div class="type-specimen">
+    <div style="font-family:'Playfair Display',Georgia,serif; font-size:30px; font-weight:600; color:var(--slate-800); line-height:1.15; margin-bottom:6px">The work remembers.</div>
+    <div style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:16px; color:var(--tan-600); margin-bottom:8px">Playfair Display — splash, marketing, about screens</div>
+    <div class="type-meta">Brand font · Display use only · never in UI chrome</div>
+  </div>
+
+  <div class="type-specimen" style="margin-top:8px">
+    <div style="font-family:system-ui,sans-serif; font-size:15px; font-weight:500; color:var(--slate-800); margin-bottom:4px">Scene 01 — Opening sequence</div>
+    <div style="font-family:system-ui,sans-serif; font-size:13px; color:var(--slate-600)">12 cards · Last edited 3 days ago · Draft</div>
+    <div class="type-meta" style="margin-top:8px">UI font · system-ui, -apple-system · all labels, body, metadata</div>
+  </div>
+
+  <h3 style="margin-top:1.5rem">UI type scale</h3>
+  <table class="scale-table">
+    <tr><td>--text-xs</td><td>10px / 1.5 / 400</td><td>Timestamps, eyebrows</td></tr>
+    <tr><td>--text-sm</td><td>12px / 1.6 / 400</td><td>Metadata, labels</td></tr>
+    <tr><td>--text-base</td><td>13px / 1.65 / 400</td><td>Body, descriptions</td></tr>
+    <tr><td>--text-md</td><td>15px / 1.5 / 500</td><td>Card titles, nav items</td></tr>
+    <tr><td>--text-lg</td><td>18px / 1.3 / 500</td><td>Section headings</td></tr>
+    <tr><td>--text-xl</td><td>22px / 1.2 / 600</td><td>Page titles</td></tr>
+  </table>
+</section>
+
+<!-- 05 SPACING & SHAPE -->
+<section>
+  <div class="section-eyebrow">05 — spacing &amp; shape</div>
+  <h2>Layout Tokens</h2>
+  <p>Consistent radii and spacing make the apps feel unified even when opened side by side. The small radii are intentional — they reference the measured restraint of early Apple software.</p>
+  <div class="token-grid">
+    <div class="token-row"><span class="token-key">--radius-sm</span><span class="token-val">3px</span></div>
+    <div class="token-row"><span class="token-key">--radius-md</span><span class="token-val">6px</span></div>
+    <div class="token-row"><span class="token-key">--radius-lg</span><span class="token-val">10px</span></div>
+    <div class="token-row"><span class="token-key">--radius-pill</span><span class="token-val">999px</span></div>
+    <div class="token-row"><span class="token-key">--space-xs</span><span class="token-val">4px</span></div>
+    <div class="token-row"><span class="token-key">--space-sm</span><span class="token-val">8px</span></div>
+    <div class="token-row"><span class="token-key">--space-md</span><span class="token-val">12px</span></div>
+    <div class="token-row"><span class="token-key">--space-lg</span><span class="token-val">20px</span></div>
+    <div class="token-row"><span class="token-key">--space-xl</span><span class="token-val">32px</span></div>
+    <div class="token-row"><span class="token-key">--border-ui</span><span class="token-val">0.5px solid tan-200</span></div>
+  </div>
+  <p style="margin-top:1rem">No drop shadows. No gradients in UI chrome. Borders are always 0.5px. Elevation is expressed through background color difference, not shadow.</p>
+</section>
+
+<!-- 06 SPLASH -->
+<section>
+  <div class="section-eyebrow">06 — brand moments</div>
+  <h2>Splash &amp; Marketing</h2>
+  <p>Splash screens, about pages, and marketing surfaces use Playfair Display on the dark slate background. Keep it spare — the brand font does the work.</p>
+  <div class="splash-demo">
+    <div class="eyebrow">process suite</div>
+    <h2>Scene Board</h2>
+    <div class="sub">Structure before you shoot.</div>
+  </div>
+  <p style="font-size:12px; color:var(--slate-400); margin-top:0.75rem">Background: #2E2D2A (slate-800) · Title: #FAF6EF · Subtitle: tan-400 · Font: Playfair Display</p>
+</section>
+
+<!-- 07 TOKEN REFERENCE -->
+<section>
+  <div class="section-eyebrow">07 — for claude code</div>
+  <h2>Token Reference</h2>
+  <p>Paste this block at the start of any Claude Code session. Everything needed to implement the design system.</p>
+
+  <div class="code-block"><span class="cc">/* Process Suite — Design Tokens v1 */</span>
+<span class="cc">/* Brand font: Playfair Display (splash/marketing only) */</span>
+<span class="cc">/* UI font:    system-ui (all app chrome)               */</span>
+
+:root {
+  <span class="cc">/* Surfaces */</span>
+  <span class="ck">--surface-base</span>:    <span class="cv">#FAF6EF</span>;  <span class="cc">/* tan-50   — page background  */</span>
+  <span class="ck">--surface-raised</span>:   <span class="cv">#FFFFFF</span>;  <span class="cc">/* card bg                     */</span>
+  <span class="ck">--surface-sunken</span>:   <span class="cv">#F0E8D5</span>;  <span class="cc">/* tan-100  — inputs, wells    */</span>
+  <span class="ck">--border-ui</span>:        <span class="cv">#DFD0B0</span>;  <span class="cc">/* tan-200  — 0.5px borders    */</span>
+
+  <span class="cc">/* Text */</span>
+  <span class="ck">--text-primary</span>:     <span class="cv">#2E2D2A</span>;  <span class="cc">/* slate-800                   */</span>
+  <span class="ck">--text-secondary</span>:   <span class="cv">#5A5854</span>;  <span class="cc">/* slate-600                   */</span>
+  <span class="ck">--text-muted</span>:       <span class="cv">#8C8A84</span>;  <span class="cc">/* slate-400                   */</span>
+  <span class="ck">--text-brand</span>:       <span class="cv">#8A6E42</span>;  <span class="cc">/* tan-600                     */</span>
+
+  <span class="cc">/* Seed */</span>
+  <span class="ck">--seed-accent</span>:      <span class="cv">#C87B5A</span>;  <span class="cc">/* clay-400                    */</span>
+  <span class="ck">--seed-accent-dk</span>:   <span class="cv">#A05A3C</span>;  <span class="cc">/* clay-600                    */</span>
+  <span class="ck">--seed-icon-lt</span>:     <span class="cv">#C87B5A</span>;  <span class="cc">/* gradient top                */</span>
+  <span class="ck">--seed-icon-dk</span>:     <span class="cv">#8A422A</span>;  <span class="cc">/* gradient bottom             */</span>
+
+  <span class="cc">/* Scene Board */</span>
+  <span class="ck">--scene-accent</span>:     <span class="cv">#B89B6A</span>;  <span class="cc">/* tan-400                     */</span>
+  <span class="ck">--scene-accent-dk</span>:  <span class="cv">#8A6E42</span>;  <span class="cc">/* tan-600                     */</span>
+  <span class="ck">--scene-icon-lt</span>:    <span class="cv">#C8A872</span>;  <span class="cc">/* gradient top                */</span>
+  <span class="ck">--scene-icon-dk</span>:    <span class="cv">#8A6840</span>;  <span class="cc">/* gradient bottom             */</span>
+
+  <span class="cc">/* Provenance */</span>
+  <span class="ck">--prov-accent</span>:      <span class="cv">#1D9E75</span>;  <span class="cc">/* teal-400                    */</span>
+  <span class="ck">--prov-accent-dk</span>:   <span class="cv">#186B56</span>;  <span class="cc">/* teal-600                    */</span>
+  <span class="ck">--prov-icon-lt</span>:     <span class="cv">#2DC490</span>;  <span class="cc">/* gradient top                */</span>
+  <span class="ck">--prov-icon-dk</span>:     <span class="cv">#0D6B52</span>;  <span class="cc">/* gradient bottom             */</span>
+
+  <span class="cc">/* Works */</span>
+  <span class="ck">--works-accent</span>:     <span class="cv">#5A6480</span>;  <span class="cc">/* dusty-400                   */</span>
+  <span class="ck">--works-accent-dk</span>:  <span class="cv">#434E6B</span>;  <span class="cc">/* dusty-600                   */</span>
+  <span class="ck">--works-icon-lt</span>:    <span class="cv">#717D9A</span>;  <span class="cc">/* gradient top                */</span>
+  <span class="ck">--works-icon-dk</span>:    <span class="cv">#3D4560</span>;  <span class="cc">/* gradient bottom             */</span>
+
+  <span class="cc">/* Shape */</span>
+  <span class="ck">--radius-sm</span>:        <span class="cv">3px</span>;
+  <span class="ck">--radius-md</span>:        <span class="cv">6px</span>;
+  <span class="ck">--radius-lg</span>:        <span class="cv">10px</span>;
+  <span class="ck">--radius-pill</span>:      <span class="cv">999px</span>;
+
+  <span class="cc">/* Spacing */</span>
+  <span class="ck">--space-xs</span>:         <span class="cv">4px</span>;
+  <span class="ck">--space-sm</span>:         <span class="cv">8px</span>;
+  <span class="ck">--space-md</span>:         <span class="cv">12px</span>;
+  <span class="ck">--space-lg</span>:         <span class="cv">20px</span>;
+  <span class="ck">--space-xl</span>:         <span class="cv">32px</span>;
+
+  <span class="cc">/* Icon system constants */</span>
+  <span class="ck">--icon-mark</span>:        <span class="cv">#FAF6EF</span>;  <span class="cc">/* mark color, always          */</span>
+  <span class="ck">--icon-opacity-hi</span>:  <span class="cv">0.93</span>;     <span class="cc">/* foreground elements         */</span>
+  <span class="ck">--icon-opacity-mid</span>: <span class="cv">0.72</span>;     <span class="cc">/* mid-ground                  */</span>
+  <span class="ck">--icon-opacity-lo</span>:  <span class="cv">0.48</span>;     <span class="cc">/* receding elements           */</span>
+
+  <span class="cc">/* Rules: no drop shadows, no gradients in UI chrome.  */</span>
+  <span class="cc">/* Borders always 0.5px. Elevation via bg difference.  */</span>
+}</div>
+</section>
+
+<footer>
+  <div class="footer-mark">process suite · brand guidelines</div>
+  <div class="footer-version">v1.1 · 2026</div>
+</footer>
+
+</body>
+</html>

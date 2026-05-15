@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pricing — Procestra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --tan-50:   #FAF6EF;
+    --tan-100:  #F0E8D5;
+    --tan-200:  #DFD0B0;
+    --tan-400:  #B89B6A;
+    --tan-600:  #8A6E42;
+    --slate-400:#8C8A84;
+    --slate-600:#5A5854;
+    --slate-800:#2E2D2A;
+    --font-brand: 'Playfair Display', Georgia, serif;
+    --font-body:  'EB Garamond', Georgia, serif;
+    --font-ui:    system-ui, -apple-system, sans-serif;
+    --r-sm: 3px; --r-md: 6px; --r-lg: 10px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    background: var(--tan-50);
+    color: var(--slate-800);
+    font-family: var(--font-ui);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .nav-wordmark {
+    font-family: var(--font-brand);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--slate-800);
+    text-decoration: none;
+  }
+  .nav-back { font-family: var(--font-ui); font-size: 12px; color: var(--slate-400); text-decoration: none; }
+  .nav-back:hover { color: var(--slate-600); }
+
+  .rule { max-width: 680px; margin: 0 auto; padding: 0 2rem; }
+  .rule hr { border: none; border-top: 0.5px solid var(--tan-200); }
+
+  .content { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+  .page-eyebrow {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tan-600);
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--slate-800);
+    margin-bottom: 1rem;
+  }
+  .intro {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--slate-600);
+    max-width: 520px;
+    margin-bottom: 3.5rem;
+  }
+
+  h2 {
+    font-family: var(--font-brand);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--slate-800);
+    margin: 2.5rem 0 1rem;
+  }
+
+  /* PRICING TABLE */
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0.5rem;
+  }
+  .price-table tr { border-bottom: 0.5px solid var(--tan-100); }
+  .price-table tr:last-child { border-bottom: none; }
+  .price-table td {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--slate-600);
+    padding: 0.65rem 0;
+    vertical-align: baseline;
+  }
+  .price-table td:last-child {
+    text-align: right;
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--slate-800);
+    white-space: nowrap;
+    padding-left: 1rem;
+  }
+  .price-note {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--slate-400);
+    letter-spacing: 0.04em;
+  }
+
+  /* HIGHLIGHTED ROW */
+  .price-featured td { color: var(--slate-800); }
+  .price-featured td:first-child::after {
+    content: ' — most honest';
+    font-family: var(--font-brand);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--slate-400);
+    font-weight: 400;
+  }
+
+  /* SECTION DIVIDER */
+  .section-rule { border: none; border-top: 0.5px solid var(--tan-200); margin: 2.5rem 0; }
+
+  /* EXPLANATION BLOCKS */
+  .q {
+    font-family: var(--font-brand);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--slate-800);
+    margin-top: 1.75rem;
+    margin-bottom: 0.4rem;
+  }
+  p, .p {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--slate-600);
+    margin-bottom: 0;
+  }
+
+  footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-top: 0.5px solid var(--tan-200);
+  }
+  .footer-copy { font-family: var(--font-ui); font-size: 12px; color: var(--slate-400); }
+  .footer-links a { font-family: var(--font-ui); font-size: 11px; color: var(--slate-400); text-decoration: none; }
+  .footer-links a:hover { color: var(--slate-600); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-wordmark">Procestra</a>
+  <a href="/" class="nav-back">← Back</a>
+</nav>
+
+<div class="rule"><hr/></div>
+
+<div class="content">
+  <div class="page-eyebrow">Pricing</div>
+  <h1>Pricing</h1>
+  <p class="intro">Procestra is paid software. We chose pricing that reflects the kind of tool this is: bought, owned, used carefully, kept for a long time.</p>
+
+  <h2>The suite</h2>
+  <p class="price-note" style="margin-bottom: 0.75rem;">All four apps. All updates for the period.</p>
+  <table class="price-table">
+    <tr class="price-featured">
+      <td>Lifetime</td>
+      <td>$99</td>
+    </tr>
+    <tr>
+      <td>Annual</td>
+      <td>$40 / year</td>
+    </tr>
+    <tr>
+      <td>Monthly</td>
+      <td>$5 / month</td>
+    </tr>
+  </table>
+
+  <hr class="section-rule"/>
+
+  <h2>Individual apps</h2>
+  <p class="price-note" style="margin-bottom: 0.75rem;">Lifetime purchase. If you only need one.</p>
+  <table class="price-table">
+    <tr><td>Seed</td><td>$20</td></tr>
+    <tr><td>Scene Board</td><td>$25</td></tr>
+    <tr><td>Provenance</td><td>$35</td></tr>
+    <tr><td>Works</td><td>$25</td></tr>
+  </table>
+
+  <hr class="section-rule"/>
+
+  <div class="q">Why a subscription option?</div>
+  <p class="p">Because some people prefer it, and we like to give the choice. Most makers will be better served by the lifetime purchase. The monthly is for trying things out and for people whose relationship with software is short-term.</p>
+
+  <div class="q">How licenses work</div>
+  <p class="p">Your license is per-person. Use Procestra on your own Macs. When the apps check whether your license is valid, they ask our license server once, then save the answer locally. After the first check, the apps work offline forever. We don't lock features behind tiers. Whatever apps your license covers, you get the full app.</p>
+  <p class="p" style="margin-top: 0.75rem; font-size: 15px; color: var(--slate-400);">Note: the licensing system is still being built. This page describes how it will work at launch.</p>
+
+  <div class="q">What happens after the year ends (annual plan)?</div>
+  <p class="p">Your apps keep working. You stop getting new versions. Renew if you want updates; don't if the version you have is enough. Either way, no app stops functioning.</p>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 Procestra</span>
+  <div class="footer-links">
+    <a href="/">Home</a>
+  </div>
+</footer>
+
+</body>
+</html>

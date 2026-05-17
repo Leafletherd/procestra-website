@@ -4,28 +4,32 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Privacy — Procestra</title>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --tan-50:   #FAF6EF;
-    --tan-200:  #DFD0B0;
-    --tan-400:  #B89B6A;
-    --tan-600:  #8A6E42;
-    --slate-400:#8C8A84;
-    --slate-600:#5A5854;
-    --slate-800:#2E2D2A;
-    --font-brand: 'Playfair Display', Georgia, serif;
-    --font-body:  'EB Garamond', Georgia, serif;
-    --font-ui:    system-ui, -apple-system, sans-serif;
+    --ochre-50:  #F8F0DC;
+    --ochre-100: #F0E5CC;
+    --ochre-200: #E0CCA8;
+    --ochre-400: #C0A87A;
+    --ochre-600: #9A8060;
+    --ochre-800: #6A5040;
+    --ink:       #1C1A14;
+    --ink-60:    rgba(28,26,20,0.6);
+    --border:    #DFD0B0;
+    --font-brand: 'Fraunces', 'Palatino Linotype', Georgia, serif;
+    --font-ui:    'DM Sans', system-ui, sans-serif;
     --r-md: 6px;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size: 16px; }
   body {
-    background: var(--tan-50);
-    color: var(--slate-800);
+    background: var(--ochre-100);
+    color: var(--ink);
     font-family: var(--font-ui);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -36,66 +40,76 @@
     margin: 0 auto;
     padding: 1.75rem 2rem;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
   }
   .nav-wordmark {
-    font-family: var(--font-brand);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--slate-800);
+    display: flex;
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
+    color: var(--ink);
   }
-  .nav-back { font-family: var(--font-ui); font-size: 12px; color: var(--slate-400); text-decoration: none; }
-  .nav-back:hover { color: var(--slate-600); }
+  .nav-wordmark-text {
+    font-family: var(--font-brand);
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1;
+  }
+  .nav-back { font-family: var(--font-ui); font-size: 12px; color: var(--ochre-600); text-decoration: none; }
+  .nav-back:hover { color: var(--ink); }
 
   .rule { max-width: 680px; margin: 0 auto; padding: 0 2rem; }
-  .rule hr { border: none; border-top: 0.5px solid var(--tan-200); }
+  .rule hr { border: none; border-top: 0.5px solid var(--border); }
 
   .content { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 6rem; }
 
   .page-eyebrow {
     font-family: var(--font-ui);
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--tan-600);
+    color: var(--ochre-600);
     margin-bottom: 1rem;
   }
   h1 {
     font-family: var(--font-brand);
-    font-size: 36px;
-    font-weight: 600;
+    font-size: 34px;
+    font-weight: 400;
     line-height: 1.1;
-    color: var(--slate-800);
+    color: var(--ink);
     margin-bottom: 0.5rem;
   }
-  .date { font-family: var(--font-ui); font-size: 12px; color: var(--slate-400); margin-bottom: 3rem; }
+  .date { font-family: var(--font-ui); font-size: 12px; color: var(--ochre-600); margin-bottom: 2.5rem; }
 
   h2 {
     font-family: var(--font-brand);
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--slate-800);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
     margin: 2.5rem 0 0.75rem;
-    border-bottom: 0.5px solid var(--tan-200);
+    border-bottom: 0.5px solid var(--border);
     padding-bottom: 0.4rem;
   }
 
   p {
-    font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.75;
-    color: var(--slate-600);
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink-60);
     margin-bottom: 0.9rem;
   }
   p:last-child { margin-bottom: 0; }
 
   ul {
-    font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.75;
-    color: var(--slate-600);
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink-60);
     padding-left: 1.4em;
     margin-bottom: 0.9rem;
   }
@@ -103,18 +117,28 @@
   li ul { margin-top: 0.3rem; margin-bottom: 0; }
 
   .intro {
-    font-family: var(--font-body);
-    font-size: 19px;
-    line-height: 1.75;
-    color: var(--slate-600);
-    max-width: 560px;
+    font-family: var(--font-ui);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink-60);
+    max-width: 540px;
     margin-bottom: 0;
-    border-left: 2px solid var(--tan-200);
+    border-left: 2px solid var(--ochre-400);
     padding-left: 1.25rem;
   }
 
-  a { color: var(--tan-600); }
-  a:hover { color: var(--slate-800); }
+  code {
+    font-family: monospace;
+    font-size: 13px;
+    background: var(--ochre-50);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--ink);
+  }
+
+  a { color: var(--ochre-800); }
+  a:hover { color: var(--ink); }
 
   footer {
     max-width: 680px;
@@ -123,17 +147,25 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border-top: 0.5px solid var(--tan-200);
+    border-top: 0.5px solid var(--border);
   }
-  .footer-copy { font-family: var(--font-ui); font-size: 12px; color: var(--slate-400); }
-  .footer-links a { font-family: var(--font-ui); font-size: 11px; color: var(--slate-400); text-decoration: none; }
-  .footer-links a:hover { color: var(--slate-600); }
+  .footer-copy { font-family: var(--font-ui); font-size: 11px; color: var(--ochre-600); }
+  .footer-links a { font-family: var(--font-ui); font-size: 11px; color: var(--ochre-600); text-decoration: none; }
+  .footer-links a:hover { color: var(--ink); }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-wordmark">Procestra</a>
+  <a href="/" class="nav-wordmark">
+    <svg width="20" height="20" viewBox="1 1 20 20" fill="none" aria-hidden="true">
+      <circle cx="5.5" cy="5.5" r="4.5" fill="#C87B5A"/>
+      <circle cx="16.5" cy="5.5" r="4.5" fill="#B89B6A"/>
+      <circle cx="5.5" cy="16.5" r="4.5" fill="#1D9E75"/>
+      <circle cx="16.5" cy="16.5" r="4.5" fill="#5A6480"/>
+    </svg>
+    <span class="nav-wordmark-text">Procestra</span>
+  </a>
   <a href="/" class="nav-back">← Back</a>
 </nav>
 

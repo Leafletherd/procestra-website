@@ -5,37 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Procestra — Quiet tools for thoughtful makers.</title>
 <meta name="description" content="Procestra is a suite of four native Mac apps built around how creative work actually gets made. Local-first. No accounts. No surveillance."/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --tan-50:   #FAF6EF;
-    --tan-100:  #F0E8D5;
-    --tan-200:  #DFD0B0;
-    --tan-400:  #B89B6A;
-    --tan-600:  #8A6E42;
-    --tan-800:  #5C4520;
-    --slate-400:#8C8A84;
-    --slate-600:#5A5854;
-    --slate-800:#2E2D2A;
-    --clay-400: #C87B5A;
-    --clay-600: #A05A3C;
-    --teal-400: #1D9E75;
-    --teal-600: #186B56;
-    --dusty-400:#5A6480;
-    --dusty-600:#434E6B;
-    --dusty-800:#3D4560;
-    --font-brand: 'Playfair Display', Georgia, serif;
-    --font-body:  'EB Garamond', Georgia, serif;
-    --font-ui:    system-ui, -apple-system, sans-serif;
+    --ochre-50:  #F8F0DC;
+    --ochre-100: #F0E5CC;
+    --ochre-200: #E0CCA8;
+    --ochre-400: #C0A87A;
+    --ochre-600: #9A8060;
+    --ochre-800: #6A5040;
+    --ink:       #1C1A14;
+    --ink-60:    rgba(28,26,20,0.6);
+    --ink-30:    rgba(28,26,20,0.3);
+    --border:    #DFD0B0;
+
+    /* app accents — unchanged */
+    --seed:   #C87B5A;
+    --scene:  #B89B6A;
+    --prov:   #1D9E75;
+    --folio:  #5A6480;
+
+    --font-brand: 'Fraunces', 'Palatino Linotype', Georgia, serif;
+    --font-ui:    'DM Sans', system-ui, sans-serif;
+
     --r-sm: 3px; --r-md: 6px; --r-lg: 10px;
   }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size: 16px; scroll-behavior: smooth; }
   body {
-    background: var(--tan-50);
-    color: var(--slate-800);
+    background: var(--ochre-100);
+    color: var(--ink);
     font-family: var(--font-ui);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -47,126 +52,145 @@
     margin: 0 auto;
     padding: 1.75rem 2rem;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
   }
   .nav-wordmark {
-    font-family: var(--font-brand);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--slate-800);
-    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
+    color: var(--ink);
+  }
+  .nav-wordmark-text {
+    font-family: var(--font-brand);
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    line-height: 1;
   }
   .nav-links { display: flex; gap: 1.5rem; align-items: baseline; }
   .nav-links a {
     font-family: var(--font-ui);
     font-size: 12px;
-    color: var(--slate-400);
+    color: var(--ochre-600);
     text-decoration: none;
     letter-spacing: 0.04em;
   }
-  .nav-links a:hover { color: var(--slate-600); }
+  .nav-links a:hover { color: var(--ink); }
 
   /* RULE */
   .rule { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
-  .rule hr { border: none; border-top: 0.5px solid var(--tan-200); }
+  .rule hr { border: none; border-top: 0.5px solid var(--border); }
 
   /* HERO */
   .hero { max-width: 860px; margin: 0 auto; padding: 5rem 2rem 4.5rem; }
   .hero h1 {
     font-family: var(--font-brand);
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 600;
-    line-height: 1.08;
-    color: var(--slate-800);
-    max-width: 600px;
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.1;
+    color: var(--ink);
+    max-width: 580px;
     margin-bottom: 1.25rem;
     letter-spacing: -0.02em;
   }
   .hero-sub {
     font-family: var(--font-ui);
     font-size: 15px;
-    line-height: 1.7;
-    color: var(--slate-600);
-    max-width: 520px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink-60);
+    max-width: 500px;
     margin-bottom: 3rem;
   }
 
   /* BETA FORM */
   .beta-label {
     font-family: var(--font-ui);
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--tan-600);
+    color: var(--ochre-600);
     margin-bottom: 0.5rem;
   }
   .beta-caption {
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.65;
-    color: var(--slate-600);
-    max-width: 440px;
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ink-60);
+    max-width: 420px;
     margin-bottom: 1rem;
   }
-  .signup-form { display: flex; gap: 8px; max-width: 420px; }
+  .signup-form { display: flex; gap: 8px; max-width: 400px; }
   .signup-form input[type="email"] {
     flex: 1;
     padding: 10px 14px;
     font-family: var(--font-ui);
     font-size: 14px;
-    background: white;
-    border: 0.5px solid var(--tan-200);
+    background: var(--ochre-50);
+    border: 0.5px solid var(--border);
     border-radius: var(--r-md);
-    color: var(--slate-800);
+    color: var(--ink);
     outline: none;
     transition: border-color 0.15s;
   }
-  .signup-form input[type="email"]::placeholder { color: var(--slate-400); }
-  .signup-form input[type="email"]:focus { border-color: var(--tan-400); }
+  .signup-form input[type="email"]::placeholder { color: var(--ochre-400); }
+  .signup-form input[type="email"]:focus { border-color: var(--ochre-600); }
   .signup-form button {
     padding: 10px 20px;
     font-family: var(--font-ui);
     font-size: 13px;
     font-weight: 500;
-    background: var(--slate-800);
-    color: var(--tan-50);
+    background: var(--ink);
+    color: var(--ochre-100);
     border: none;
     border-radius: var(--r-md);
     cursor: pointer;
     white-space: nowrap;
     transition: background 0.15s;
   }
-  .signup-form button:hover { background: var(--tan-800); }
+  .signup-form button:hover { background: var(--ochre-800); }
   .form-success {
     display: none;
     padding: 12px 16px;
-    background: white;
-    border: 0.5px solid var(--tan-200);
+    background: var(--ochre-50);
+    border: 0.5px solid var(--border);
     border-radius: var(--r-md);
     font-size: 14px;
-    color: var(--slate-600);
-    max-width: 420px;
+    color: var(--ink-60);
+    max-width: 400px;
   }
 
   /* SECTIONS */
   .section { max-width: 860px; margin: 0 auto; padding: 4rem 2rem; }
   .section-label {
     font-family: var(--font-ui);
-    font-size: 10px;
-    letter-spacing: 0.18em;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--slate-400);
+    color: var(--ochre-600);
     margin-bottom: 1.75rem;
     display: flex;
     align-items: center;
     gap: 12px;
   }
-  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--tan-200); }
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--ochre-400); }
 
   /* WHAT IS PROCESTRA */
-  .what-body { font-family: var(--font-body); font-size: 19px; line-height: 1.75; color: var(--slate-600); max-width: 600px; }
+  .what-body {
+    font-family: var(--font-ui);
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink-60);
+    max-width: 580px;
+  }
   .what-body p + p { margin-top: 1rem; }
 
   /* APPS */
@@ -174,27 +198,48 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1px;
-    background: var(--tan-200);
+    background: var(--border);
     border-radius: var(--r-lg);
     overflow: hidden;
   }
-  .app-card { background: white; padding: 1.5rem 1.25rem 1.75rem; }
+  .app-card { background: var(--ochre-50); padding: 1.5rem 1.25rem 1.75rem; }
   .app-icon { margin-bottom: 1rem; }
-  .app-name { font-family: var(--font-brand); font-size: 17px; font-weight: 600; margin-bottom: 0.2rem; }
-  .app-tagline { font-family: var(--font-brand); font-style: italic; font-size: 12px; color: var(--slate-400); margin-bottom: 0.75rem; }
-  .app-desc { font-family: var(--font-body); font-size: 15px; line-height: 1.65; color: var(--slate-600); }
+  .app-name {
+    font-family: var(--font-brand);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .app-tagline {
+    font-family: var(--font-brand);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ochre-600);
+    margin-bottom: 0.75rem;
+  }
+  .app-desc {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ink-60);
+  }
 
-  .app-card-seed  { border-top: 2px solid var(--clay-400); }
-  .app-card-scene { border-top: 2px solid var(--tan-400); }
-  .app-card-prov  { border-top: 2px solid var(--teal-400); }
-  .app-card-works { border-top: 2px solid var(--dusty-400); }
-  .app-card-seed  .app-name { color: var(--clay-600); }
-  .app-card-scene .app-name { color: var(--tan-600); }
-  .app-card-prov  .app-name { color: var(--teal-600); }
-  .app-card-works .app-name { color: var(--dusty-600); }
+  .app-card-seed  { border-top: 2px solid var(--seed); }
+  .app-card-scene { border-top: 2px solid var(--scene); }
+  .app-card-prov  { border-top: 2px solid var(--prov); }
+  .app-card-works { border-top: 2px solid var(--folio); }
 
   /* COMING SOON */
-  .coming-soon { font-family: var(--font-body); font-size: 17px; line-height: 1.7; color: var(--slate-400); max-width: 480px; }
+  .coming-soon {
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ochre-400);
+    max-width: 480px;
+  }
 
   /* FOOTER */
   footer {
@@ -204,12 +249,18 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border-top: 0.5px solid var(--tan-200);
+    border-top: 0.5px solid var(--border);
   }
-  .footer-copy { font-family: var(--font-ui); font-size: 12px; color: var(--slate-400); }
+  .footer-copy { font-family: var(--font-ui); font-size: 11px; color: var(--ochre-600); }
   .footer-links { display: flex; gap: 1.5rem; }
-  .footer-links a { font-family: var(--font-ui); font-size: 11px; color: var(--slate-400); text-decoration: none; letter-spacing: 0.04em; }
-  .footer-links a:hover { color: var(--slate-600); }
+  .footer-links a {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--ochre-600);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .footer-links a:hover { color: var(--ink); }
 
   /* RESPONSIVE */
   @media (max-width: 640px) {
@@ -229,7 +280,15 @@
 </form>
 
 <nav>
-  <a href="/" class="nav-wordmark">Procestra</a>
+  <a href="/" class="nav-wordmark">
+    <svg width="22" height="22" viewBox="1 1 20 20" fill="none" aria-hidden="true">
+      <circle cx="5.5" cy="5.5" r="4.5" fill="#C87B5A"/>
+      <circle cx="16.5" cy="5.5" r="4.5" fill="#B89B6A"/>
+      <circle cx="5.5" cy="16.5" r="4.5" fill="#1D9E75"/>
+      <circle cx="16.5" cy="16.5" r="4.5" fill="#5A6480"/>
+    </svg>
+    <span class="nav-wordmark-text">Procestra</span>
+  </a>
   <div class="nav-links">
     <a href="/pricing.html">Pricing</a>
     <a href="/privacy.html">Privacy</a>
@@ -272,24 +331,8 @@
 
     <div class="app-card app-card-seed">
       <div class="app-icon">
-        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="sdg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#C87B5A"/><stop offset="100%" stop-color="#8A422A"/></linearGradient>
-            <linearGradient id="sdhi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.13"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
-            <clipPath id="sdc"><rect width="120" height="120" rx="27"/></clipPath>
-          </defs>
-          <rect width="120" height="120" rx="27" fill="url(#sdg)"/>
-          <rect width="120" height="120" rx="27" fill="url(#sdhi)" clip-path="url(#sdc)"/>
-          <path d="M60 22 C66 22 70 26 70 31 C70 37 65 41 60 43 C55 41 50 37 50 31 C50 26 54 22 60 22Z" fill="#FAF6EF" opacity="0.93"/>
-          <line x1="56" y1="32" x2="64" y2="32" stroke="#C87B5A" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-          <line x1="60" y1="43" x2="60" y2="62" stroke="#FAF6EF" stroke-width="2" stroke-linecap="round" opacity="0.88"/>
-          <path d="M60 55 Q52 60 44 62" fill="none" stroke="#FAF6EF" stroke-width="1.6" stroke-linecap="round" opacity="0.82"/>
-          <path d="M60 55 Q68 60 76 62" fill="none" stroke="#FAF6EF" stroke-width="1.6" stroke-linecap="round" opacity="0.82"/>
-          <line x1="60" y1="62" x2="60" y2="78" stroke="#FAF6EF" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
-          <path d="M60 70 Q50 75 38 76" fill="none" stroke="#FAF6EF" stroke-width="1.2" stroke-linecap="round" opacity="0.58"/>
-          <path d="M60 70 Q70 75 82 76" fill="none" stroke="#FAF6EF" stroke-width="1.2" stroke-linecap="round" opacity="0.58"/>
-          <line x1="60" y1="78" x2="60" y2="91" stroke="#FAF6EF" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
-          <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.15" clip-path="url(#sdc)"/>
+        <svg width="20" height="20" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <circle cx="6" cy="6" r="5" fill="#C87B5A"/>
         </svg>
       </div>
       <div class="app-name">Seed</div>
@@ -299,24 +342,8 @@
 
     <div class="app-card app-card-scene">
       <div class="app-icon">
-        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="sg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#C8A872"/><stop offset="100%" stop-color="#8A6840"/></linearGradient>
-            <linearGradient id="shi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.13"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
-            <clipPath id="sc"><rect width="120" height="120" rx="27"/></clipPath>
-          </defs>
-          <rect width="120" height="120" rx="27" fill="url(#sg)"/>
-          <rect width="120" height="120" rx="27" fill="url(#shi)" clip-path="url(#sc)"/>
-          <rect x="15" y="24" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.93"/>
-          <rect x="15" y="43" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.93"/>
-          <rect x="15" y="62" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.93"/>
-          <rect x="15" y="81" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.93"/>
-          <rect x="46" y="24" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.72"/>
-          <rect x="46" y="43" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.72"/>
-          <rect x="77" y="24" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.48"/>
-          <rect x="77" y="43" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.48"/>
-          <rect x="77" y="62" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.48"/>
-          <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.16" clip-path="url(#sc)"/>
+        <svg width="20" height="20" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <circle cx="6" cy="6" r="5" fill="#B89B6A"/>
         </svg>
       </div>
       <div class="app-name">Scene Board</div>
@@ -326,21 +353,8 @@
 
     <div class="app-card app-card-prov">
       <div class="app-icon">
-        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="pg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#2DC490"/><stop offset="100%" stop-color="#0D6B52"/></linearGradient>
-            <linearGradient id="phi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.12"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
-            <clipPath id="pc"><rect width="120" height="120" rx="27"/></clipPath>
-          </defs>
-          <rect width="120" height="120" rx="27" fill="url(#pg)"/>
-          <rect width="120" height="120" rx="27" fill="url(#phi)" clip-path="url(#pc)"/>
-          <line x1="42" y1="26" x2="42" y2="94" stroke="#FAF6EF" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.5"/>
-          <path d="M42 52 Q42 44 54 44 L82 44" fill="none" stroke="#FAF6EF" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
-          <circle cx="42" cy="30" r="6" fill="#FAF6EF" opacity="0.95"/>
-          <circle cx="42" cy="60" r="6" fill="#FAF6EF" opacity="0.75"/>
-          <circle cx="42" cy="88" r="6" fill="#FAF6EF" opacity="0.45"/>
-          <circle cx="82" cy="44" r="6" fill="#FAF6EF" opacity="0.82"/>
-          <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.16" clip-path="url(#pc)"/>
+        <svg width="20" height="20" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <circle cx="6" cy="6" r="5" fill="#1D9E75"/>
         </svg>
       </div>
       <div class="app-name">Provenance</div>
@@ -350,22 +364,8 @@
 
     <div class="app-card app-card-works">
       <div class="app-icon">
-        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="wg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#717D9A"/><stop offset="100%" stop-color="#3D4560"/></linearGradient>
-            <linearGradient id="whi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.11"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
-            <clipPath id="wc"><rect width="120" height="120" rx="27"/></clipPath>
-          </defs>
-          <rect width="120" height="120" rx="27" fill="url(#wg)"/>
-          <rect width="120" height="120" rx="27" fill="url(#whi)" clip-path="url(#wc)"/>
-          <rect x="15" y="15" width="56" height="32" rx="3" fill="#FAF6EF" opacity="0.93"/>
-          <rect x="77" y="15" width="28" height="32" rx="2.5" fill="#FAF6EF" opacity="0.58"/>
-          <rect x="77" y="53" width="28" height="52" rx="2.5" fill="#FAF6EF" opacity="0.30"/>
-          <rect x="15" y="55" width="54" height="4.5" rx="2" fill="#FAF6EF" opacity="0.42"/>
-          <rect x="15" y="64" width="40" height="4.5" rx="2" fill="#FAF6EF" opacity="0.28"/>
-          <rect x="15" y="78" width="50" height="4.5" rx="2" fill="#FAF6EF" opacity="0.22"/>
-          <rect x="15" y="87" width="32" height="4.5" rx="2" fill="#FAF6EF" opacity="0.14"/>
-          <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.14" clip-path="url(#wc)"/>
+        <svg width="20" height="20" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <circle cx="6" cy="6" r="5" fill="#5A6480"/>
         </svg>
       </div>
       <div class="app-name">Works</div>

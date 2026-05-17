@@ -4,29 +4,32 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Pricing — Procestra</title>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --tan-50:   #FAF6EF;
-    --tan-100:  #F0E8D5;
-    --tan-200:  #DFD0B0;
-    --tan-400:  #B89B6A;
-    --tan-600:  #8A6E42;
-    --slate-400:#8C8A84;
-    --slate-600:#5A5854;
-    --slate-800:#2E2D2A;
-    --font-brand: 'Playfair Display', Georgia, serif;
-    --font-body:  'EB Garamond', Georgia, serif;
-    --font-ui:    system-ui, -apple-system, sans-serif;
-    --r-sm: 3px; --r-md: 6px; --r-lg: 10px;
+    --ochre-50:  #F8F0DC;
+    --ochre-100: #F0E5CC;
+    --ochre-200: #E0CCA8;
+    --ochre-400: #C0A87A;
+    --ochre-600: #9A8060;
+    --ochre-800: #6A5040;
+    --ink:       #1C1A14;
+    --ink-60:    rgba(28,26,20,0.6);
+    --border:    #DFD0B0;
+    --font-brand: 'Fraunces', 'Palatino Linotype', Georgia, serif;
+    --font-ui:    'DM Sans', system-ui, sans-serif;
+    --r-md: 6px;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size: 16px; }
   body {
-    background: var(--tan-50);
-    color: var(--slate-800);
+    background: var(--ochre-100);
+    color: var(--ink);
     font-family: var(--font-ui);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -37,118 +40,119 @@
     margin: 0 auto;
     padding: 1.75rem 2rem;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
   }
   .nav-wordmark {
-    font-family: var(--font-brand);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--slate-800);
+    display: flex;
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
+    color: var(--ink);
   }
-  .nav-back { font-family: var(--font-ui); font-size: 12px; color: var(--slate-400); text-decoration: none; }
-  .nav-back:hover { color: var(--slate-600); }
+  .nav-wordmark-text {
+    font-family: var(--font-brand);
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1;
+  }
+  .nav-back { font-family: var(--font-ui); font-size: 12px; color: var(--ochre-600); text-decoration: none; }
+  .nav-back:hover { color: var(--ink); }
 
   .rule { max-width: 680px; margin: 0 auto; padding: 0 2rem; }
-  .rule hr { border: none; border-top: 0.5px solid var(--tan-200); }
+  .rule hr { border: none; border-top: 0.5px solid var(--border); }
 
   .content { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 6rem; }
 
   .page-eyebrow {
     font-family: var(--font-ui);
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--tan-600);
+    color: var(--ochre-600);
     margin-bottom: 1rem;
   }
   h1 {
     font-family: var(--font-brand);
-    font-size: 36px;
-    font-weight: 600;
+    font-size: 34px;
+    font-weight: 400;
     line-height: 1.1;
-    color: var(--slate-800);
+    color: var(--ink);
     margin-bottom: 1rem;
   }
   .intro {
-    font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.75;
-    color: var(--slate-600);
-    max-width: 520px;
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink-60);
+    max-width: 480px;
     margin-bottom: 3.5rem;
   }
 
   h2 {
     font-family: var(--font-brand);
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--slate-800);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
     margin: 2.5rem 0 1rem;
   }
 
-  /* PRICING TABLE */
-  .price-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 0.5rem;
-  }
-  .price-table tr { border-bottom: 0.5px solid var(--tan-100); }
+  .price-table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; }
+  .price-table tr { border-bottom: 0.5px solid var(--ochre-200); }
   .price-table tr:last-child { border-bottom: none; }
   .price-table td {
-    font-family: var(--font-body);
-    font-size: 17px;
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 300;
     line-height: 1.6;
-    color: var(--slate-600);
+    color: var(--ink-60);
     padding: 0.65rem 0;
     vertical-align: baseline;
   }
   .price-table td:last-child {
     text-align: right;
-    font-family: var(--font-ui);
-    font-size: 14px;
     font-weight: 500;
-    color: var(--slate-800);
+    font-size: 14px;
+    color: var(--ink);
     white-space: nowrap;
     padding-left: 1rem;
   }
-  .price-note {
-    font-family: var(--font-ui);
-    font-size: 11px;
-    color: var(--slate-400);
-    letter-spacing: 0.04em;
-  }
-
-  /* HIGHLIGHTED ROW */
-  .price-featured td { color: var(--slate-800); }
+  .price-featured td { color: var(--ink); }
   .price-featured td:first-child::after {
     content: ' — most honest';
     font-family: var(--font-brand);
     font-style: italic;
     font-size: 14px;
-    color: var(--slate-400);
+    color: var(--ochre-600);
     font-weight: 400;
   }
+  .price-note {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ochre-600);
+    letter-spacing: 0.04em;
+  }
 
-  /* SECTION DIVIDER */
-  .section-rule { border: none; border-top: 0.5px solid var(--tan-200); margin: 2.5rem 0; }
+  .section-rule { border: none; border-top: 0.5px solid var(--border); margin: 2.5rem 0; }
 
-  /* EXPLANATION BLOCKS */
   .q {
     font-family: var(--font-brand);
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--slate-800);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
     margin-top: 1.75rem;
     margin-bottom: 0.4rem;
   }
-  p, .p {
-    font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.75;
-    color: var(--slate-600);
-    margin-bottom: 0;
+  .p {
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink-60);
   }
 
   footer {
@@ -158,17 +162,25 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border-top: 0.5px solid var(--tan-200);
+    border-top: 0.5px solid var(--border);
   }
-  .footer-copy { font-family: var(--font-ui); font-size: 12px; color: var(--slate-400); }
-  .footer-links a { font-family: var(--font-ui); font-size: 11px; color: var(--slate-400); text-decoration: none; }
-  .footer-links a:hover { color: var(--slate-600); }
+  .footer-copy { font-family: var(--font-ui); font-size: 11px; color: var(--ochre-600); }
+  .footer-links a { font-family: var(--font-ui); font-size: 11px; color: var(--ochre-600); text-decoration: none; }
+  .footer-links a:hover { color: var(--ink); }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-wordmark">Procestra</a>
+  <a href="/" class="nav-wordmark">
+    <svg width="20" height="20" viewBox="1 1 20 20" fill="none" aria-hidden="true">
+      <circle cx="5.5" cy="5.5" r="4.5" fill="#C87B5A"/>
+      <circle cx="16.5" cy="5.5" r="4.5" fill="#B89B6A"/>
+      <circle cx="5.5" cy="16.5" r="4.5" fill="#1D9E75"/>
+      <circle cx="16.5" cy="16.5" r="4.5" fill="#5A6480"/>
+    </svg>
+    <span class="nav-wordmark-text">Procestra</span>
+  </a>
   <a href="/" class="nav-back">← Back</a>
 </nav>
 
@@ -214,11 +226,10 @@
 
   <div class="q">How licenses work</div>
   <p class="p">Your license is per-person. Use Procestra on your own Macs. When the apps check whether your license is valid, they ask our license server once, then save the answer locally. After the first check, the apps work offline forever. We don't lock features behind tiers. Whatever apps your license covers, you get the full app.</p>
-  <p class="p" style="margin-top: 0.75rem; font-size: 15px; color: var(--slate-400);">Note: the licensing system is still being built. This page describes how it will work at launch.</p>
+  <p class="p" style="margin-top: 0.75rem; font-size: 13px; color: var(--ochre-600);">Note: the licensing system is still being built. This page describes how it will work at launch.</p>
 
   <div class="q">What happens after the year ends (annual plan)?</div>
   <p class="p">Your apps keep working. You stop getting new versions. Renew if you want updates; don't if the version you have is enough. Either way, no app stops functioning.</p>
-
 </div>
 
 <footer>

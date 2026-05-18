@@ -12,9 +12,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
+    --ochre-50:  #F8F0DC;
     --ochre-100: #F0E5CC;
     --ochre-400: #C0A87A;
     --ochre-600: #9A8060;
+    --ochre-800: #6A5040;
     --ink:       #1C1A14;
     --ink-60:    rgba(28,26,20,0.6);
     --border:    #DFD0B0;
@@ -50,16 +52,24 @@
     font-size: 20px;
     font-weight: 300;
     font-style: italic;
+    letter-spacing: -0.01em;
     line-height: 1;
   }
-  .nav-back { font-family: var(--font-ui); font-size: 12px; color: var(--ochre-600); text-decoration: none; }
-  .nav-back:hover { color: var(--ink); }
+  .nav-links { display: flex; gap: 1.5rem; align-items: baseline; }
+  .nav-links a {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--ochre-600);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .nav-links a:hover { color: var(--ink); }
   .rule { max-width: 680px; margin: 0 auto; padding: 0 2rem; }
   .rule hr { border: none; border-top: 0.5px solid var(--border); }
   .content {
     max-width: 680px;
     margin: 0 auto;
-    padding: 6rem 2rem 8rem;
+    padding: 4rem 2rem 6rem;
   }
   .page-eyebrow {
     font-family: var(--font-ui);
@@ -75,7 +85,7 @@
     font-size: 34px;
     font-weight: 400;
     color: var(--ink);
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
   }
   p {
     font-family: var(--font-ui);
@@ -95,6 +105,7 @@
     border-top: 0.5px solid var(--border);
   }
   .footer-copy { font-family: var(--font-ui); font-size: 11px; color: var(--ochre-600); }
+  .footer-links { display: flex; gap: 1.5rem; }
   .footer-links a { font-family: var(--font-ui); font-size: 11px; color: var(--ochre-600); text-decoration: none; }
   .footer-links a:hover { color: var(--ink); }
 </style>
@@ -111,9 +122,9 @@
     </svg>
     <span class="nav-wordmark-text">Procestra</span>
   </a>
-  <div style="display:flex;gap:1.5rem;align-items:baseline;">
-    <a href="/contact.html" class="nav-back">Contact</a>
-    <a href="/" class="nav-back">← Back</a>
+  <div class="nav-links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
   </div>
 </nav>
 

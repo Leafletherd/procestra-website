@@ -179,24 +179,24 @@
   <h1>Privacy</h1>
   <p class="date">Last updated May 2026</p>
 
-  <p class="intro">We built Procestra to respect the way you work. This page tells you exactly what each app does with your data — in plain English, not legalese.</p>
+  <p class="intro">We built Procestra to respect the way you work. This page tells you exactly what each app does with your data. Plain English, not legalese.</p>
 
   <h2>What stays on your machine</h2>
   <p>Everything. All four Procestra apps are local-first. We do not have servers that store your work. There is no Procestra account. There is no syncing through us. There is no analytics service we send information to.</p>
-  <p>When you write a seed in Seed, edit a board in Scene Board, save a file inside a Provenance-tracked project, or add a work to a Works library — those actions touch files on your Mac and nothing else.</p>
+  <p>When you write a seed in Seed, edit a board in Scene Board, save a file inside a Provenance-tracked project, or add a work to a Works library, those actions touch files on your Mac and nothing else.</p>
 
   <h2>Cloud-synced files</h2>
   <p>If you keep your project folders in iCloud Drive, Google Drive, Dropbox, or another file-syncing service, Procestra treats them like any other local file. The cloud service does its own syncing; we don't know about it.</p>
-  <p>If a document lives only in a browser — a Google Doc you only edit on the web, for instance — Provenance cannot track it. There is no local file for us to watch.</p>
+  <p>If a document lives only in a browser (a Google Doc you only edit on the web, for instance), Provenance cannot track it. There is no local file for us to watch.</p>
 
   <h2>What Provenance specifically records</h2>
   <p>Provenance is the most data-rich app in the suite. Here's exactly what it logs, in your project's local <code>.ledger</code> folder:</p>
   <ul>
-    <li><strong>File saves</strong> — when a tracked file changes, Provenance records a timestamp and a git snapshot.</li>
-    <li><strong>Check-ins</strong> — short reflections you type into the app yourself.</li>
-    <li><strong>Sources</strong> — URLs, files, or passages you choose to log as references.</li>
-    <li><strong>Artifacts</strong> — supporting material you explicitly add.</li>
-    <li><strong>Paste sources</strong> — when you paste into a tracked file, Provenance records:
+    <li><strong>File saves:</strong> when a tracked file changes, Provenance records a timestamp and a git snapshot.</li>
+    <li><strong>Check-ins:</strong> short reflections you type into the app yourself.</li>
+    <li><strong>Sources:</strong> URLs, files, or passages you choose to log as references.</li>
+    <li><strong>Artifacts:</strong> supporting material you explicitly add.</li>
+    <li><strong>Paste sources:</strong> when you paste into a tracked file, Provenance records:
       <ul>
         <li>a SHA-256 hash of the pasted content,</li>
         <li>the first 64 characters as a preview,</li>
@@ -210,23 +210,23 @@
 
   <h2>What Provenance does not record</h2>
   <ul>
-    <li><strong>Keystrokes</strong> — Provenance does not record what you type or how fast. There is no keystroke log anywhere.</li>
-    <li><strong>Screen activity</strong> — no screenshots, no screen recording, no window-focus tracking.</li>
-    <li><strong>Webcam or microphone</strong> — never accessed.</li>
-    <li><strong>Browsing history</strong> — Provenance does not look at your browser. The paste tracker only records information from clipboard events that originated from a paste action you performed in a tracked file.</li>
+    <li><strong>Keystrokes:</strong> Provenance does not record what you type or how fast. There is no keystroke log anywhere.</li>
+    <li><strong>Screen activity:</strong> no screenshots, no screen recording, no window-focus tracking.</li>
+    <li><strong>Webcam or microphone:</strong> never accessed.</li>
+    <li><strong>Browsing history:</strong> Provenance does not look at your browser. The paste tracker only records information from clipboard events that originated from a paste action you performed in a tracked file.</li>
   </ul>
 
   <h2>The hash-chained ledger</h2>
-  <p>Provenance's event log is hash-chained — each event includes a SHA-256 hash derived from the previous event. If anyone modifies the log retroactively (including you), the chain breaks visibly. This is a feature for you: it lets you prove your own process honestly. It is not a system Procestra monitors or sees.</p>
+  <p>Provenance's event log is hash-chained. Each event includes a SHA-256 hash derived from the previous event. If anyone modifies the log retroactively (including you), the chain breaks visibly. That is a feature for you: it lets you prove your own process honestly. It is not a system Procestra monitors or sees.</p>
   <p>You can verify the chain yourself. The documentation explains how.</p>
 
   <h2>Your data, your machine, your choice</h2>
   <p>Procestra has no ability to access your data because there is no Procestra server holding it. You can:</p>
   <ul>
-    <li>Delete a <code>.ledger</code> folder at any time — Provenance forgets.</li>
-    <li>Disconnect a project — the data stays on disk; we stop watching.</li>
-    <li>Move your files anywhere — Procestra uses macOS bookmarks to follow them.</li>
-    <li>Export everything — Provenance exports as Markdown, PDF, or a structured <code>.provenance.bundle/</code> for portability.</li>
+    <li>Delete a <code>.ledger</code> folder at any time. Provenance forgets.</li>
+    <li>Disconnect a project. The data stays on disk; we stop watching.</li>
+    <li>Move your files anywhere. Procestra uses macOS bookmarks to follow them.</li>
+    <li>Export everything. Provenance exports as Markdown, PDF, or a structured <code>.provenance.bundle/</code> for portability.</li>
   </ul>
 
   <h2>What this website does</h2>

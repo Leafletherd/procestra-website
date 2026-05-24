@@ -86,15 +86,19 @@
     gap: 3.5rem;
     align-items: center;
   }
-  .hero-eyebrow {
-    display: flex; align-items: center; gap: 8px;
-    font-family: var(--font-ui); font-size: 10px; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--seed); margin-bottom: 1rem;
+  .app-icon-mark {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1.5rem;
   }
-  .eyebrow-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--seed); flex-shrink: 0;
+  .app-icon-name {
+    font-family: var(--font-brand);
+    font-size: 18px; font-weight: 400; font-style: italic;
+    color: var(--ink); line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .app-icon-byline {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ochre-600); margin-top: 2px;
   }
   .hero h1 {
     font-family: var(--font-brand);
@@ -464,9 +468,14 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-dot"></span>
-      A Procestra app
+    <div class="app-icon-mark">
+      <svg width="36" height="36" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <circle cx="6" cy="6" r="5.5" fill="#C87B5A"/>
+      </svg>
+      <div>
+        <div class="app-icon-name">Seed</div>
+        <div class="app-icon-byline">A Procestra app</div>
+      </div>
     </div>
     <h1>Where ideas are<br><span class="accent">cultivated.</span></h1>
     <p class="hero-sub">Seed is a notebook for ideas that aren't ready yet. Notes live in the garden. The bench is where you think with them.</p>

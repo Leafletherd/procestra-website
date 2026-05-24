@@ -220,9 +220,12 @@
     display: flex; align-items: center; gap: 3px; margin-top: 1px;
   }
   .bm-status-dot {
-    width: 4px; height: 4px; border-radius: 50%;
-    background: var(--seed); flex-shrink: 0;
+    width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0;
+    background: var(--seed); /* default: growing */
   }
+  .bm-status-dot.sprout  { background: #7BC47B; }
+  .bm-status-dot.rooted  { background: var(--ochre-600); }
+  .bm-status-dot.dormant { background: var(--ink-30); }
   .bm-benches {
     border-top: 0.5px solid var(--border);
     padding: 5px 8px; flex-shrink: 0;
@@ -473,10 +476,10 @@
       <input type="hidden" name="form-name" value="beta-signup"/>
       <p hidden><label>Don't fill this out: <input name="bot-field"/></label></p>
       <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email"/>
-      <button type="submit">Join the beta</button>
+      <button type="submit">Notify me</button>
     </form>
-    <p class="hero-form-note" id="hero-note">Early access. Mac only.</p>
-    <div class="form-success" id="hero-success">You're on the list. We'll be in touch when Seed is ready.</div>
+    <p class="hero-form-note" id="hero-note">We'll reach out when it's ready. Mac only.</p>
+    <div class="form-success" id="hero-success">You're on the list. We'll reach out when Seed releases.</div>
   </div>
 
   <div class="hero-visual">
@@ -500,7 +503,7 @@
             </div>
             <div class="bm-seed">
               <span class="bm-seed-name">Film idea — The Long Walk</span>
-              <div class="bm-seed-meta"><span class="bm-status-dot"></span>GROWING</div>
+              <div class="bm-seed-meta"><span class="bm-status-dot rooted"></span>ROOTED</div>
             </div>
             <div class="bm-seed">
               <span class="bm-seed-name">Album concept — quiet ro…</span>
@@ -508,11 +511,11 @@
             </div>
             <div class="bm-seed">
               <span class="bm-seed-name">Sketch — a deck of 78 cards</span>
-              <div class="bm-seed-meta"><span class="bm-status-dot"></span>GROWING</div>
+              <div class="bm-seed-meta"><span class="bm-status-dot sprout"></span>SPROUT</div>
             </div>
             <div class="bm-seed">
               <span class="bm-seed-name">Half-formed thought</span>
-              <div class="bm-seed-meta"><span class="bm-status-dot"></span>GROWING</div>
+              <div class="bm-seed-meta"><span class="bm-status-dot dormant"></span>DORMANT</div>
             </div>
             <div class="bm-seed">
               <span class="bm-seed-name">Conversation — what I sho…</span>
@@ -586,7 +589,7 @@
     </div>
     <div class="feature-item">
       <div class="feature-name">Transplant</div>
-      <div class="feature-desc">When a seed becomes a project, send it to Provenance. The original note travels with it — timestamped, versioned, the beginning of the record.</div>
+      <div class="feature-desc">When the bench has given you a shape, export it. Columns become sections. Cards become entries. The structure you found becomes an outline you can write from.</div>
     </div>
   </div>
 </div>
@@ -599,7 +602,7 @@
   <div class="section-heading">Ideas before they're ideas.</div>
   <div class="section-body">
     <p>A seed is anything: a title, a fragment, a question you can't answer yet. It lives in the garden as a plain text file in a folder you choose — not in the cloud, not behind a login.</p>
-    <p>The garden doesn't ask you to sort or tag or organize. It holds things. You search when you need something. Otherwise the seeds grow on their own time.</p>
+    <p>Seed tags itself. A Sprout is a new idea. Growing means you've been at it. Rooted means the note has real weight — words, depth, something to work with. Dormant means you haven't touched it in a while. None of these are categories you assign. They're signals the garden sends back. The whole system is designed for one thing: forward momentum.</p>
   </div>
 </section>
 
@@ -611,7 +614,7 @@
   <div class="section-heading">Where you think out loud.</div>
   <div class="section-body">
     <p>Drag a seed from the garden and it becomes a card. Move cards anywhere on the bench — loose on the surface, grouped in columns, arranged in rows, or stacked when space is short. Drag a whole group. Break it apart. The bench doesn't impose a shape. It lets you find one.</p>
-    <p>Cards can be merged into a single seed. A seed that outgrows the bench can be transplanted to Provenance, carrying everything it became along with it.</p>
+    <p>Cards can be merged into a single seed. When the bench has given you a shape worth writing from, transplant it — columns become outline sections, cards become entries. The structure travels; the seeds stay in the garden.</p>
   </div>
 </section>
 
@@ -622,7 +625,7 @@
   <div class="pairing-inner">
     <div class="pairing-eyebrow">Pairs with Provenance</div>
     <h2>Ideas travel.</h2>
-    <p>When a seed becomes a project, transplant it. The original note becomes the first entry in the Provenance ledger — source, date, and version intact. If an idea started in Seed before becoming a project, Provenance shows the original source. The full story of how a project came to be.</p>
+    <p>When an idea becomes a project, the original note travels with it. Connect a project in Provenance and it can trace back to the seed it came from — the first draft, the timestamp, the beginning of the record. If an idea started in Seed before becoming a project, Provenance shows the original source. The full story of how a project came to be.</p>
     <a href="/provenance.html" class="pairing-link">Learn about Provenance →</a>
   </div>
 </div>
@@ -641,15 +644,15 @@
 
 <!-- BETA CTA -->
 <section class="section" id="beta">
-  <div class="beta-label">Seed is in beta</div>
-  <p class="beta-caption">We're sending early builds to writers, makers, and thinkers who care about where their ideas come from. Drop your email and we'll be in touch when we have something worth showing.</p>
+  <div class="beta-label">Get notified</div>
+  <p class="beta-caption">Seed is in development. Drop your email and we'll reach out when it's ready.</p>
   <form class="signup-form" id="beta-form" name="beta-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
     <input type="hidden" name="form-name" value="beta-signup"/>
     <p hidden><label>Don't fill this out: <input name="bot-field"/></label></p>
     <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email"/>
-    <button type="submit">Join the beta</button>
+    <button type="submit">Notify me</button>
   </form>
-  <div class="form-success" id="beta-success">You're on the list. We'll be in touch when Seed is ready.</div>
+  <div class="form-success" id="beta-success">You're on the list. We'll reach out when Seed releases.</div>
 </section>
 
 <footer>

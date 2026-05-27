@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Sparkle appcast for Provenance.
+
+    Deploy: this file must be served at
+        https://procestra.app/appcast-provenance.xml
+
+    Provenance's `SUFeedURL` in Info.plist points here. On launch
+    Sparkle GETs this XML and compares <sparkle:version> entries
+    against the installed app's CFBundleVersion. Newer versions
+    surface an update prompt.
+
+    Signing each release:
+        1) Build + zip the .app:    ditto -ck --keepParent Provenance.app Provenance.zip
+        2) Sign:                    .build/checkouts/Sparkle/bin/sign_update Provenance.zip
+        3) Paste the resulting `sparkle:edDSASignature="…"` into the
+           <enclosure> tag below.
+        4) Update <sparkle:version> + <sparkle:shortVersionString>
+           to match the new Info.plist values, bump <pubDate>, and
+           commit + deploy this file.
+
+    The placeholder <item> below is what ships at V1.0.0; replace
+    its URL / signature / dates when you're ready to publish.
+-->
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Provenance</title>
+        <link>https://procestra.app/provenance.html</link>
+        <description>Updates for Provenance, the quiet ledger for your creative work.</description>
+        <language>en</language>
+
+        <item>
+            <title>Version 1.0.0</title>
+            <pubDate>Wed, 27 May 2026 12:00:00 +0000</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Welcome to Provenance 1.0.</h2>
+                <p>The first public release. Project ledger, integrity chain,
+                Process Record export, paste-source capture, and a clean
+                light/dark UI.</p>
+            ]]></description>
+            <enclosure
+                url="https://procestra.app/downloads/Provenance-1.0.0.zip"
+                sparkle:edDSASignature="SPARKLE-TODO-replace-with-sign_update-output"
+                length="0"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>

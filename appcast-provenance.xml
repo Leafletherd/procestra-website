@@ -2,25 +2,19 @@
 <!--
     Sparkle appcast for Provenance.
 
-    Deploy: this file must be served at
-        https://procestra.app/appcast-provenance.xml
+    Served at: https://procestra.app/appcast-provenance.xml
+    (Provenance's SUFeedURL in Info.plist points here. On launch the
+    app GETs this file and compares each <sparkle:version> against the
+    installed CFBundleVersion; a higher number triggers an update
+    prompt.)
 
-    Provenance's `SUFeedURL` in Info.plist points here. On launch
-    Sparkle GETs this XML and compares <sparkle:version> entries
-    against the installed app's CFBundleVersion. Newer versions
-    surface an update prompt.
-
-    Signing each release:
-        1) Build + zip the .app:    ditto -ck --keepParent Provenance.app Provenance.zip
-        2) Sign:                    .build/checkouts/Sparkle/bin/sign_update Provenance.zip
-        3) Paste the resulting `sparkle:edDSASignature="…"` into the
-           <enclosure> tag below.
-        4) Update <sparkle:version> + <sparkle:shortVersionString>
-           to match the new Info.plist values, bump <pubDate>, and
-           commit + deploy this file.
-
-    The placeholder <item> below is what ships at V1.0.0; replace
-    its URL / signature / dates when you're ready to publish.
+    To publish a new version (see RELEASE.md / UPDATES.md):
+      1) ./make-app.sh && ./make-dmg.sh   (signed + notarized .dmg)
+      2) .build/artifacts/sparkle/Sparkle/bin/sign_update build/Provenance-<v>.dmg
+         → prints sparkle:edSignature="…" length="…"
+      3) Upload the .dmg to R2; update the <item> below (version,
+         shortVersionString, pubDate, enclosure url + edSignature +
+         length); deploy this file.
 -->
 <rss version="2.0"
      xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
@@ -33,7 +27,7 @@
 
         <item>
             <title>Version 1.0.0</title>
-            <pubDate>Wed, 27 May 2026 12:00:00 +0000</pubDate>
+            <pubDate>Tue, 02 Jun 2026 22:12:01 +0000</pubDate>
             <sparkle:version>1</sparkle:version>
             <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
@@ -44,9 +38,9 @@
                 light/dark UI.</p>
             ]]></description>
             <enclosure
-                url="https://procestra.app/downloads/Provenance-1.0.0.zip"
-                sparkle:edDSASignature="SPARKLE-TODO-replace-with-sign_update-output"
-                length="0"
+                url="https://pub-db9995825af14961a74cb646cccf5ac2.r2.dev/Provenance-1.0.0.dmg"
+                sparkle:edSignature="evGo27RRrv0CvHsB/4scyhAN/v2ePiCM0ihfoV9aSvDkTKflyRGa7JnJKG+A0M22l0lZPZ19E9dkEvxOasKXBA=="
+                length="3157892"
                 type="application/octet-stream" />
         </item>
     </channel>

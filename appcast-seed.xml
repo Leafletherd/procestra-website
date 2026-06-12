@@ -34,21 +34,19 @@
         <language>en</language>
 
         <item>
-            <title>Version 1.0.0</title>
-            <pubDate>Tue, 02 Jun 2026 22:12:01 +0000</pubDate>
-            <sparkle:version>1</sparkle:version>
-            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <title>Version 1.0.1</title>
+            <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
-                <h2>Welcome to Seed 1.0.</h2>
-                <p>The first public release. Search-first capture, notes that
-                grow and wilt as you tend them, a calm card editor, and
-                plain-text files in a garden folder you choose.</p>
+                <h2>Seed 1.0.1</h2>
+                <p>A maintenance update with fixes and refinements under the hood.</p>
             ]]></description>
             <enclosure
-                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/seed-downloads/Seed-1.0.0.dmg"
-                sparkle:edSignature="Jx6pkZbAG7/pCfuRM/P4lqVMGIoCcf+bzrsblgjpF+UKHJkgKEC4sX282K+gDgsEEWEjaIt972kzb1zFwRlSAQ=="
-                length="4613800"
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/seed-downloads/Seed-1.0.1.dmg"
+                sparkle:edSignature="ZjHsKvxRsvMmk5vQg7OkVAVYcI10ogd+0rBp2ZweXWv+tlCpO+riWwN4y1znUjXMuq4Lz0oKkAgHWkVrtMytBg=="
+                length="4972393"
                 type="application/octet-stream" />
         </item>
     </channel>

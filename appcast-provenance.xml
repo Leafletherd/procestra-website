@@ -26,21 +26,19 @@
         <language>en</language>
 
         <item>
-            <title>Version 1.0.0</title>
-            <pubDate>Tue, 02 Jun 2026 22:12:01 +0000</pubDate>
-            <sparkle:version>1</sparkle:version>
-            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <title>Version 1.0.1</title>
+            <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
-                <h2>Welcome to Provenance 1.0.</h2>
-                <p>The first public release. Project ledger, integrity chain,
-                Process Record export, paste-source capture, and a clean
-                light/dark UI.</p>
+                <h2>Provenance 1.0.1</h2>
+                <p>A maintenance update with fixes and refinements under the hood.</p>
             ]]></description>
             <enclosure
-                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/provenance-downloads/Provenance-1.0.0.dmg"
-                sparkle:edSignature="xlolFiTcXlmeRey9TyRT2vfX+cZLbJce5XuYwIYqieUCzLzoDFoF10GPeaEaaE5x4YWoEVrmhb2YLNLuA7OYDg=="
-                length="4421016"
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/provenance-downloads/Provenance-1.0.1.dmg"
+                sparkle:edSignature="lzltlTUCu72qbFEDkSAoRN6EuUsEFuFyWB8xygEOIVKQWOe5Ln7pumQ7iHmxXwERLW4RBibSH+D+D02Q3jZcCg=="
+                length="3672735"
                 type="application/octet-stream" />
         </item>
     </channel>

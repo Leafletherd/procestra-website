@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Sparkle appcast for Espalier.
+
+    ⚠ NOT LIVE YET — this is a scaffold for a future release. Espalier's
+    DMG is not hosted, and the URL / signature / length below are all
+    placeholders. Do NOT rely on this for updates until every
+    REPLACE_WITH_… value is filled in.
+
+    Served at: https://procestra.app/appcast-espalier.xml
+    (Espalier's SUFeedURL in Info.plist must point here once shipping.)
+
+    When Espalier is ready to ship:
+      1) Build + sign + notarize the DMG (Espalier-1.0.0.dmg).
+      2) Upload it to R2 (suggested path mirrors the others:
+         …r2.dev/espalier-downloads/Espalier-1.0.0.dmg) and put the real
+         public URL in the enclosure below.
+      3) Run sign_update on the DMG to get edSignature + length:
+            .build/artifacts/sparkle/Sparkle/bin/sign_update build/Espalier-1.0.0.dmg
+         Paste both values in below.
+      4) Confirm Espalier's Info.plist:
+           - SUFeedURL = https://procestra.app/appcast-espalier.xml
+           - SUPublicEDKey = mo0o7kL086SRjjyTW1HabtgP0ep5ECR7biu30ZmTwEQ=
+             (the shared suite key — same as Seed and Provenance, by
+             design; sign_update must use the matching private key).
+           - minimumSystemVersion below matches its deployment target.
+      5) Set a real <pubDate>, finalize the release notes, and deploy.
+-->
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Espalier</title>
+        <link>https://procestra.app/espalier.html</link>
+        <description>Updates for Espalier, the bench for thinking spatially.</description>
+        <language>en</language>
+
+        <!--
+            Placeholder item for the first release. Uncomment-ready, but
+            every REPLACE_WITH_… value below must be set before this offers
+            a real update. Until then this item will not validate and
+            Sparkle will (correctly) ignore / reject it.
+        -->
+        <item>
+            <title>Version 1.0.0</title>
+            <pubDate>REPLACE_WITH_REAL_PUBDATE</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Welcome to Espalier 1.0.</h2>
+                <p>The first public release. A bench for thinking spatially —
+                lay ideas out as cards, cluster them into stacks, and snap
+                them into columns and rows. Boards you own, as plain files.</p>
+            ]]></description>
+            <enclosure
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/espalier-downloads/Espalier-1.0.0.dmg"
+                sparkle:edSignature="REPLACE_WITH_SIGN_UPDATE_OUTPUT"
+                length="REPLACE_WITH_SIGN_UPDATE_LENGTH"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>

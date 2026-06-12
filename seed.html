@@ -3,19 +3,41 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Seed — Where ideas are cultivated. · Procestra</title>
-<meta name="description" content="A notebook for ideas that aren't ready yet. Notes live in the garden; the bench is where you think with them. Local-first, plain text, no accounts."/>
+<title>Seed: a search-first notes app for Mac · Procestra</title>
+<meta name="description" content="Seed is a local-first notes app for Mac, built for ideas that aren't ready yet. Search to find any note instantly, or hit return to capture a new one. Notes grow, root, and wilt as you tend them. Plain-text files in a folder you own. No account."/>
+<meta name="keywords" content="notes app Mac, plain text notes, local-first notes, idea capture app, search-first notes, Markdown notes Mac, note-taking for writers, second brain Mac, txt notes app"/>
+<meta name="author" content="Procestra"/>
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Seed — Where ideas are cultivated."/>
-<meta property="og:description" content="A notebook for ideas that aren't ready yet. Plain text. Local-first. No accounts."/>
+<meta property="og:site_name" content="Procestra"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:title" content="Seed: a search-first notes app for Mac"/>
+<meta property="og:description" content="A local-first notes app for ideas that aren't ready yet. Search to find or hit return to capture. Notes grow and wilt as you tend them. Plain text, in a folder you own."/>
 <meta property="og:url" content="https://procestra.app/seed.html"/>
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Seed — Where ideas are cultivated."/>
-<meta name="twitter:description" content="A notebook for ideas that aren't ready yet. Plain text. Local-first. No accounts."/>
+<meta property="og:image" content="https://procestra.app/img/seed-light.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Seed: a search-first notes app for Mac"/>
+<meta name="twitter:description" content="A local-first notes app for ideas that aren't ready yet. Search to find, or hit return to capture. Plain text, in a folder you own."/>
+<meta name="twitter:image" content="https://procestra.app/img/seed-light.png"/>
 <link rel="canonical" href="https://procestra.app/seed.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Seed",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "macOS 13.0 or later",
+  "url": "https://procestra.app/seed.html",
+  "image": "https://procestra.app/img/seed-icon@1024.png",
+  "description": "A local-first, search-first notes app for Mac, built for ideas that aren't ready yet. Notes grow and wilt as you tend them, stored as plain text in a folder you own.",
+  "publisher": { "@type": "Organization", "name": "Procestra", "url": "https://procestra.app/" }
+}
+</script>
 <link rel="icon" href="/favicon.ico" sizes="any"/>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
-<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#F0E5CC"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -31,14 +53,26 @@
     --ink-60:    rgba(28,26,20,0.6);
     --ink-30:    rgba(28,26,20,0.3);
     --border:    #DFD0B0;
+    --prov:      #1D9E75;
     --seed:      #C87B5A;
     --seed-dim:  rgba(200,123,90,0.10);
+    --accent:        var(--seed);
+    --accent-dim:    var(--seed-dim);
+    --accent-hover:  #B0683F;
+    /* Note life-cycle colors */
+    --cat-sprout:  #7FA86B;
+    --cat-growing: #6E9BC4;
+    --cat-rooted:  #C87B5A;
+    --cat-wilting: #9B7BA8;
+    --cat-dormant: #9A938A;
     --font-brand: 'Fraunces', 'Palatino Linotype', Georgia, serif;
     --font-ui:    'DM Sans', system-ui, sans-serif;
-    --r-sm: 3px; --r-md: 6px; --r-lg: 10px;
+    --font-mono:  ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
+    --r-sm: 3px; --r-md: 6px; --r-lg: 10px; --r-xl: 14px;
   }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: 16px; scroll-behavior: smooth; }
+  html { font-size: 16px; scroll-behavior: smooth; overflow-x: hidden; }
   body {
     background: var(--ochre-100);
     color: var(--ink);
@@ -49,7 +83,7 @@
 
   /* NAV */
   nav {
-    max-width: 860px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 1.75rem 2rem;
     display: flex;
@@ -57,34 +91,111 @@
     justify-content: space-between;
   }
   .nav-wordmark {
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none; color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
   }
   .nav-wordmark-text {
     font-family: var(--font-brand);
-    font-size: 20px; font-weight: 300; font-style: italic;
-    letter-spacing: -0.01em; line-height: 1;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    line-height: 1;
   }
   .nav-links { display: flex; gap: 1.5rem; align-items: baseline; }
   .nav-links a {
-    font-family: var(--font-ui); font-size: 12px;
-    color: var(--ochre-600); text-decoration: none; letter-spacing: 0.04em;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--ochre-600);
+    text-decoration: none;
+    letter-spacing: 0.04em;
   }
   .nav-links a:hover { color: var(--ink); }
 
   /* RULE */
-  .rule { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+  .rule { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
   .rule hr { border: none; border-top: 0.5px solid var(--border); }
 
   /* HERO */
   .hero {
-    max-width: 860px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 4rem 2rem 4.5rem;
+    padding: 5rem 2rem 5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.05fr;
     gap: 3.5rem;
     align-items: center;
+  }
+  .hero-graphic {
+    position: relative;
+    padding: 9% 0 4%;
+  }
+  .hero-graphic img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+  .hero-graphic .shot-front {
+    position: relative;
+    z-index: 2;
+    transform: rotate(0deg);
+    filter: drop-shadow(0 22px 44px rgba(28,26,20,0.30));
+  }
+  .hero-graphic .shot-back {
+    position: absolute;
+    top: -4%;
+    right: -9%;
+    width: 94%;
+    z-index: 1;
+    transform: rotate(7deg);
+    transform-origin: bottom left;
+    filter: drop-shadow(0 18px 36px rgba(28,26,20,0.34));
+  }
+  /* Reusable screenshot frame for feature sections */
+  .shot-frame {
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 0.5px solid var(--border);
+    box-shadow: 0 14px 36px rgba(28,26,20,0.15);
+    background: var(--ochre-50);
+  }
+  .shot-frame img { display: block; width: 100%; height: auto; }
+  .shot-caption {
+    margin-top: 0.85rem;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--ochre-600);
+    max-width: 760px;
+  }
+  .feature-shot { margin-top: 2.5rem; }
+  .record-shots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    align-items: start;
+  }
+  .record-links {
+    margin-top: 1.75rem;
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    font-family: var(--font-ui);
+    font-size: 14px;
+  }
+  .record-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .record-links a:hover { text-decoration: underline; }
+  @media (max-width: 760px) {
+    .record-shots { grid-template-columns: 1fr; }
   }
   .app-icon-mark {
     display: flex; align-items: center; gap: 12px;
@@ -103,361 +214,578 @@
   }
   .hero h1 {
     font-family: var(--font-brand);
-    font-size: 36px; font-weight: 400;
-    line-height: 1.15; color: var(--ink);
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
     margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
   }
-  .accent { color: var(--seed); }
+  .hero h1 .accent { color: var(--accent); }
   .hero-sub {
-    font-family: var(--font-ui); font-size: 15px; font-weight: 300;
-    line-height: 1.8; color: var(--ink-60); margin-bottom: 1rem;
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink-60);
+    margin-bottom: 0.75rem;
   }
-  .hero-sub:last-of-type { margin-bottom: 1.75rem; }
-
-  /* HERO FORM */
+  .hero-audience {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ochre-600);
+    margin-bottom: 1rem;
+  }
   .hero-form {
-    display: flex; gap: 0.5rem;
-    max-width: 360px; margin-bottom: 0.5rem;
+    display: flex;
+    gap: 8px;
+    margin-top: 1.75rem;
+    max-width: 380px;
   }
   .hero-form input[type="email"] {
     flex: 1;
-    font-family: var(--font-ui); font-size: 13px; font-weight: 300;
+    padding: 10px 14px;
+    font-family: var(--font-ui);
+    font-size: 14px;
     background: var(--ochre-50);
     border: 0.5px solid var(--border);
     border-radius: var(--r-md);
-    color: var(--ink); padding: 9px 14px;
-    outline: none; transition: border-color 0.15s;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
   }
   .hero-form input[type="email"]::placeholder { color: var(--ochre-400); }
-  .hero-form input[type="email"]:focus { border-color: var(--seed); }
+  .hero-form input[type="email"]:focus { border-color: var(--accent); }
   .hero-form button {
-    padding: 9px 18px;
-    font-family: var(--font-ui); font-size: 13px; font-weight: 500;
-    background: var(--seed); color: var(--ochre-50);
-    border: none; border-radius: var(--r-md);
-    cursor: pointer; transition: background 0.15s; white-space: nowrap;
+    padding: 10px 18px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
   }
-  .hero-form button:hover { background: var(--ochre-800); }
+  .hero-form button:hover { background: var(--accent-hover); }
+  .buy-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .buy-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 500;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .buy-btn:hover { background: var(--accent-hover); }
+  .buy-note {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--ochre-400);
+  }
+  .buy-price {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-bottom: 8px;
+  }
+  .trust-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ochre-800);
+    white-space: nowrap;
+  }
+  .trust-chip svg {
+    width: 13px;
+    height: 13px;
+    flex: none;
+    color: var(--accent);
+  }
   .hero-form-note {
-    font-family: var(--font-ui); font-size: 11px; font-weight: 300;
-    color: var(--ink-30);
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--ochre-600);
+    margin-top: 0.5rem;
   }
   .form-success {
     display: none;
-    font-family: var(--font-ui); font-size: 13px; font-weight: 300;
-    color: var(--ink-60); line-height: 1.7;
-    padding: 10px 14px;
+    padding: 12px 16px;
     background: var(--ochre-50);
     border: 0.5px solid var(--border);
     border-radius: var(--r-md);
-    max-width: 360px;
-  }
-
-  /* BENCH MOCKUP */
-  .bench-mockup {
-    width: 100%;
-    height: 320px;
-    background: var(--ochre-100);
-    border-radius: var(--r-lg);
-    border: 0.5px solid var(--border);
-    box-shadow: 0 2px 16px rgba(28,26,20,0.10), 0 1px 4px rgba(28,26,20,0.06);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    user-select: none;
-  }
-  .bm-chrome {
-    height: 34px; flex-shrink: 0;
-    background: var(--ochre-50);
-    border-bottom: 0.5px solid var(--border);
-    display: flex; align-items: center;
-    padding: 0 12px;
-  }
-  .bm-dots { display: flex; gap: 5px; margin-right: 10px; }
-  .bm-dot { width: 8px; height: 8px; border-radius: 50%; }
-  .bm-dot-close { background: #FF5F57; }
-  .bm-dot-min   { background: #FFBD2E; }
-  .bm-dot-max   { background: #28CA41; }
-  .bm-win-title {
-    flex: 1; text-align: center;
-    font-family: var(--font-ui); font-size: 11px; font-weight: 500;
-    color: var(--ink-60); margin-right: 70px;
-  }
-  .bm-new-seed {
-    font-family: var(--font-ui); font-size: 10px; font-weight: 500;
-    color: var(--seed); white-space: nowrap;
-  }
-  .bm-body { display: flex; flex: 1; overflow: hidden; }
-
-  /* Sidebar */
-  .bm-sidebar {
-    width: 124px; flex-shrink: 0;
-    background: var(--ochre-100);
-    border-right: 0.5px solid var(--border);
-    display: flex; flex-direction: column;
-    overflow: hidden;
-  }
-  .bm-search {
-    margin: 7px;
-    padding: 4px 7px;
-    background: var(--ochre-50);
-    border: 0.5px solid var(--border);
-    border-radius: 3px;
-    font-family: var(--font-ui); font-size: 9px;
-    color: var(--ink-30); flex-shrink: 0;
-  }
-  .bm-seeds { flex: 1; overflow: hidden; }
-  .bm-seed { padding: 4px 8px; }
-  .bm-seed.sel {
-    background: var(--seed-dim);
-    border-left: 1.5px solid var(--seed);
-    padding-left: 6.5px;
-  }
-  .bm-seed-name {
-    font-family: var(--font-ui); font-size: 9.5px; font-weight: 500;
-    color: var(--ink);
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    display: block;
-  }
-  .bm-seed-meta {
-    font-family: var(--font-ui); font-size: 7.5px;
-    color: var(--ochre-600); letter-spacing: 0.05em;
-    display: flex; align-items: center; gap: 3px; margin-top: 1px;
-  }
-  .bm-status-dot {
-    width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0;
-    background: var(--seed); /* default: growing */
-  }
-  .bm-status-dot.sprout  { background: #7BC47B; }
-  .bm-status-dot.rooted  { background: var(--ochre-600); }
-  .bm-status-dot.dormant { background: var(--ink-30); }
-  .bm-benches {
-    border-top: 0.5px solid var(--border);
-    padding: 5px 8px; flex-shrink: 0;
-  }
-  .bm-benches-label {
-    font-family: var(--font-ui); font-size: 7px; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--ochre-600); margin-bottom: 3px;
-  }
-  .bm-bench-item {
-    font-family: var(--font-ui); font-size: 9px; font-weight: 500;
+    font-size: 14px;
     color: var(--ink-60);
-    padding: 2px 6px;
-    background: var(--ochre-200);
-    border-radius: 3px;
-    display: inline-block;
+    max-width: 380px;
+    margin-top: 1.75rem;
   }
 
-  /* Canvas */
-  .bm-canvas {
-    flex: 1; position: relative; overflow: hidden;
+  /* LEDGER MOCKUP */
+  .ledger-preview {
     background: var(--ochre-50);
+    border: 0.5px solid var(--border);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(28,26,20,0.09);
   }
-  .bc-container {
-    position: absolute;
-    border: 1px dashed var(--border);
-    border-radius: 5px;
-    padding: 18px 5px 5px;
+  .ledger-titlebar {
+    display: flex;
+    align-items: center;
+    padding: 9px 12px;
+    border-bottom: 0.5px solid var(--border);
+    background: var(--ochre-100);
+    gap: 6px;
   }
-  .bc-container-label {
-    position: absolute; top: 4px; left: 7px;
-    font-family: var(--font-ui); font-size: 7.5px; font-weight: 500;
-    letter-spacing: 0.07em; text-transform: uppercase;
+  .titlebar-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+  .titlebar-label {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ochre-600);
+    margin: 0 auto;
+  }
+  .ledger-date-row {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ochre-400);
+    padding: 7px 14px 5px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .ledger-entries { padding: 3px 0; }
+  .ledger-entry {
+    display: grid;
+    grid-template-columns: 34px auto 1fr auto;
+    align-items: baseline;
+    gap: 8px;
+    padding: 5px 14px;
+  }
+  .ledger-entry + .ledger-entry {
+    border-top: 0.5px solid rgba(223,208,176,0.6);
+  }
+  .entry-time {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--ochre-400);
+    text-align: right;
+  }
+  .entry-badge {
+    font-family: var(--font-ui);
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 1.5px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .badge-save    { background: var(--accent-dim); color: var(--accent); }
+  .badge-note    { background: rgba(192,168,122,0.15); color: var(--ochre-800); }
+  .badge-paste   { background: rgba(28,26,20,0.06); color: var(--ink-60); }
+  .badge-source  { background: rgba(90,100,128,0.12); color: #5A6480; }
+  .entry-content {
+    font-family: var(--font-ui);
+    font-size: 11.5px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .entry-content em { font-style: italic; color: var(--ink-60); }
+  .entry-delta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .ledger-chain {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-top: 0.5px solid var(--border);
+    background: var(--ochre-100);
+  }
+  .chain-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .chain-hash {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
     color: var(--ochre-600);
   }
-  .bc-card {
+  .chain-verified {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+
+  /* GARDEN MOCKUP */
+  .garden {
     background: var(--ochre-50);
     border: 0.5px solid var(--border);
-    border-radius: 4px;
-    padding: 6px 8px;
-    margin-bottom: 3px;
-  }
-  .bc-card:last-child { margin-bottom: 0; }
-  .bc-card-title {
-    font-family: var(--font-ui); font-size: 8.5px; font-weight: 500;
-    color: var(--ink); line-height: 1.3; margin-bottom: 2px;
-  }
-  .bc-card-body {
-    font-family: var(--font-ui); font-size: 7.5px; font-weight: 300;
-    color: var(--ink-60); line-height: 1.4;
-    display: -webkit-box; -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical; overflow: hidden;
-  }
-  .bc-card-dot {
-    width: 4px; height: 4px; border-radius: 50%;
-    background: var(--seed); float: right;
-    margin: 2px 0 2px 4px;
-  }
-  .bc-loose { position: absolute; }
-  .bc-lavender { background: #EDE8F4; border-color: #D8D0EA; }
-  .bc-green    { background: #E8F2EC; border-color: #C4D9CC; }
-  .bc-selected { background: var(--ochre-50); border: 1px dashed var(--seed); }
-
-  /* Bottom bar */
-  .bm-bar {
-    height: 26px; flex-shrink: 0;
-    background: var(--ochre-100);
-    border-top: 0.5px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .bm-bar-item {
-    font-family: var(--font-ui); font-size: 9px;
-    color: var(--ochre-600); letter-spacing: 0.03em;
-    padding: 0 10px;
-  }
-  .bm-bar-sep { font-size: 9px; color: var(--ochre-400); }
-
-  /* FEATURE GRID */
-  .features { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem; }
-  .feature-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: 0.5px solid var(--border);
-    border-radius: var(--r-lg);
+    border-radius: var(--r-xl);
     overflow: hidden;
+    box-shadow: 0 18px 48px rgba(28,26,20,0.16);
   }
-  .feature-item {
-    background: var(--ochre-50);
-    padding: 1.75rem;
-    border-top: 2px solid var(--seed);
-    border-right: 0.5px solid var(--border);
+  .garden-bar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 14px;
     border-bottom: 0.5px solid var(--border);
+    background: var(--ochre-100);
   }
-  .feature-item:nth-child(2n) { border-right: none; }
-  .feature-item:nth-child(n+3) { border-bottom: none; }
-  .feature-name {
-    font-family: var(--font-ui); font-size: 13px; font-weight: 500;
-    color: var(--ink); margin-bottom: 0.4rem;
+  .garden-search {
+    flex: 1; display: flex; align-items: center; gap: 8px;
+    background: var(--ochre-50);
+    border: 0.5px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 7px 10px;
+    font-family: var(--font-ui); font-size: 12.5px; color: var(--ink);
   }
-  .feature-desc {
-    font-family: var(--font-ui); font-size: 13px; font-weight: 300;
-    line-height: 1.7; color: var(--ink-60);
+  .garden-search svg { width: 13px; height: 13px; color: var(--ochre-400); flex: none; }
+  .garden-search .cursor {
+    display: inline-block; width: 1.5px; height: 14px;
+    background: var(--accent); margin-left: 1px;
+  }
+  .garden-enter {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.04em; color: var(--ochre-600); white-space: nowrap;
+  }
+  .garden-enter strong { color: var(--accent); font-weight: 600; }
+  .garden-list { padding: 4px 0; }
+  .garden-note {
+    display: flex; align-items: center; gap: 11px;
+    padding: 9px 16px;
+  }
+  .garden-note + .garden-note { border-top: 0.5px solid rgba(223,208,176,0.55); }
+  .note-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .note-title { font-family: var(--font-ui); font-size: 12.5px; font-weight: 400; color: var(--ink); flex: 1; }
+  .note-cat {
+    font-family: var(--font-ui); font-size: 8px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 1.5px 6px; border-radius: 3px;
+  }
+  .cat-sprout  { color: var(--cat-sprout);  background: rgba(127,168,107,0.14); }
+  .cat-growing { color: var(--cat-growing); background: rgba(110,155,196,0.14); }
+  .cat-rooted  { color: var(--cat-rooted);  background: rgba(200,123,90,0.14); }
+  .cat-wilting { color: var(--cat-wilting); background: rgba(155,123,168,0.16); }
+  .cat-dormant { color: var(--cat-dormant); background: rgba(154,147,138,0.16); }
+  .dot-sprout  { background: var(--cat-sprout); }
+  .dot-growing { background: var(--cat-growing); }
+  .dot-rooted  { background: var(--cat-rooted); }
+  .dot-wilting { background: var(--cat-wilting); }
+  .dot-dormant { background: var(--cat-dormant); }
+  .cat-list { margin-top: 2.25rem; max-width: 760px; }
+  .cat-item {
+    display: flex; align-items: baseline; gap: 12px;
+    padding: 0.85rem 0;
+  }
+  .cat-item + .cat-item { border-top: 0.5px solid var(--border); }
+  .cat-item .note-dot { align-self: center; }
+  .cat-name {
+    font-family: var(--font-brand); font-size: 15px; font-weight: 400;
+    color: var(--ink); width: 92px; flex: none;
+  }
+  .cat-desc {
+    font-family: var(--font-ui); font-size: 14px; font-weight: 300;
+    line-height: 1.6; color: var(--ink-60);
   }
 
   /* SECTIONS */
-  .section { max-width: 860px; margin: 0 auto; padding: 4rem 2rem; }
+  .section { max-width: 1080px; margin: 0 auto; padding: 3rem 2rem; }
   .section-label {
-    font-family: var(--font-ui); font-size: 10px; font-weight: 500;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--seed); margin-bottom: 1rem;
+    font-family: var(--font-ui);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ochre-600);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
-  .section-heading {
-    font-family: var(--font-brand); font-size: 26px; font-weight: 400;
-    color: var(--ink); margin-bottom: 1rem; line-height: 1.2;
-  }
-  .section-body p {
-    font-family: var(--font-ui); font-size: 15px; font-weight: 300;
-    line-height: 1.85; color: var(--ink-60); max-width: 560px;
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+  .section-body {
+    max-width: 760px;
+    font-family: var(--font-ui);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink-60);
   }
   .section-body p + p { margin-top: 1rem; }
 
-  /* PAIRING STRIP */
-  .pairing {
+  code {
+    font-family: var(--font-mono);
+    font-size: 13px;
     background: var(--ochre-50);
-    border-top: 0.5px solid var(--border);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--ink);
+  }
+
+  /* FEATURE GRID */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    margin-top: 2.5rem;
+  }
+  .feature-card {
+    background: var(--ochre-50);
+    padding: 1.5rem 1.5rem 1.75rem;
+    border-top: 2px solid var(--accent);
+  }
+  .feature-title {
+    font-family: var(--font-brand);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .feature-desc {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--ink-60);
+  }
+
+  /* AUTHORSHIP REPORT MOCKUP */
+  .report-preview {
+    margin-top: 2.5rem;
+    background: var(--ochre-50);
+    border: 0.5px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    max-width: 420px;
+    box-shadow: 0 4px 20px rgba(28,26,20,0.07);
+  }
+  .report-header {
+    padding: 14px 18px 10px;
     border-bottom: 0.5px solid var(--border);
   }
-  .pairing-inner {
-    max-width: 860px; margin: 0 auto;
-    padding: 4rem 2rem;
+  .report-title {
+    font-family: var(--font-brand);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 2px;
   }
-  .pairing-eyebrow {
-    font-family: var(--font-ui); font-size: 10px; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--ochre-600); margin-bottom: 0.75rem;
+  .report-meta {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    color: var(--ochre-600);
+    letter-spacing: 0.03em;
   }
-  .pairing h2 {
-    font-family: var(--font-brand); font-size: 26px; font-weight: 400;
-    color: var(--ink); margin-bottom: 1rem; line-height: 1.2;
+  .report-stats {
+    display: flex;
+    border-bottom: 0.5px solid var(--border);
   }
-  .pairing p {
-    font-family: var(--font-ui); font-size: 15px; font-weight: 300;
-    line-height: 1.85; color: var(--ink-60);
-    max-width: 560px; margin-bottom: 1.25rem;
+  .report-stat {
+    flex: 1;
+    padding: 12px 18px;
+    border-right: 0.5px solid var(--border);
   }
-  .pairing-link {
-    font-family: var(--font-ui); font-size: 13px; font-weight: 500;
-    color: var(--seed); text-decoration: none;
+  .report-stat:last-child { border-right: none; }
+  .report-stat-value {
+    font-family: var(--font-brand);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 3px;
   }
-  .pairing-link:hover { color: var(--ink); }
+  .report-stat-label {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ochre-600);
+  }
+  .report-arc {
+    padding: 12px 18px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .arc-label {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ochre-400);
+    margin-bottom: 8px;
+  }
+  .arc-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 36px;
+  }
+  .arc-bar {
+    flex: 1;
+    background: var(--accent);
+    border-radius: 2px 2px 0 0;
+    opacity: 0.65;
+  }
+  .report-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+  }
+  .report-chain-hash {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--ochre-600);
+  }
+  .report-chain-ok {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
 
-  /* BETA SECTION */
+  /* CLOSING BETA SECTION */
   .beta-label {
-    font-family: var(--font-ui); font-size: 10px; font-weight: 500;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--seed); margin-bottom: 0.75rem;
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ochre-600);
+    margin-bottom: 0.5rem;
   }
   .beta-caption {
-    font-family: var(--font-ui); font-size: 15px; font-weight: 300;
-    line-height: 1.8; color: var(--ink-60);
-    max-width: 520px; margin-bottom: 1.5rem;
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink-60);
+    max-width: 480px;
+    margin-bottom: 1.25rem;
   }
-  .signup-form { display: flex; gap: 0.5rem; max-width: 360px; }
+  .signup-form { display: flex; gap: 8px; max-width: 400px; }
   .signup-form input[type="email"] {
     flex: 1;
-    font-family: var(--font-ui); font-size: 13px; font-weight: 300;
+    padding: 10px 14px;
+    font-family: var(--font-ui);
+    font-size: 14px;
     background: var(--ochre-50);
     border: 0.5px solid var(--border);
     border-radius: var(--r-md);
-    color: var(--ink); padding: 9px 14px;
-    outline: none; transition: border-color 0.15s;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
   }
   .signup-form input[type="email"]::placeholder { color: var(--ochre-400); }
-  .signup-form input[type="email"]:focus { border-color: var(--seed); }
+  .signup-form input[type="email"]:focus { border-color: var(--accent); }
   .signup-form button {
-    padding: 9px 18px;
-    font-family: var(--font-ui); font-size: 13px; font-weight: 500;
-    background: var(--seed); color: var(--ochre-50);
-    border: none; border-radius: var(--r-md);
-    cursor: pointer; transition: background 0.15s;
+    padding: 10px 20px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
   }
-  .signup-form button:hover { background: var(--ochre-800); }
+  .signup-form button:hover { background: var(--accent-hover); }
 
   /* FOOTER */
   footer {
-    max-width: 860px; margin: 0 auto;
+    max-width: 1080px;
+    margin: 0 auto;
     padding: 2rem 2rem 3rem;
-    display: flex; justify-content: space-between; align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     border-top: 0.5px solid var(--border);
   }
   .footer-copy { font-family: var(--font-ui); font-size: 11px; color: var(--ochre-600); }
   .footer-links { display: flex; gap: 1.5rem; }
   .footer-links a {
-    font-family: var(--font-ui); font-size: 11px;
-    color: var(--ochre-600); text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--ochre-600);
+    text-decoration: none;
   }
   .footer-links a:hover { color: var(--ink); }
 
   /* RESPONSIVE */
-  @media (max-width: 640px) {
-    .hero { grid-template-columns: 1fr; gap: 2.5rem; }
+  @media (max-width: 680px) {
+    .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 2rem; }
+    .hero-form { max-width: 100%; }
     .feature-grid { grid-template-columns: 1fr; }
-    .feature-item:nth-child(2n) { border-right: 0.5px solid var(--border); }
-    .feature-item:nth-child(n+3) { border-bottom: 0.5px solid var(--border); }
-    .feature-item:last-child { border-bottom: none; }
+    .signup-form { flex-direction: column; max-width: 100%; }
+    .signup-form button { width: 100%; }
     footer { flex-direction: column; gap: 1rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- Netlify form detection -->
-<form name="beta-signup" netlify netlify-honeypot="bot-field" hidden>
-  <input type="email" name="email"/>
-</form>
-
 <nav>
   <a href="/" class="nav-wordmark">
     <svg width="20" height="20" viewBox="1 1 20 20" fill="none" aria-hidden="true">
       <circle cx="5.5" cy="5.5" r="4.5" fill="#C87B5A"/>
-      <circle cx="16.5" cy="5.5" r="4.5" fill="#B89B6A"/>
+      <circle cx="16.5" cy="5.5" r="4.5" fill="#A06878"/>
       <circle cx="5.5" cy="16.5" r="4.5" fill="#1D9E75"/>
       <circle cx="16.5" cy="16.5" r="4.5" fill="#5A6480"/>
     </svg>
     <span class="nav-wordmark-text">Procestra</span>
   </a>
   <div class="nav-links">
+    <a href="/espalier.html">Espalier</a>
     <a href="/provenance.html">Provenance</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/contact.html">Contact</a>
@@ -466,239 +794,142 @@
 
 <div class="rule"><hr/></div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <div class="app-icon-mark">
-      <img src="/icons/seed.svg" width="48" height="48" alt="" class="app-icon-img" aria-hidden="true"/>
+      <img src="img/seed-icon.png" width="56" height="56" alt="Seed app icon" class="app-icon-img"/>
       <div>
         <div class="app-icon-name">Seed</div>
         <div class="app-icon-byline">A Procestra app</div>
       </div>
     </div>
-    <h1>Where ideas are<br><span class="accent">cultivated.</span></h1>
-    <p class="hero-sub">Seed is a notebook for ideas that aren't ready yet. Notes live in the garden. The bench is where you think with them.</p>
-    <p class="hero-sub">Local-first. Plain text. No accounts, no cloud sync, no pressure to organize before you know what something is.</p>
+    <p class="hero-audience">For writers, makers, and anyone with ideas to tend.</p>
+    <h1>Where ideas grow<br>until they're <span class="accent">ripe</span>.</h1>
+    <p class="hero-sub">A local-first notebook for the half-formed. Type to find any note instantly, or press return to plant a new one. Tend a note and it grows and takes root; leave one untouched and it quietly wilts. A glance tells you what's thriving and what's drifting away.</p>
 
-    <form class="hero-form" id="hero-form" name="beta-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-      <input type="hidden" name="form-name" value="beta-signup"/>
-      <p hidden><label>Don't fill this out: <input name="bot-field"/></label></p>
-      <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email"/>
-      <button type="submit">Keep me posted</button>
-    </form>
-    <p class="hero-form-note" id="hero-note">We'll reach out when it's ready. Mac only.</p>
-    <div class="form-success" id="hero-success">You're on the list. We'll reach out when Seed releases.</div>
+    <div class="buy-row">
+      <a href="https://procestra.lemonsqueezy.com/checkout/buy/9a4a27f5-c1a5-455c-a281-5d5f599131b7" class="buy-btn">Get Seed</a>
+      <span class="buy-note"><strong class="buy-price">$19</strong> · one-time purchase. Mac only.</span>
+    </div>
+    <div class="trust-row">
+      <span class="trust-chip">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.4-5 6.5-2.9-1.1-5-3.3-5-6.5v-4l5-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.8 8l1.6 1.6L10.4 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Notarized by Apple
+      </span>
+      <span class="trust-chip">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Local-first, stays on your Mac
+      </span>
+      <span class="trust-chip">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.3" stroke="currentColor" stroke-width="1.3"/><path d="M5.3 8l1.8 1.8L10.8 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        One-time purchase, no subscription
+      </span>
+    </div>
   </div>
 
-  <div class="hero-visual">
-    <div class="bench-mockup" aria-hidden="true">
-      <div class="bm-chrome">
-        <div class="bm-dots">
-          <span class="bm-dot bm-dot-close"></span>
-          <span class="bm-dot bm-dot-min"></span>
-          <span class="bm-dot bm-dot-max"></span>
-        </div>
-        <span class="bm-win-title">Seed</span>
-        <span class="bm-new-seed">↑ New Seed</span>
-      </div>
-      <div class="bm-body">
-        <div class="bm-sidebar">
-          <div class="bm-search">Search seeds…</div>
-          <div class="bm-seeds">
-            <div class="bm-seed sel">
-              <span class="bm-seed-name">Idea — paper letter exch…</span>
-              <div class="bm-seed-meta"><span class="bm-status-dot"></span>GROWING</div>
-            </div>
-            <div class="bm-seed">
-              <span class="bm-seed-name">Film idea — The Long Walk</span>
-              <div class="bm-seed-meta"><span class="bm-status-dot rooted"></span>ROOTED</div>
-            </div>
-            <div class="bm-seed">
-              <span class="bm-seed-name">Album concept — quiet ro…</span>
-              <div class="bm-seed-meta"><span class="bm-status-dot"></span>GROWING</div>
-            </div>
-            <div class="bm-seed">
-              <span class="bm-seed-name">Sketch — a deck of 78 cards</span>
-              <div class="bm-seed-meta"><span class="bm-status-dot sprout"></span>SPROUT</div>
-            </div>
-            <div class="bm-seed">
-              <span class="bm-seed-name">Half-formed thought</span>
-              <div class="bm-seed-meta"><span class="bm-status-dot dormant"></span>DORMANT</div>
-            </div>
-            <div class="bm-seed">
-              <span class="bm-seed-name">Conversation — what I sho…</span>
-              <div class="bm-seed-meta"><span class="bm-status-dot"></span>GROWING</div>
-            </div>
-          </div>
-          <div class="bm-benches">
-            <div class="bm-benches-label">Benches</div>
-            <div class="bm-bench-item">⊟ Bench</div>
-          </div>
-        </div>
-        <div class="bm-canvas">
-          <!-- Column container -->
-          <div class="bc-container" style="left:7px;top:7px;width:110px;">
-            <div class="bc-container-label">Column</div>
-            <div class="bc-card">
-              <div class="bc-card-dot"></div>
-              <div class="bc-card-title">Plant seed test</div>
-              <div class="bc-card-body">Maybe the reason it's hard to finish things is that finishing implies a final version.</div>
-            </div>
-            <div class="bc-card">
-              <div class="bc-card-dot"></div>
-              <div class="bc-card-title">Conversation — what I should have said</div>
-              <div class="bc-card-body">She said, "You always do this." What I said: "Do what?"</div>
-            </div>
-          </div>
-          <!-- Loose lavender card -->
-          <div class="bc-card bc-loose bc-lavender" style="left:126px;top:7px;width:104px;">
-            <div class="bc-card-title">Letter draft — to my younger self</div>
-            <div class="bc-card-body">If you could write a letter to your 18-year-old self that arrived on her birthday…</div>
-          </div>
-          <!-- Loose green card -->
-          <div class="bc-card bc-loose bc-green" style="left:126px;top:112px;width:104px;">
-            <div class="bc-card-title">Album outtake — songs that didn't make it</div>
-            <div class="bc-card-body">Songs that didn't make the cut, in case I want them later.</div>
-          </div>
-          <!-- Selected card — bleeds right to suggest the canvas continues -->
-          <div class="bc-card bc-loose bc-selected" style="left:238px;top:56px;width:104px;">
-            <div class="bc-card-title">Travel — the small towns</div>
-            <div class="bc-card-body">Drive a circle through small towns I've never heard of. Rules: under 5,000 people.</div>
-          </div>
-        </div>
-      </div>
-      <div class="bm-bar">
-        <span class="bm-bar-item">↓ Merge</span>
-        <span class="bm-bar-sep">·</span>
-        <span class="bm-bar-item">↑ Transplant</span>
-        <span class="bm-bar-sep">·</span>
-        <span class="bm-bar-item">✕ Clear</span>
-      </div>
-    </div>
+  <div class="hero-graphic">
+    <img class="shot-back" src="img/seed-dark.png" width="1280" height="900" alt="" aria-hidden="true" loading="lazy"/>
+    <img class="shot-front" src="img/seed-light.png" width="1280" height="900" alt="The Seed garden: notes tagged by life stage, from Sprout to Dormant, with a search-first capture bar at the top." loading="lazy"/>
   </div>
 </section>
 
-<div class="rule"><hr/></div>
-
-<!-- FEATURE GRID -->
-<div class="features">
-  <div class="feature-grid">
-    <div class="feature-item">
-      <div class="feature-name">The garden</div>
-      <div class="feature-desc">Every note is a seed in a folder on your disk. Plain text files, nothing more. Searchable. No folders required. They grow until they're something.</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-name">The bench</div>
-      <div class="feature-desc">A free-form canvas. Drag seeds out, arrange them as cards, stack them in columns and rows, or leave them loose. Structure is optional.</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-name">Merge</div>
-      <div class="feature-desc">Two seeds become one. Select both on the bench, merge, and the combined text is yours to shape into something whole.</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-name">Transplant</div>
-      <div class="feature-desc">When the bench has given you a shape, export it. Columns become sections. Cards become entries. The structure you found becomes an outline you can write from.</div>
-    </div>
-  </div>
-</div>
-
-<div class="rule"><hr/></div>
-
-<!-- THE GARDEN -->
+<!-- HIDDEN per request (2026-06): "Why it exists" section
 <section class="section">
-  <div class="section-label">The garden</div>
-  <div class="section-heading">Ideas before they're ideas.</div>
+  <div class="section-label">Why it exists</div>
   <div class="section-body">
-    <p>A seed is anything: a title, a fragment, a question you can't answer yet. It lives in the garden as a plain text file in a folder you choose — not in the cloud, not behind a login.</p>
-    <p>Seed tags itself. A Sprout is a new idea. Growing means you've been at it. Rooted means the note has real weight — words, depth, something to work with. Dormant means you haven't touched it in a while. None of these are categories you assign. They're signals the garden sends back. The whole system is designed for one thing: forward momentum.</p>
+    <p>Ideas don't arrive finished. They show up as a fragment, a title, a feeling. Most apps make you file all of that somewhere before you've even understood it, so it piles up in a folder and quietly rots.</p>
+    <p>Seed is a place for the not-yet. Capture a thought in a second, then let it grow at its own pace. Nothing here demands to be finished. It just keeps your ideas where you can see them, and nudges the ones drifting out of reach.</p>
   </div>
 </section>
 
-<div class="rule"><hr/></div>
+-->
 
-<!-- THE BENCH -->
+<!-- HIDDEN per request (2026-06): "Search-first" section
 <section class="section">
-  <div class="section-label">The bench</div>
-  <div class="section-heading">Where you think out loud.</div>
+  <div class="section-label">Search-first</div>
   <div class="section-body">
-    <p>Drag a seed from the garden and it becomes a card. Move cards anywhere on the bench — loose on the surface, grouped in columns, arranged in rows, or stacked when space is short. Drag a whole group. Break it apart. The bench doesn't impose a shape. It lets you find one.</p>
-    <p>Cards can be merged into a single seed. When the bench has given you a shape worth writing from, transplant it — columns become outline sections, cards become entries. The structure travels; the seeds stay in the garden.</p>
+    <p>The search bar <em>is</em> the app. Start typing and Seed filters your whole garden in real time. No folders to open, no hierarchy to remember. Found the note? Keep reading. Didn't? Press return and Seed plants a new one from exactly what you typed.</p>
+    <p>No blank page, no ceremony. The fastest path from a thought to a saved note is the one you were already on.</p>
   </div>
 </section>
 
-<div class="rule"><hr/></div>
+-->
 
-<!-- PAIRING WITH PROVENANCE -->
-<div class="pairing">
-  <div class="pairing-inner">
-    <div class="pairing-eyebrow">Pairs with Provenance</div>
-    <h2>Ideas travel.</h2>
-    <p>When an idea becomes a project, the original note travels with it. Connect a project in Provenance and it can trace back to the seed it came from — the first draft, the timestamp, the beginning of the record. If an idea started in Seed before becoming a project, Provenance shows the original source. The full story of how a project came to be.</p>
-    <a href="/provenance.html" class="pairing-link">Learn about Provenance →</a>
-  </div>
-</div>
-
-<div class="rule"><hr/></div>
-
-<!-- LOCAL-FIRST -->
 <section class="section">
-  <div class="section-label">Everything stays on your machine</div>
+  <div class="section-label">Ideas that grow</div>
   <div class="section-body">
-    <p>Seeds are plain text files at a folder path you set. No cloud sync, no backup service, no account required. Open them in any text editor. Move them anywhere. Seed just tends the garden.</p>
+    <p>Every note sorts itself into a living stage based on how you tend it. The color shifts as you work, so a glance across the garden tells you what's thriving and what needs you.</p>
+  </div>
+  <div class="cat-list">
+    <div class="cat-item"><span class="note-dot dot-sprout"></span><span class="cat-name">Sprout</span><span class="cat-desc">Just planted. A fresh thought, still finding its shape.</span></div>
+    <div class="cat-item"><span class="note-dot dot-growing"></span><span class="cat-name">Growing</span><span class="cat-desc">You keep coming back to it. The idea is gaining weight.</span></div>
+    <div class="cat-item"><span class="note-dot dot-rooted"></span><span class="cat-name">Rooted</span><span class="cat-desc">Established. Something you've shaped and rely on.</span></div>
+    <div class="cat-item"><span class="note-dot dot-wilting"></span><span class="cat-name">Wilting</span><span class="cat-desc">Untouched for a while. Drifting, but not gone.</span></div>
+    <div class="cat-item"><span class="note-dot dot-dormant"></span><span class="cat-name">Dormant</span><span class="cat-desc">Long quiet. Still here for when you return to it.</span></div>
   </div>
 </section>
 
-<div class="rule"><hr/></div>
+<!-- HIDDEN per request (2026-06): "Tend, don't hoard" section
+<section class="section">
+  <div class="section-label">Tend, don't hoard</div>
+  <div class="section-body">
+    <p>A folder of notes hides its neglect. A garden shows it. Filter the whole garden to a single stage. See everything that's wilting at once, then decide what to revive, merge, or let rest.</p>
+    <p>Open any note as an expanded card, page between notes with the chevrons, reorder its lines, and keep writing in a calm, focused editor. The point isn't to save everything. It's to notice the ideas worth returning to before they slip away.</p>
+  </div>
+</section>
 
-<!-- BETA CTA -->
-<section class="section" id="beta">
-  <div class="beta-label">Get notified</div>
-  <p class="beta-caption">Seed is in development. Drop your email and we'll reach out when it's ready.</p>
-  <form class="signup-form" id="beta-form" name="beta-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-    <input type="hidden" name="form-name" value="beta-signup"/>
-    <p hidden><label>Don't fill this out: <input name="bot-field"/></label></p>
-    <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email"/>
-    <button type="submit">Keep me posted</button>
-  </form>
-  <div class="form-success" id="beta-success">You're on the list. We'll reach out when Seed releases.</div>
+-->
+
+<section class="section">
+  <div class="section-label">Plain text, your folder</div>
+  <div class="section-body">
+    <p>Your notes are plain-text files, either <code>.txt</code> or <code>.md</code>, in a garden folder you choose. Open them in any editor, search them with any tool, sync them however you like. Local-first, no account, nothing leaves your Mac.</p>
+    <p>And when an idea is ready to travel, export a single note or several merged together as TXT, Markdown, PDF, or Word.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">Works with Espalier</div>
+  <div class="section-body">
+    <p>Some ideas are ready to become something. When a cluster of seeds wants structure, <strong>Transplant</strong> sends a note, or a whole multi-selection, straight onto an <span style="color:#8A5566;font-weight:400">Espalier</span> board as cards.</p>
+    <p>Capture loosely here; arrange it into shape there. Two halves of one motion: ideas begin in Seed and grow up in Espalier.</p>
+    <p style="margin-top:1.25rem"><a href="/espalier.html" style="color:#A06878;text-decoration:none;font-weight:500;">Meet Espalier →</a></p>
+  </div>
+</section>
+
+<section class="section" id="get">
+  <div class="beta-label">Available now</div>
+  <p class="beta-caption">Seed is out. Plant the first thing on your mind.</p>
+  <div class="buy-row">
+    <a href="https://procestra.lemonsqueezy.com/checkout/buy/9a4a27f5-c1a5-455c-a281-5d5f599131b7" class="buy-btn">Get Seed</a>
+    <span class="buy-note"><strong class="buy-price">$19</strong> · one-time purchase. Mac only.</span>
+  </div>
+  <div class="trust-row" style="margin-top:1.5rem">
+    <span class="trust-chip">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.4-5 6.5-2.9-1.1-5-3.3-5-6.5v-4l5-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.8 8l1.6 1.6L10.4 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Notarized by Apple
+    </span>
+    <span class="trust-chip">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Local-first, stays on your Mac
+    </span>
+    <span class="trust-chip">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.3" stroke="currentColor" stroke-width="1.3"/><path d="M5.3 8l1.8 1.8L10.8 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      One-time purchase, no subscription
+    </span>
+  </div>
 </section>
 
 <footer>
   <span class="footer-copy">© 2026 Procestra</span>
   <div class="footer-links">
     <a href="/">Home</a>
+    <a href="/espalier.html">Espalier</a>
+    <a href="/provenance.html">Provenance</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/contact.html">Contact</a>
   </div>
 </footer>
-
-<script>
-  function wireForm(formId, successId, noteId) {
-    const form = document.getElementById(formId);
-    const success = document.getElementById(successId);
-    const note = noteId ? document.getElementById(noteId) : null;
-    if (!form) return;
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(data).toString(),
-        });
-        form.style.display = 'none';
-        if (note) note.style.display = 'none';
-        if (success) success.style.display = 'block';
-      } catch {
-        const btn = form.querySelector('button');
-        if (btn) btn.textContent = 'Try again';
-      }
-    });
-  }
-  wireForm('hero-form', 'hero-success', 'hero-note');
-  wireForm('beta-form', 'beta-success', null);
-</script>
 
 </body>
 </html>

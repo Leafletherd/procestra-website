@@ -3,19 +3,43 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Procestra — Quiet tools for thoughtful makers.</title>
-<meta name="description" content="Procestra is four native Mac apps for writers, filmmakers, and makers. Local-first. No accounts. Your files stay on your machine."/>
+<title>Procestra: quiet, local-first Mac apps for writers</title>
+<meta name="description" content="Procestra makes calm, local-first Mac apps for writers and makers. Seed captures ideas, Espalier shapes them, and Provenance proves how the work got made. No accounts, no subscriptions, no surveillance. Your files stay on your machine."/>
+<meta name="keywords" content="local-first Mac apps, writing apps for Mac, notes app, spatial outliner, proof of authorship, indie Mac software, tools for writers, no subscription apps, privacy-first writing tools"/>
+<meta name="author" content="Procestra"/>
 <meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Procestra"/>
+<meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://procestra.app/"/>
-<meta property="og:title" content="Procestra — Quiet tools for thoughtful makers."/>
-<meta property="og:description" content="Four native Mac apps that carry a project from first idea to finished portfolio. Local-first. No accounts. No surveillance."/>
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Procestra — Quiet tools for thoughtful makers."/>
-<meta name="twitter:description" content="Four native Mac apps that carry a project from first idea to finished portfolio. Local-first. No accounts. No surveillance."/>
+<meta property="og:title" content="Procestra: quiet, local-first Mac apps for writers"/>
+<meta property="og:description" content="Calm, local-first Mac apps for writers. Seed captures ideas, Espalier shapes them, Provenance proves how the work got made. No accounts. No subscriptions."/>
+<meta property="og:image" content="https://procestra.app/icon-512.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Procestra: quiet, local-first Mac apps for writers"/>
+<meta name="twitter:description" content="Calm, local-first Mac apps for writers. Seed captures ideas, Espalier shapes them, Provenance proves how the work got made."/>
+<meta name="twitter:image" content="https://procestra.app/icon-512.png"/>
 <link rel="canonical" href="https://procestra.app/"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Procestra",
+  "url": "https://procestra.app/",
+  "logo": "https://procestra.app/icon-512.png",
+  "description": "Procestra makes calm, local-first Mac apps for writers and makers: Seed, Espalier, and Provenance.",
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Seed", "applicationCategory": "ProductivityApplication", "operatingSystem": "macOS", "url": "https://procestra.app/seed.html" } },
+    { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Espalier", "applicationCategory": "ProductivityApplication", "operatingSystem": "macOS", "url": "https://procestra.app/espalier.html" } },
+    { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Provenance", "applicationCategory": "ProductivityApplication", "operatingSystem": "macOS", "url": "https://procestra.app/provenance.html" } }
+  ]
+}
+</script>
 <link rel="icon" href="/favicon.ico" sizes="any"/>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
-<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#F0E5CC"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -32,11 +56,12 @@
     --ink-30:    rgba(28,26,20,0.3);
     --border:    #DFD0B0;
 
-    /* app accents — unchanged */
-    --seed:   #C87B5A;
-    --scene:  #B89B6A;
-    --prov:   #1D9E75;
-    --folio:  #5A6480;
+    /* app accents (unchanged) */
+    --seed:     #C87B5A;
+    --espalier: #A06878;
+    --scene:    #B89B6A;
+    --prov:     #1D9E75;
+    --folio:    #5A6480;
 
     --font-brand: 'Fraunces', 'Palatino Linotype', Georgia, serif;
     --font-ui:    'DM Sans', system-ui, sans-serif;
@@ -175,7 +200,7 @@
   }
 
   /* SECTIONS */
-  .section { max-width: 860px; margin: 0 auto; padding: 4rem 2rem; }
+  .section { max-width: 860px; margin: 0 auto; padding: 3rem 2rem; }
   .section-label {
     font-family: var(--font-ui);
     font-size: 9px;
@@ -204,7 +229,7 @@
   /* APPS */
   .app-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--border);
     border-radius: var(--r-lg);
@@ -235,9 +260,72 @@
   }
 
   .app-card-seed  { border-top: 2px solid var(--seed); }
+  .app-card-espalier { border-top: 2px solid var(--espalier); }
   .app-card-scene { border-top: 2px solid var(--scene); }
   .app-card-prov  { border-top: 2px solid var(--prov); }
   .app-card-works { border-top: 2px solid var(--folio); }
+
+  /* HERO EYEBROW */
+  .hero-eyebrow {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ochre-600);
+    margin-bottom: 1rem;
+  }
+  .hero h1 .tint-seed { color: var(--seed); }
+  .hero h1 .tint-espalier { color: var(--espalier); }
+  .hero h1 .tint-prov { color: var(--prov); }
+
+  /* SUITE FLOW */
+  .flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 150px;
+    text-decoration: none;
+    color: inherit;
+    padding: 1.25rem 1rem;
+    border: 0.5px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--ochre-50);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .flow-step:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(28,26,20,0.08); }
+  .flow-step img { width: 34px; height: 34px; border-radius: 8px; display: block; margin-bottom: 0.85rem; }
+  .flow-role {
+    font-family: var(--font-ui); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ochre-600);
+    margin-bottom: 0.3rem;
+  }
+  .flow-name {
+    font-family: var(--font-brand); font-size: 18px; font-weight: 400;
+    color: var(--ink); margin-bottom: 0.5rem;
+  }
+  .flow-line {
+    font-family: var(--font-ui); font-size: 13px; font-weight: 300;
+    line-height: 1.6; color: var(--ink-60);
+  }
+  .flow-arrow {
+    align-self: center;
+    font-family: var(--font-ui); font-size: 18px; color: var(--ochre-400);
+    flex: none;
+  }
+  .flow-caption {
+    font-family: var(--font-ui); font-size: 15px; font-weight: 300;
+    line-height: 1.75; color: var(--ink-60); max-width: 560px;
+    margin-top: 2rem;
+  }
+  @media (max-width: 560px) {
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); align-self: flex-start; margin-left: 1.5rem; }
+  }
 
   /* FOOTER */
   footer {
@@ -273,15 +361,17 @@
 </head>
 <body>
 
-<form name="beta-signup" netlify netlify-honeypot="bot-field" hidden>
+<!-- Hidden form so Netlify registers the notify list at build time -->
+<form name="notify-suite" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input type="email" name="email"/>
+  <input name="bot-field"/>
 </form>
 
 <nav>
   <a href="/" class="nav-wordmark">
     <svg width="20" height="20" viewBox="1 1 20 20" fill="none" aria-hidden="true">
       <circle cx="5.5" cy="5.5" r="4.5" fill="#C87B5A"/>
-      <circle cx="16.5" cy="5.5" r="4.5" fill="#B89B6A"/>
+      <circle cx="16.5" cy="5.5" r="4.5" fill="#A06878"/>
       <circle cx="5.5" cy="16.5" r="4.5" fill="#1D9E75"/>
       <circle cx="16.5" cy="16.5" r="4.5" fill="#5A6480"/>
     </svg>
@@ -289,6 +379,7 @@
   </a>
   <div class="nav-links">
     <a href="/seed.html">Seed</a>
+    <a href="/espalier.html">Espalier</a>
     <a href="/provenance.html">Provenance</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/contact.html">Contact</a>
@@ -298,85 +389,88 @@
 <div class="rule"><hr/></div>
 
 <section class="hero">
+  <p class="hero-eyebrow">A small suite of Mac apps</p>
   <h1>Quiet tools for thoughtful makers.</h1>
-  <p class="hero-sub">For writers who want to own their process. Seed is where ideas live before they're ready. Provenance records how the work gets made. Both stay on your machine.</p>
+  <p class="hero-sub">Three local-first apps for the long, careful kind of work. <strong style="color:var(--seed);font-weight:500">Seed</strong> catches an idea before it slips away. <strong style="color:var(--espalier);font-weight:500">Espalier</strong> gives it shape. <strong style="color:var(--prov);font-weight:500">Provenance</strong> remembers how the whole thing got made. Nothing syncs through us. Nothing leaves your Mac.</p>
 
-  <div class="beta-label">Get notified when we ship</div>
-  <p class="beta-caption">Both apps are in development. Drop your email and we'll reach out when they're ready.</p>
+  <div class="beta-label">Get notified</div>
+  <p class="beta-caption">One short email when something new is ready. No noise, no churn, no list we sell. Unsubscribe in a click.</p>
 
-  <form class="signup-form" id="beta-form" name="beta-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-    <input type="hidden" name="form-name" value="beta-signup"/>
+  <form class="signup-form notify-form" name="notify-suite" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <input type="hidden" name="form-name" value="notify-suite"/>
     <p hidden><label>Don't fill this out: <input name="bot-field"/></label></p>
-    <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email"/>
-    <button type="submit">Keep me posted</button>
+    <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email" aria-label="Email address"/>
+    <button type="submit">Notify me</button>
   </form>
-  <div class="form-success" id="form-success">You're on the list. We'll reach out when Procestra releases.</div>
+  <div class="form-success">You're on the list. We'll be in touch when there's something worth telling you.</div>
 </section>
-
-<div class="rule"><hr/></div>
 
 <section class="section">
   <div class="section-label">What is Procestra</div>
   <div class="what-body">
-    <p>Procestra makes quiet tools for makers who take the long, careful approach to their work. Right now, that's Seed and Provenance.</p>
+    <p>Procestra makes quiet tools for makers who take the long, careful approach to their work. Right now, that's Seed, Espalier, and Provenance.</p>
     <p>Local-first. No accounts. No subscriptions. No surveillance.</p>
   </div>
 </section>
 
-<div class="rule"><hr/></div>
-
 <section class="section">
-  <div class="section-label">The apps</div>
-  <div class="app-grid">
-
-    <a href="/seed.html" class="app-card app-card-seed" style="text-decoration:none;color:inherit;display:block;">
-      <div class="app-icon">
-        <img src="/icons/seed.svg" width="40" height="40" alt="" aria-hidden="true" style="border-radius:9px;"/>
-      </div>
-      <div class="app-name">Seed</div>
-      <div class="app-tagline">Where ideas are cultivated.</div>
-      <div class="app-desc">A notebook for ideas that aren't ready yet. Notes live in the garden. The bench is where you think with them.</div>
+  <div class="section-label">How they fit</div>
+  <div class="flow">
+    <a class="flow-step" href="/seed.html">
+      <img src="icons/seed.svg" alt="Seed icon"/>
+      <div class="flow-role">Capture</div>
+      <div class="flow-name">Seed</div>
+      <div class="flow-line">Catch a loose idea the second it lands, before it drifts off.</div>
     </a>
-
-    <a href="/provenance.html" class="app-card app-card-prov" style="text-decoration:none;color:inherit;display:block;">
-      <div class="app-icon">
-        <img src="/icons/provenance.svg" width="40" height="40" alt="" aria-hidden="true" style="border-radius:9px;"/>
-      </div>
-      <div class="app-name">Provenance</div>
-      <div class="app-tagline">The work remembers.</div>
-      <div class="app-desc">The quiet ledger of how a project gets made. Every save, every source, every paste. Recorded.</div>
+    <span class="flow-arrow" aria-hidden="true">→</span>
+    <a class="flow-step" href="/espalier.html">
+      <img src="icons/espalier.svg" alt="Espalier icon"/>
+      <div class="flow-role">Shape</div>
+      <div class="flow-name">Espalier</div>
+      <div class="flow-line">Pull the ripe ideas onto a surface and arrange them into something.</div>
     </a>
-
+    <span class="flow-arrow" aria-hidden="true">→</span>
+    <a class="flow-step" href="/provenance.html">
+      <img src="icons/provenance.svg" alt="Provenance icon"/>
+      <div class="flow-role">Prove</div>
+      <div class="flow-name">Provenance</div>
+      <div class="flow-line">Keep the quiet record of how the finished work actually got made.</div>
+    </a>
   </div>
+  <p class="flow-caption">One idea can travel the whole way: caught in Seed, shaped in Espalier, recorded by Provenance. Each app also stands completely on its own. Use one, use all three, in whatever order your work wants.</p>
 </section>
-
-<div class="rule"><hr/></div>
 
 <footer>
   <span class="footer-copy">© 2026 Procestra</span>
   <div class="footer-links">
+    <a href="/seed.html">Seed</a>
+    <a href="/espalier.html">Espalier</a>
+    <a href="/provenance.html">Provenance</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/contact.html">Contact</a>
   </div>
 </footer>
 
 <script>
-  const form = document.getElementById('beta-form');
-  const success = document.getElementById('form-success');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    try {
-      await fetch('/', {
+  document.querySelectorAll('form.notify-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString(),
+        body: new URLSearchParams(data).toString()
+      }).then(function () {
+        var parent = form.parentNode;
+        var ok = parent.querySelector('.form-success');
+        var note = parent.querySelector('.notify-note');
+        form.style.display = 'none';
+        if (note) note.style.display = 'none';
+        if (ok) ok.style.display = 'block';
+      }).catch(function () {
+        form.querySelector('button').textContent = 'Try again';
       });
-      form.style.display = 'none';
-      success.style.display = 'block';
-    } catch {
-      form.querySelector('button').textContent = 'Try again';
-    }
+    });
   });
 </script>
 

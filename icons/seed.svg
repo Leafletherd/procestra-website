@@ -1,27 +1,13 @@
 <svg width="1024" height="1024" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="clay" x1="0" y1="0" x2="0.5" y2="1.4">
-      <stop offset="0%" stop-color="#D4896A"/>
-      <stop offset="100%" stop-color="#8A422A"/>
-    </linearGradient>
-    <linearGradient id="hi" x1="0" y1="0" x2="0.45" y2="1">
-      <stop offset="0%" stop-color="white" stop-opacity="0.13"/>
-      <stop offset="60%" stop-color="white" stop-opacity="0"/>
-    </linearGradient>
-    <clipPath id="clip">
-      <rect width="120" height="120" rx="27"/>
-    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#E2906A"/><stop offset="100%" stop-color="#B0552E"/></linearGradient>
+    <linearGradient id="hi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.13"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
+    <clipPath id="clip"><rect width="120" height="120" rx="27"/></clipPath>
   </defs>
-  <!-- Background gradient -->
-  <rect width="120" height="120" rx="27" fill="url(#clay)"/>
-  <!-- Highlight overlay -->
+  <rect width="120" height="120" rx="27" fill="url(#bg)"/>
   <rect width="120" height="120" rx="27" fill="url(#hi)" clip-path="url(#clip)"/>
-  <!-- Outer seed outline — faded -->
   <ellipse cx="60" cy="60" rx="26" ry="40" fill="none" stroke="#FAF6EF" stroke-width="1.8" opacity="0.52" transform="rotate(-8 60 60)"/>
-  <!-- Inner seed outline — bright -->
   <ellipse cx="60" cy="60" rx="16" ry="26" fill="none" stroke="#FAF6EF" stroke-width="2" opacity="0.93" transform="rotate(-8 60 60)"/>
-  <!-- Center node — matches Provenance node r=6 -->
   <circle cx="60" cy="60" r="6" fill="#FAF6EF" opacity="0.93"/>
-  <!-- Edge stroke -->
-  <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.14" clip-path="url(#clip)"/>
+  <rect width="120" height="120" rx="27" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.14" clip-path="url(#clip)"/>
 </svg>

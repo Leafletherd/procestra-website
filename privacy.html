@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Privacy — Procestra</title>
+<title>Privacy · Procestra</title>
 <meta name="description" content="Procestra's privacy policy. Plain English. No accounts, no telemetry, no cloud sync. Your files stay on your machine."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://procestra.app/privacy.html"/>
-<meta property="og:title" content="Privacy — Procestra"/>
+<meta property="og:title" content="Privacy · Procestra"/>
 <meta property="og:description" content="Plain English privacy policy. No accounts, no telemetry, no cloud sync. Your files stay on your machine."/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Privacy — Procestra"/>
+<meta name="twitter:title" content="Privacy · Procestra"/>
 <meta name="twitter:description" content="Plain English privacy policy. No accounts, no telemetry, no cloud sync. Your files stay on your machine."/>
 <link rel="canonical" href="https://procestra.app/privacy.html"/>
 <link rel="icon" href="/favicon.ico" sizes="any"/>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
-<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#F0E5CC"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -178,7 +181,7 @@
   <a href="/" class="nav-wordmark">
     <svg width="20" height="20" viewBox="1 1 20 20" fill="none" aria-hidden="true">
       <circle cx="5.5" cy="5.5" r="4.5" fill="#C87B5A"/>
-      <circle cx="16.5" cy="5.5" r="4.5" fill="#B89B6A"/>
+      <circle cx="16.5" cy="5.5" r="4.5" fill="#A06878"/>
       <circle cx="5.5" cy="16.5" r="4.5" fill="#1D9E75"/>
       <circle cx="16.5" cy="16.5" r="4.5" fill="#5A6480"/>
     </svg>
@@ -200,8 +203,8 @@
   <p class="intro">We built Procestra to respect the way you work. This page tells you exactly what each app does with your data. Plain English, not legalese.</p>
 
   <h2>What stays on your machine</h2>
-  <p>Everything. All four Procestra apps are local-first. We do not have servers that store your work. There is no Procestra account. There is no syncing through us. There is no analytics service we send information to.</p>
-  <p>When you write a seed in Seed, edit a board in Scene Board, save a file inside a Provenance-tracked project, or add a work to a Works library, those actions touch files on your Mac and nothing else.</p>
+  <p>Everything. All three Procestra apps are local-first. We do not have servers that store your work. There is no Procestra account. There is no syncing through us. There is no analytics service we send information to.</p>
+  <p>When you write a seed in Seed, arrange a board in Espalier, or save a file inside a Provenance-tracked project, those actions touch files on your Mac and nothing else.</p>
 
   <h2>Cloud-synced files</h2>
   <p>If you keep your project folders in iCloud Drive, Google Drive, Dropbox, or another file-syncing service, Procestra treats them like any other local file. The cloud service does its own syncing; we don't know about it.</p>
@@ -214,38 +217,21 @@
     <li><strong>Check-ins:</strong> short reflections you type into the app yourself.</li>
     <li><strong>Sources:</strong> URLs, files, or passages you choose to log as references.</li>
     <li><strong>Artifacts:</strong> supporting material you explicitly add.</li>
-    <li><strong>Paste sources:</strong> when you paste into a tracked file, Provenance records:
-      <ul>
-        <li>a SHA-256 hash of the pasted content,</li>
-        <li>the first 64 characters as a preview,</li>
-        <li>the source URL (if pasted from a webpage or app that provides one),</li>
-        <li>the source app (if known).</li>
-      </ul>
-      Full pasted content is never written to disk. The 64-character preview helps you remember what was pasted; the hash lets you verify provenance later.
-    </li>
   </ul>
-  <p>You can turn off paste tracking at any time in Settings.</p>
+  <p>Everything in the ledger is something you saved, wrote, or chose to add. Nothing is captured in the background.</p>
 
   <h2>What Provenance does not record</h2>
   <ul>
     <li><strong>Keystrokes:</strong> Provenance does not record what you type or how fast. There is no keystroke log anywhere.</li>
     <li><strong>Screen activity:</strong> no screenshots, no screen recording, no window-focus tracking.</li>
     <li><strong>Webcam or microphone:</strong> never accessed.</li>
-    <li><strong>Browsing history:</strong> Provenance does not look at your browser. The paste tracker only records information from clipboard events that originated from a paste action you performed in a tracked file.</li>
+    <li><strong>Pastes or clipboard:</strong> Provenance does not monitor what you copy or paste. There is no paste tracking and no clipboard watching anywhere in the app.</li>
+    <li><strong>Browsing history:</strong> Provenance does not look at your browser or anything you do outside the files you've chosen to track.</li>
   </ul>
 
   <h2>The hash-chained ledger</h2>
   <p>Provenance's event log is hash-chained. Each event includes a SHA-256 hash derived from the previous event. If anyone modifies the log retroactively (including you), the chain breaks visibly. That is a feature for you: it lets you prove your own process honestly. It is not a system Procestra monitors or sees.</p>
   <p>You can verify the chain yourself. The documentation explains how.</p>
-
-  <h2>Your data, your machine, your choice</h2>
-  <p>Procestra has no ability to access your data because there is no Procestra server holding it. You can:</p>
-  <ul>
-    <li>Delete a <code>.ledger</code> folder at any time. Provenance forgets.</li>
-    <li>Disconnect a project. The data stays on disk; we stop watching.</li>
-    <li>Move your files anywhere. Procestra uses macOS bookmarks to follow them.</li>
-    <li>Export everything. Provenance exports as Markdown, PDF, or a structured <code>.provenance.bundle/</code> for portability.</li>
-  </ul>
 
   <h2>What this website does</h2>
   <p>This website (procestra.app):</p>
@@ -253,7 +239,7 @@
     <li>Doesn't use analytics services like Google Analytics or Plausible. We don't track visits.</li>
     <li>Doesn't set cookies for tracking.</li>
     <li>Doesn't include third-party ad or marketing scripts.</li>
-    <li>The beta signup form stores email addresses in a flat list we use to email you about Procestra. We will not share or sell that list. You can ask us to remove your address at any time.</li>
+    <li>If you submit a form here (for example, to get notified about an app), we store the email address you enter in a flat list, and use it only to email you about Procestra. We will not share or sell it. You can ask us to remove your address at any time.</li>
   </ul>
   <p>This site is hosted on <a href="https://netlify.com" target="_blank" rel="noopener">Netlify</a>. Form submissions are processed by Netlify; their <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">privacy policy</a> applies to that data.</p>
 

@@ -8,6 +8,27 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# Sparkle update feeds. Served as-is, static, at the exact paths each app's
+# SUFeedURL points to. Explicit XML content type and a short cache so new
+# releases propagate to users quickly.
+[[headers]]
+  for = "/appcast-provenance.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=300"
+
+[[headers]]
+  for = "/appcast-seed.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=300"
+
+[[headers]]
+  for = "/appcast-espalier.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=300"
+
 [[redirects]]
   from = "/thank-you"
   to = "/"

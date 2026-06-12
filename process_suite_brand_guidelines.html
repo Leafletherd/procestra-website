@@ -23,6 +23,10 @@
     --teal-400: #1D9E75;
     --teal-600: #186B56;
     --teal-800: #0A3D30;
+    --mauve-300:#C08A9A;
+    --mauve-400:#A06878;
+    --mauve-600:#7E4F5C;
+    --mauve-700:#6E4350;
     --dusty-400:#5A6480;
     --dusty-600:#434E6B;
     --font-brand: 'Playfair Display', Georgia, serif;
@@ -114,9 +118,9 @@
   .app-tagline { font-family: var(--font-brand); font-style: italic; font-size: 12px; color: var(--slate-400); margin-bottom: 0.75rem; }
   .app-desc { font-size: 12px; color: var(--slate-600); line-height: 1.6; margin-bottom: 1rem; }
   .app-token { font-family: monospace; font-size: 10px; color: var(--slate-400); }
-  .accent-scene { color: var(--tan-600); border-top: 2.5px solid var(--tan-400); }
-  .accent-prov  { color: var(--teal-600); border-top: 2.5px solid var(--teal-400); }
-  .accent-works { color: var(--dusty-600); border-top: 2.5px solid var(--dusty-400); }
+  .accent-espalier { color: var(--mauve-600); border-top: 2.5px solid var(--mauve-400); }
+  .accent-prov     { color: var(--teal-600); border-top: 2.5px solid var(--teal-400); }
+  .accent-manifest { color: var(--dusty-600); border-top: 2.5px solid var(--dusty-400); }
 
   /* ── ICONS ── */
   .icon-showcase {
@@ -222,7 +226,7 @@
 <section>
   <div class="section-eyebrow">01 — naming &amp; positioning</div>
   <h2>The Suite</h2>
-  <p>Four apps. One design language. Each does a distinct job in a creative workflow — capturing, outlining, archiving, presenting — and can be used alone or together. Ideas begin in Seed, take structure in Scene Board, are documented in Provenance, and presented in Works. The suite name is "Process Suite" in formal contexts. Individual apps are always referred to by their single-word name only.</p>
+  <p>Three released apps, plus one reserved for the future. One design language. Each does a distinct job in a creative workflow — capturing, arranging, documenting — and can be used alone or together. Ideas begin in Seed, take structure on an Espalier bench, and are documented in Provenance: <strong>Seed → Espalier → Provenance</strong>. Manifest is the reserved fourth app (the slate circle in the suite mark) and has not yet shipped. The suite name is "Process Suite" in formal contexts. Individual apps are always referred to by their single-word name only.</p>
 
   <div class="app-grid" style="grid-template-columns: repeat(4,1fr);">
     <div class="app-card" style="border-top: 2.5px solid #C87B5A;">
@@ -231,11 +235,11 @@
       <div class="app-desc">Local-first idea capture. Fragments, thoughts, dialogue, images. The beginning of everything.</div>
       <div class="app-token">--seed-accent: #C87B5A</div>
     </div>
-    <div class="app-card accent-scene">
-      <div class="app-name" style="color:#8A6E42">Scene Board</div>
-      <div class="app-tagline">Structure before you shoot.</div>
-      <div class="app-desc">Project outliner and kanban board. Cards, scenes, sequences. Organize work before it exists.</div>
-      <div class="app-token">--scene-accent: #B89B6A</div>
+    <div class="app-card accent-espalier">
+      <div class="app-name" style="color:#7E4F5C">Espalier</div>
+      <div class="app-tagline">Train ideas into shape.</div>
+      <div class="app-desc">A spatial bench for arranging ideas — cards, stacks, columns. Train work into structure against a frame.</div>
+      <div class="app-token">--espalier-accent: #A06878</div>
     </div>
     <div class="app-card accent-prov">
       <div class="app-name" style="color:#186B56">Provenance</div>
@@ -243,11 +247,11 @@
       <div class="app-desc">Process history and version tracker. Show proof of work, document decisions, branch ideas.</div>
       <div class="app-token">--prov-accent: #1D9E75</div>
     </div>
-    <div class="app-card accent-works">
-      <div class="app-name" style="color:#434E6B">Works</div>
-      <div class="app-tagline">Present what you've made.</div>
-      <div class="app-desc">Portfolio formatter. Context, format, hierarchy. Show finished work the way it deserves to be seen.</div>
-      <div class="app-token">--works-accent: #5A6480</div>
+    <div class="app-card accent-manifest">
+      <div class="app-name" style="color:#434E6B">Manifest <span style="font-family:var(--font-ui); font-size:9px; font-weight:400; letter-spacing:0.08em; text-transform:uppercase; color:var(--slate-400); vertical-align:middle;">· future</span></div>
+      <div class="app-tagline">Reserved for what comes next.</div>
+      <div class="app-desc">The slate circle in the suite mark — a reserved fourth app, not yet shipped. Placeholder slot held for future use.</div>
+      <div class="app-token">--manifest-accent: #5A6480</div>
     </div>
   </div>
 </section>
@@ -288,11 +292,11 @@
       </svg>
       <div class="icon-item-label">Seed</div>
     </div>
-    <!-- Scene Board -->
+    <!-- Espalier -->
     <div class="icon-item">
       <svg width="96" height="96" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="sg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#C8A872"/><stop offset="100%" stop-color="#8A6840"/></linearGradient>
+          <linearGradient id="sg" x1="0" y1="0" x2="0.5" y2="1.4"><stop offset="0%" stop-color="#C08A9A"/><stop offset="100%" stop-color="#6E4350"/></linearGradient>
           <linearGradient id="shi" x1="0" y1="0" x2="0.45" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.13"/><stop offset="60%" stop-color="white" stop-opacity="0"/></linearGradient>
           <clipPath id="sc"><rect width="120" height="120" rx="27"/></clipPath>
         </defs>
@@ -309,7 +313,7 @@
         <rect x="77" y="62" width="24" height="14" rx="2.5" fill="#FAF6EF" opacity="0.48"/>
         <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.16" clip-path="url(#sc)"/>
       </svg>
-      <div class="icon-item-label">Scene Board</div>
+      <div class="icon-item-label">Espalier</div>
     </div>
     <!-- Provenance -->
     <div class="icon-item">
@@ -331,7 +335,7 @@
       </svg>
       <div class="icon-item-label">Provenance</div>
     </div>
-    <!-- Works -->
+    <!-- Manifest (future / reserved) -->
     <div class="icon-item">
       <svg width="96" height="96" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -351,7 +355,7 @@
         <rect x="15" y="96" width="44" height="4.5" rx="2" fill="#FAF6EF" opacity="0.10"/>
         <rect width="120" height="120" rx="27" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.14" clip-path="url(#wc)"/>
       </svg>
-      <div class="icon-item-label">Works</div>
+      <div class="icon-item-label">Manifest · future</div>
     </div>
   </div>
 
@@ -416,12 +420,12 @@
   </div>
 
   <div class="palette-group">
-    <div class="palette-label">Scene Board — Amber tan</div>
+    <div class="palette-label">Espalier — Dusty mauve</div>
     <div class="swatch-row">
-      <div class="swatch"><div class="swatch-box" style="background:#C8A872"></div><div class="swatch-meta"><span class="swatch-name">icon-light</span><span class="swatch-hex">#C8A872</span></div></div>
-      <div class="swatch"><div class="swatch-box" style="background:#B89B6A"></div><div class="swatch-meta"><span class="swatch-name">accent</span><span class="swatch-hex">#B89B6A</span></div></div>
-      <div class="swatch"><div class="swatch-box" style="background:#8A6E42"></div><div class="swatch-meta"><span class="swatch-name">accent-dark</span><span class="swatch-hex">#8A6E42</span></div></div>
-      <div class="swatch"><div class="swatch-box" style="background:#8A6840"></div><div class="swatch-meta"><span class="swatch-name">icon-dark</span><span class="swatch-hex">#8A6840</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#C08A9A"></div><div class="swatch-meta"><span class="swatch-name">icon-light</span><span class="swatch-hex">#C08A9A</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#A06878"></div><div class="swatch-meta"><span class="swatch-name">accent</span><span class="swatch-hex">#A06878</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#7E4F5C"></div><div class="swatch-meta"><span class="swatch-name">accent-dark</span><span class="swatch-hex">#7E4F5C</span></div></div>
+      <div class="swatch"><div class="swatch-box" style="background:#6E4350"></div><div class="swatch-meta"><span class="swatch-name">icon-dark</span><span class="swatch-hex">#6E4350</span></div></div>
     </div>
   </div>
 
@@ -436,7 +440,7 @@
   </div>
 
   <div class="palette-group">
-    <div class="palette-label">Works — Dusty slate</div>
+    <div class="palette-label">Manifest — Slate (future)</div>
     <div class="swatch-row">
       <div class="swatch"><div class="swatch-box" style="background:#717D9A"></div><div class="swatch-meta"><span class="swatch-name">icon-light</span><span class="swatch-hex">#717D9A</span></div></div>
       <div class="swatch"><div class="swatch-box" style="background:#5A6480"></div><div class="swatch-meta"><span class="swatch-name">accent</span><span class="swatch-hex">#5A6480</span></div></div>
@@ -516,8 +520,8 @@
   <p>Splash screens, about pages, and marketing surfaces use Playfair Display on the dark slate background. Keep it spare — the brand font does the work.</p>
   <div class="splash-demo">
     <div class="eyebrow">process suite</div>
-    <h2>Scene Board</h2>
-    <div class="sub">Structure before you shoot.</div>
+    <h2>Espalier</h2>
+    <div class="sub">Train ideas into shape.</div>
   </div>
   <p style="font-size:12px; color:var(--slate-400); margin-top:0.75rem">Background: #2E2D2A (slate-800) · Title: #FAF6EF · Subtitle: tan-400 · Font: Playfair Display</p>
 </section>
@@ -551,11 +555,11 @@
   <span class="ck">--seed-icon-lt</span>:     <span class="cv">#C87B5A</span>;  <span class="cc">/* gradient top                */</span>
   <span class="ck">--seed-icon-dk</span>:     <span class="cv">#8A422A</span>;  <span class="cc">/* gradient bottom             */</span>
 
-  <span class="cc">/* Scene Board */</span>
-  <span class="ck">--scene-accent</span>:     <span class="cv">#B89B6A</span>;  <span class="cc">/* tan-400                     */</span>
-  <span class="ck">--scene-accent-dk</span>:  <span class="cv">#8A6E42</span>;  <span class="cc">/* tan-600                     */</span>
-  <span class="ck">--scene-icon-lt</span>:    <span class="cv">#C8A872</span>;  <span class="cc">/* gradient top                */</span>
-  <span class="ck">--scene-icon-dk</span>:    <span class="cv">#8A6840</span>;  <span class="cc">/* gradient bottom             */</span>
+  <span class="cc">/* Espalier */</span>
+  <span class="ck">--espalier-accent</span>:    <span class="cv">#A06878</span>;  <span class="cc">/* mauve-400                   */</span>
+  <span class="ck">--espalier-accent-dk</span>: <span class="cv">#7E4F5C</span>;  <span class="cc">/* mauve-600                   */</span>
+  <span class="ck">--espalier-icon-lt</span>:   <span class="cv">#C08A9A</span>;  <span class="cc">/* gradient top                */</span>
+  <span class="ck">--espalier-icon-dk</span>:   <span class="cv">#6E4350</span>;  <span class="cc">/* gradient bottom             */</span>
 
   <span class="cc">/* Provenance */</span>
   <span class="ck">--prov-accent</span>:      <span class="cv">#1D9E75</span>;  <span class="cc">/* teal-400                    */</span>
@@ -563,11 +567,11 @@
   <span class="ck">--prov-icon-lt</span>:     <span class="cv">#2DC490</span>;  <span class="cc">/* gradient top                */</span>
   <span class="ck">--prov-icon-dk</span>:     <span class="cv">#0D6B52</span>;  <span class="cc">/* gradient bottom             */</span>
 
-  <span class="cc">/* Works */</span>
-  <span class="ck">--works-accent</span>:     <span class="cv">#5A6480</span>;  <span class="cc">/* dusty-400                   */</span>
-  <span class="ck">--works-accent-dk</span>:  <span class="cv">#434E6B</span>;  <span class="cc">/* dusty-600                   */</span>
-  <span class="ck">--works-icon-lt</span>:    <span class="cv">#717D9A</span>;  <span class="cc">/* gradient top                */</span>
-  <span class="ck">--works-icon-dk</span>:    <span class="cv">#3D4560</span>;  <span class="cc">/* gradient bottom             */</span>
+  <span class="cc">/* Manifest (future / reserved — not yet shipped) */</span>
+  <span class="ck">--manifest-accent</span>:    <span class="cv">#5A6480</span>;  <span class="cc">/* slate-400                   */</span>
+  <span class="ck">--manifest-accent-dk</span>: <span class="cv">#434E6B</span>;  <span class="cc">/* slate-600                   */</span>
+  <span class="ck">--manifest-icon-lt</span>:   <span class="cv">#717D9A</span>;  <span class="cc">/* gradient top                */</span>
+  <span class="ck">--manifest-icon-dk</span>:   <span class="cv">#3D4560</span>;  <span class="cc">/* gradient bottom             */</span>
 
   <span class="cc">/* Shape */</span>
   <span class="ck">--radius-sm</span>:        <span class="cv">3px</span>;

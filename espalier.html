@@ -3,32 +3,32 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Provenance: proof of authorship for writers, on Mac · Procestra</title>
-<meta name="description" content="Provenance is a local-first Mac app that records how your writing gets made. It logs every save, check-in, and source, then exports a tamper-evident record that proves a human did the work. No account. Your files stay on your machine."/>
-<meta name="keywords" content="proof of authorship, writing provenance, local-first Mac app, tamper-evident writing record, prove human written, AI authorship verification, Mac writing tool, version history for writers"/>
+<title>Espalier: a spatial outliner and idea board for Mac · Procestra</title>
+<meta name="description" content="Espalier is a local-first idea board for Mac. Lay your thinking out as cards on an open surface, cluster them into stacks, and snap them into columns and rows. A visual outliner for the stage after capture. Boards you own, as plain files."/>
+<meta name="keywords" content="idea board Mac, spatial outliner, visual outlining app, corkboard app Mac, card-based writing tool, story structure Mac, mind mapping alternative, plain text boards, local-first Mac app"/>
 <meta name="author" content="Procestra"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Procestra"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:title" content="Provenance: proof of authorship for writers, on Mac"/>
-<meta property="og:description" content="A local-first Mac app that quietly records how your writing gets made, then exports a tamper-evident record that proves a human did the work."/>
-<meta property="og:url" content="https://procestra.app/provenance.html"/>
-<meta property="og:image" content="https://procestra.app/img/ledger-light.png"/>
+<meta property="og:title" content="Espalier: a spatial outliner and idea board for Mac"/>
+<meta property="og:description" content="Lay your thinking out as cards, cluster them into stacks, and snap them into columns and rows. A visual outliner for the stage after capture. Boards you own, as plain files."/>
+<meta property="og:url" content="https://procestra.app/espalier.html"/>
+<meta property="og:image" content="https://procestra.app/img/espalier-icon@1024.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Provenance: proof of authorship for writers, on Mac"/>
-<meta name="twitter:description" content="A local-first Mac app that quietly records how your writing gets made, then proves a human did the work."/>
-<meta name="twitter:image" content="https://procestra.app/img/ledger-light.png"/>
-<link rel="canonical" href="https://procestra.app/provenance.html"/>
+<meta name="twitter:title" content="Espalier: a spatial outliner and idea board for Mac"/>
+<meta name="twitter:description" content="Lay your thinking out as cards, cluster them into stacks, and snap them into columns and rows. Boards you own, as plain files."/>
+<meta name="twitter:image" content="https://procestra.app/img/espalier-icon@1024.png"/>
+<link rel="canonical" href="https://procestra.app/espalier.html"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Provenance",
+  "name": "Espalier",
   "applicationCategory": "ProductivityApplication",
   "operatingSystem": "macOS 13.0 or later",
-  "url": "https://procestra.app/provenance.html",
-  "image": "https://procestra.app/img/provenance-icon@1024.png",
-  "description": "A local-first Mac app that records how your writing gets made and exports a tamper-evident Process Record proving a human did the work.",
+  "url": "https://procestra.app/espalier.html",
+  "image": "https://procestra.app/img/espalier-icon@1024.png",
+  "description": "A local-first spatial idea board for Mac. Lay thinking out as cards, cluster them into stacks, and snap them into columns and rows. Boards you own, as plain files.",
   "publisher": { "@type": "Organization", "name": "Procestra", "url": "https://procestra.app/" }
 }
 </script>
@@ -54,7 +54,11 @@
     --ink-30:    rgba(28,26,20,0.3);
     --border:    #DFD0B0;
     --prov:      #1D9E75;
-    --prov-dim:  rgba(29,158,117,0.10);
+    --espalier:      #A06878;
+    --espalier-dim:  rgba(160,104,120,0.10);
+    --accent:        var(--espalier);
+    --accent-dim:    var(--espalier-dim);
+    --accent-hover:  #8A5566;
     --font-brand: 'Fraunces', 'Palatino Linotype', Georgia, serif;
     --font-ui:    'DM Sans', system-ui, sans-serif;
     --font-mono:  ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
@@ -179,7 +183,7 @@
     font-size: 14px;
   }
   .record-links a {
-    color: var(--prov);
+    color: var(--accent);
     text-decoration: none;
     font-weight: 500;
   }
@@ -211,7 +215,7 @@
     margin-bottom: 1.25rem;
     letter-spacing: -0.02em;
   }
-  .hero h1 .accent { color: var(--prov); }
+  .hero h1 .accent { color: var(--accent); }
   .hero-sub {
     font-family: var(--font-ui);
     font-size: 15px;
@@ -247,13 +251,13 @@
     transition: border-color 0.15s;
   }
   .hero-form input[type="email"]::placeholder { color: var(--ochre-400); }
-  .hero-form input[type="email"]:focus { border-color: var(--prov); }
+  .hero-form input[type="email"]:focus { border-color: var(--accent); }
   .hero-form button {
     padding: 10px 18px;
     font-family: var(--font-ui);
     font-size: 13px;
     font-weight: 500;
-    background: var(--prov);
+    background: var(--accent);
     color: #fff;
     border: none;
     border-radius: var(--r-md);
@@ -261,7 +265,7 @@
     white-space: nowrap;
     transition: background 0.15s;
   }
-  .hero-form button:hover { background: #188a65; }
+  .hero-form button:hover { background: var(--accent-hover); }
   .buy-row {
     display: flex;
     align-items: center;
@@ -275,7 +279,7 @@
     font-family: var(--font-ui);
     font-size: 14px;
     font-weight: 500;
-    background: var(--prov);
+    background: var(--accent);
     color: #fff;
     border: none;
     border-radius: var(--r-md);
@@ -284,7 +288,7 @@
     text-decoration: none;
     transition: background 0.15s;
   }
-  .buy-btn:hover { background: #188a65; }
+  .buy-btn:hover { background: var(--accent-hover); }
   .buy-note {
     font-family: var(--font-ui);
     font-size: 12px;
@@ -314,7 +318,7 @@
     width: 13px;
     height: 13px;
     flex: none;
-    color: var(--prov);
+    color: var(--accent);
   }
   .hero-form-note {
     font-family: var(--font-ui);
@@ -400,7 +404,7 @@
     border-radius: 3px;
     white-space: nowrap;
   }
-  .badge-save    { background: var(--prov-dim); color: var(--prov); }
+  .badge-save    { background: var(--accent-dim); color: var(--accent); }
   .badge-note    { background: rgba(192,168,122,0.15); color: var(--ochre-800); }
   .badge-paste   { background: rgba(28,26,20,0.06); color: var(--ink-60); }
   .badge-source  { background: rgba(90,100,128,0.12); color: #5A6480; }
@@ -415,7 +419,7 @@
   .entry-delta {
     font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--prov);
+    color: var(--accent);
     white-space: nowrap;
   }
   .ledger-chain {
@@ -430,7 +434,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--prov);
+    background: var(--accent);
     flex-shrink: 0;
   }
   .chain-hash {
@@ -442,11 +446,70 @@
     font-family: var(--font-ui);
     font-size: 9px;
     font-weight: 500;
-    color: var(--prov);
+    color: var(--accent);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-left: auto;
   }
+
+  /* BENCH MOCKUP */
+  .bench {
+    background: var(--ochre-50);
+    border: 0.5px solid var(--border);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    box-shadow: 0 18px 48px rgba(28,26,20,0.16);
+  }
+  .bench-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 13px;
+    border-bottom: 0.5px solid var(--border);
+    background: var(--ochre-100);
+  }
+  .bench-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+  .bench-title {
+    font-family: var(--font-ui); font-size: 11px; font-weight: 500;
+    color: var(--ochre-600); margin-left: 6px;
+  }
+  .bench-surface {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 18px 16px 22px;
+    background:
+      linear-gradient(var(--border) 0.5px, transparent 0.5px) 0 0 / 100% 30px,
+      linear-gradient(90deg, var(--border) 0.5px, transparent 0.5px) 0 0 / 30px 100%;
+    background-color: var(--ochre-50);
+    background-blend-mode: soft-light;
+  }
+  .bench-col { display: flex; flex-direction: column; gap: 11px; }
+  .bench-col-head {
+    font-family: var(--font-ui); font-size: 8.5px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ochre-600);
+    padding-left: 2px;
+  }
+  .card {
+    background: var(--ochre-100);
+    border: 0.5px solid var(--border);
+    border-left: 2px solid var(--accent);
+    border-radius: var(--r-md);
+    padding: 8px 10px;
+    font-family: var(--font-ui); font-size: 11px; font-weight: 400;
+    color: var(--ink); line-height: 1.3;
+    box-shadow: 0 1px 3px rgba(28,26,20,0.06);
+  }
+  .card.stack { position: relative; }
+  .card.stack::before,
+  .card.stack::after {
+    content: ''; position: absolute; inset: 0;
+    background: var(--ochre-100);
+    border: 0.5px solid var(--border);
+    border-radius: var(--r-md);
+    z-index: -1;
+  }
+  .card.stack::before { transform: translate(3px, 3px); }
+  .card.stack::after  { transform: translate(6px, 6px); opacity: 0.7; }
+  .card-muted { color: var(--ink-60); }
 
   /* SECTIONS */
   .section { max-width: 1080px; margin: 0 auto; padding: 3rem 2rem; }
@@ -492,11 +555,10 @@
     overflow: hidden;
     margin-top: 2.5rem;
   }
-  .feature-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
   .feature-card {
     background: var(--ochre-50);
     padding: 1.5rem 1.5rem 1.75rem;
-    border-top: 2px solid var(--prov);
+    border-top: 2px solid var(--accent);
   }
   .feature-title {
     font-family: var(--font-brand);
@@ -587,7 +649,7 @@
   }
   .arc-bar {
     flex: 1;
-    background: var(--prov);
+    background: var(--accent);
     border-radius: 2px 2px 0 0;
     opacity: 0.65;
   }
@@ -606,7 +668,7 @@
     font-family: var(--font-ui);
     font-size: 9px;
     font-weight: 500;
-    color: var(--prov);
+    color: var(--accent);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-left: auto;
@@ -645,13 +707,13 @@
     transition: border-color 0.15s;
   }
   .signup-form input[type="email"]::placeholder { color: var(--ochre-400); }
-  .signup-form input[type="email"]:focus { border-color: var(--prov); }
+  .signup-form input[type="email"]:focus { border-color: var(--accent); }
   .signup-form button {
     padding: 10px 20px;
     font-family: var(--font-ui);
     font-size: 13px;
     font-weight: 500;
-    background: var(--prov);
+    background: var(--accent);
     color: #fff;
     border: none;
     border-radius: var(--r-md);
@@ -659,7 +721,7 @@
     white-space: nowrap;
     transition: background 0.15s;
   }
-  .signup-form button:hover { background: #188a65; }
+  .signup-form button:hover { background: var(--accent-hover); }
 
   /* FOOTER */
   footer {
@@ -685,7 +747,7 @@
   @media (max-width: 680px) {
     .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 2rem; }
     .hero-form { max-width: 100%; }
-    .feature-grid, .feature-grid.cols-3 { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: 1fr; }
     .signup-form { flex-direction: column; max-width: 100%; }
     .signup-form button { width: 100%; }
     footer { flex-direction: column; gap: 1rem; }
@@ -693,6 +755,12 @@
 </style>
 </head>
 <body>
+
+<!-- Hidden form so Netlify registers the notify list at build time -->
+<form name="notify-espalier" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email"/>
+  <input name="bot-field"/>
+</form>
 
 <nav>
   <a href="/" class="nav-wordmark">
@@ -706,7 +774,7 @@
   </a>
   <div class="nav-links">
     <a href="/seed.html">Seed</a>
-    <a href="/espalier.html">Espalier</a>
+    <a href="/provenance.html">Provenance</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/contact.html">Contact</a>
   </div>
@@ -717,24 +785,28 @@
 <section class="hero">
   <div class="hero-text">
     <div class="app-icon-mark">
-      <img src="img/provenance-icon.png" width="56" height="56" alt="Provenance app icon" class="app-icon-img"/>
+      <img src="img/espalier-icon.png" width="56" height="56" alt="Espalier app icon" class="app-icon-img"/>
       <div>
-        <div class="app-icon-name">Provenance</div>
+        <div class="app-icon-name">Espalier</div>
         <div class="app-icon-byline">A Procestra app</div>
       </div>
     </div>
-    <p class="hero-audience">For writers, screenwriters, researchers, and anyone whose process matters.</p>
-    <h1>If you did the work,<br><span class="accent">Provenance</span> shows it.</h1>
-    <p class="hero-sub">A local-first ledger for your creative process. Every save, every check-in, every source, recorded quietly while you write. When the work gets questioned, you have the record.</p>
+    <p class="hero-audience">For writers, planners, and anyone who thinks better when they can see it.</p>
+    <h1>Train your ideas<br>into <span class="accent">shape</span>.</h1>
+    <p class="hero-sub">A local-first bench for thinking spatially. Lay your ideas out as cards on an open surface, cluster them into stacks, and snap them into columns and rows. It's the stage after capture, when a pile of thoughts needs structure, sequence, and adjacency you can see.</p>
 
-    <div class="buy-row">
-      <a href="https://procestra.lemonsqueezy.com/checkout/buy/96974ca5-ca9d-49e8-94a3-bb36257f5799" class="buy-btn">Get Provenance</a>
-      <span class="buy-note"><strong class="buy-price">$29</strong> · one-time purchase. Mac only.</span>
-    </div>
+    <form class="hero-form notify-form" name="notify-espalier" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="notify-espalier"/>
+      <p hidden><label>Don't fill this out: <input name="bot-field"/></label></p>
+      <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email" aria-label="Email address"/>
+      <button type="submit">Notify me</button>
+    </form>
+    <p class="hero-form-note notify-note">Espalier is in the works. Leave your email and we'll tell you when it's ready to use.</p>
+    <div class="form-success">You're on the list. We'll be in touch the moment Espalier is ready.</div>
     <div class="trust-row">
       <span class="trust-chip">
-        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.4-5 6.5-2.9-1.1-5-3.3-5-6.5v-4l5-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.8 8l1.6 1.6L10.4 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Notarized by Apple
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="3" width="11" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 6h11" stroke="currentColor" stroke-width="1.3"/></svg>
+        Built for macOS
       </span>
       <span class="trust-chip">
         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
@@ -748,96 +820,85 @@
   </div>
 
   <div class="hero-graphic">
-    <img class="shot-back" src="img/ledger-dark.png" width="1280" height="884" alt="" aria-hidden="true" loading="lazy"/>
-    <img class="shot-front" src="img/ledger-light.png" width="1280" height="884" alt="The Provenance ledger: a timestamped, hash-chained record of every source, note, and save in a project." loading="lazy"/>
+    <div class="bench" aria-hidden="true">
+      <div class="bench-bar">
+        <span class="bench-dot"></span><span class="bench-dot"></span><span class="bench-dot"></span>
+        <span class="bench-title">The Mythos of Aria · Act II</span>
+      </div>
+      <div class="bench-surface">
+        <div class="bench-col">
+          <div class="bench-col-head">Setup</div>
+          <div class="card">Open on the dry riverbed</div>
+          <div class="card stack">Mara refuses the map<br><span class="card-muted">+2 more</span></div>
+          <div class="card">The city that remembers its dead</div>
+        </div>
+        <div class="bench-col">
+          <div class="bench-col-head">Turn</div>
+          <div class="card">The map is the villain</div>
+          <div class="card">Bargain at the gate</div>
+          <div class="card stack">Cole's betrayal<br><span class="card-muted">+3 more</span></div>
+        </div>
+        <div class="bench-col">
+          <div class="bench-col-head">Payoff</div>
+          <div class="card">The ending, finally earned</div>
+          <div class="card card-muted">a sound that means "almost"</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="section-label">Why it exists</div>
   <div class="section-body">
-    <p>The finished file shows the result, never the road there. Provenance keeps the road: a quiet record that builds beside your work and exports to a single document anyone can read.</p>
+    <p>Capture is easy; shape is hard. The move after a pile of ideas isn't another list. It's seeing how the pieces sit together, what clusters, what comes first. Espalier is a quiet bench for exactly that, where structure emerges from arrangement instead of an outline you fight to fill.</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="section-label">What gets recorded</div>
+  <div class="section-label">On the bench</div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-title">Cards &amp; stacks</div>
+      <div class="feature-desc">Every idea is a card on an open surface. Drag them together and cluster the related ones into stacks you can collapse and expand.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Columns &amp; rows</div>
+      <div class="feature-desc">When a layout firms up, snap cards into neat columns and rows. One pass to clean up squares the whole board in a beat.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Boards you own</div>
+      <div class="feature-desc">Each board is a local file, <code>.bench</code> or JSON, in a folder you control. Local-first, no account, nothing leaves your Mac.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Export the shape</div>
+      <div class="feature-desc">Turn a finished board into an outline, Markdown, or PDF, and carry the structure into whatever comes next.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">Works with Seed</div>
   <div class="section-body">
-    <p>Provenance watches your project folder. Three things go into the ledger, and every one of them is something you saved or chose to add.</p>
-  </div>
-  <div class="feature-grid cols-3">
-    <div class="feature-card">
-      <div class="feature-title">File saves</div>
-      <div class="feature-desc">Every change to a tracked file, captured as a timestamp, a word count, and a git snapshot.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Check-ins</div>
-      <div class="feature-desc">A short note on how a session went, in your own words, timestamped into the ledger.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Sources</div>
-      <div class="feature-desc">The URLs, passages, and files you choose to log as references. You add what belongs.</div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-label">The Process Record</div>
-  <div class="section-body">
-    <p>Export the whole story as one self-contained file that opens in any browser: the overview, your notes, the version history, your sources, and the full ledger in order. At the bottom, an <strong>Authenticity</strong> attestation lets anyone confirm the record wasn't touched after it was made.</p>
-    <p>Hand it to a publisher, a grant committee, or a portfolio reviewer. Nothing else to install.</p>
-  </div>
-
-  <div class="record-shots">
-    <figure style="margin:0">
-      <a class="shot-frame" href="img/export-overview.png" target="_blank" rel="noopener">
-        <img src="img/export-overview.png" width="1280" height="828" alt="The exported Process Record overview: project summary, description, and working notes." loading="lazy"/>
-      </a>
-      <figcaption class="shot-caption">Overview: the project, its intent, and your working notes.</figcaption>
-    </figure>
-    <figure style="margin:0">
-      <a class="shot-frame" href="img/export-authenticity.png" target="_blank" rel="noopener">
-        <img src="img/export-authenticity.png" width="1280" height="828" alt="The Authenticity section of the exported record: genesis hash, chain head, and verification steps." loading="lazy"/>
-      </a>
-      <figcaption class="shot-caption">Authenticity: the hash chain and step-by-step verification.</figcaption>
-    </figure>
-  </div>
-
-  <div class="record-links">
-    <a href="sample/the-mythos-of-aria.html" target="_blank" rel="noopener">See a real Process Record →</a>
-    <a href="sample/the-mythos-of-aria.pdf" target="_blank" rel="noopener">Download the PDF version →</a>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-label">Built to be trusted</div>
-  <div class="feature-grid cols-3">
-    <div class="feature-card">
-      <div class="feature-title">Yours alone</div>
-      <div class="feature-desc">No server, no account, no sync. The ledger lives in a <code>.ledger</code> folder beside your files. Delete it and Provenance forgets.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Tamper-evident</div>
-      <div class="feature-desc">Every entry is hash-chained to the one before it. Change anything after the fact and the chain breaks, visibly. Verify it yourself.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Plain files</div>
-      <div class="feature-desc">Markdown and JSON you can open in any editor. Export as Markdown, PDF, or a structured bundle whenever you like.</div>
-    </div>
+    <p>Espalier boards fill with cards transplanted from your <span style="color:#B0683F;font-weight:400">Seed</span> garden. Capture loosely in Seed, then pull the ripe ideas onto the bench to shape them. Ideas begin in Seed and grow up in Espalier, though each app stands on its own.</p>
+    <p style="margin-top:1.25rem"><a href="/seed.html" style="color:#B0683F;text-decoration:none;font-weight:500;">Start in Seed →</a></p>
   </div>
 </section>
 
 <section class="section" id="get">
-  <div class="beta-label">Available now</div>
-  <p class="beta-caption">Provenance is out. The record starts the moment you open a project.</p>
-  <div class="buy-row">
-    <a href="https://procestra.lemonsqueezy.com/checkout/buy/96974ca5-ca9d-49e8-94a3-bb36257f5799" class="buy-btn">Get Provenance</a>
-    <span class="buy-note"><strong class="buy-price">$29</strong> · one-time purchase. Mac only.</span>
-  </div>
+  <div class="beta-label">Get notified</div>
+  <p class="beta-caption">Espalier is taking shape. Leave your email and we'll tell you when there's a surface to lay your ideas on.</p>
+  <form class="signup-form notify-form" name="notify-espalier" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <input type="hidden" name="form-name" value="notify-espalier"/>
+    <p hidden><label>Don't fill this out: <input name="bot-field"/></label></p>
+    <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email" aria-label="Email address"/>
+    <button type="submit">Notify me</button>
+  </form>
+  <div class="form-success">You're on the list. We'll be in touch the moment Espalier is ready.</div>
   <div class="trust-row" style="margin-top:1.5rem">
     <span class="trust-chip">
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.4-5 6.5-2.9-1.1-5-3.3-5-6.5v-4l5-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.8 8l1.6 1.6L10.4 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Notarized by Apple
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="3" width="11" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 6h11" stroke="currentColor" stroke-width="1.3"/></svg>
+      Built for macOS
     </span>
     <span class="trust-chip">
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
@@ -854,10 +915,35 @@
   <span class="footer-copy">© 2026 Procestra</span>
   <div class="footer-links">
     <a href="/">Home</a>
+    <a href="/seed.html">Seed</a>
+    <a href="/provenance.html">Provenance</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/contact.html">Contact</a>
   </div>
 </footer>
+
+<script>
+  document.querySelectorAll('form.notify-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      }).then(function () {
+        var parent = form.parentNode;
+        var ok = parent.querySelector('.form-success');
+        var note = parent.querySelector('.notify-note');
+        form.style.display = 'none';
+        if (note) note.style.display = 'none';
+        if (ok) ok.style.display = 'block';
+      }).catch(function () {
+        form.querySelector('button').textContent = 'Try again';
+      });
+    });
+  });
+</script>
 
 </body>
 </html>

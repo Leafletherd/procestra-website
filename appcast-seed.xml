@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Sparkle appcast for Seed.
+
+    Served at: https://procestra.app/appcast-seed.xml
+    (Seed's SUFeedURL in Info.plist must point here. On launch the app
+    GETs this file and compares each <sparkle:version> against the
+    installed CFBundleVersion; a higher number triggers an update prompt.)
+
+    Signing key: Seed shares the suite EdDSA key pair by design.
+    SUPublicEDKey (in Seed's Info.plist) = mo0o7kL086SRjjyTW1HabtgP0ep5ECR7biu30ZmTwEQ=
+    The edSignature below was produced by the matching private key, so it
+    validates. (Provenance uses the same key — this is intentional.)
+
+    Build 1 is current: installed = build 1 and this feed offers build 1,
+    so no update is offered (correct). The feed only triggers an update
+    when you ship a build with sparkle:version >= 2.
+
+    To publish a new version later: bump sparkle:version (>=2) +
+    shortVersionString + pubDate, upload the new DMG to R2, and update the
+    enclosure url + edSignature + length (from sign_update on the new DMG),
+    then deploy this file:
+
+        .build/artifacts/sparkle/Sparkle/bin/sign_update build/Seed-<v>.dmg
+        → prints sparkle:edSignature="…" length="…"
+-->
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Seed</title>
+        <link>https://procestra.app/seed.html</link>
+        <description>Updates for Seed, the notebook for ideas that aren't ready yet.</description>
+        <language>en</language>
+
+        <item>
+            <title>Version 1.0.0</title>
+            <pubDate>Tue, 02 Jun 2026 22:12:01 +0000</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Welcome to Seed 1.0.</h2>
+                <p>The first public release. Search-first capture, notes that
+                grow and wilt as you tend them, a calm card editor, and
+                plain-text files in a garden folder you choose.</p>
+            ]]></description>
+            <enclosure
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/seed-downloads/Seed-1.0.0.dmg"
+                sparkle:edSignature="Jx6pkZbAG7/pCfuRM/P4lqVMGIoCcf+bzrsblgjpF+UKHJkgKEC4sX282K+gDgsEEWEjaIt972kzb1zFwRlSAQ=="
+                length="4613800"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>

@@ -26,6 +26,27 @@
         <language>en</language>
 
         <item>
+            <title>Version 1.0.2</title>
+            <pubDate>Sat, 20 Jun 2026 20:36:33 +0000</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Provenance 1.0.2</h2>
+                <ul>
+                  <li><b>Stronger tamper detection</b> — the integrity check now compares full commit identities, so rewritten or pruned history can't slip past.</li>
+                  <li><b>Crash-safe ledger</b> — a save interrupted mid-write now heals instead of reading as tampered.</li>
+                  <li><b>Rollback witness</b> — a private, on-device high-water mark catches a quietly rolled-back history. No network, ever.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/provenance-downloads/Provenance-1.0.2.dmg"
+                sparkle:edSignature="J2CQGGK/AnvNmvg+FfuD8IL38k9wp3HgaJs7WDEwe5T6Cl1h2t8355FG6WCjly7vtRoyXVFcc8gCiNuBV7TKCw=="
+                length="3732458"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.0.1</title>
             <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate>
             <sparkle:version>2</sparkle:version>

@@ -34,6 +34,27 @@
         <language>en</language>
 
         <item>
+            <title>Version 1.0.2</title>
+            <pubDate>Sat, 20 Jun 2026 20:36:33 +0000</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Seed 1.0.2</h2>
+                <ul>
+                  <li><b>Recent gardens</b> — the Open Garden menu now lists gardens you've used recently.</li>
+                  <li><b>Tidier New menu</b> — New, Open Garden, and Close Garden are grouped together.</li>
+                  <li><b>Safer saves</b> — fixes that keep edits from being lost when notes reload or are restored from the trash.</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/seed-downloads/Seed-1.0.2.dmg"
+                sparkle:edSignature="PIsS1MIBcHjPICIF1sBLTfX47lCeYOJ7AbnfYC+BrYMwkSIeq5vbOD0m4hXzJH1aC6Y2jIchQQm75dQcx71EBg=="
+                length="6105194"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.0.1</title>
             <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate>
             <sparkle:version>2</sparkle:version>

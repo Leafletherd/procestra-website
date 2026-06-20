@@ -2,29 +2,19 @@
 <!--
     Sparkle appcast for Espalier.
 
-    ⚠ NOT LIVE YET — this is a scaffold for a future release. Espalier's
-    DMG is not hosted, and the URL / signature / length below are all
-    placeholders. Do NOT rely on this for updates until every
-    REPLACE_WITH_… value is filled in.
-
     Served at: https://procestra.app/appcast-espalier.xml
-    (Espalier's SUFeedURL in Info.plist must point here once shipping.)
+    (Espalier's SUFeedURL in Info.plist points here. On launch the app GETs
+    this file and compares each <sparkle:version> against the installed
+    CFBundleVersion; a higher number triggers an update prompt.)
 
-    When Espalier is ready to ship:
-      1) Build + sign + notarize the DMG (Espalier-1.0.0.dmg).
-      2) Upload it to R2 (suggested path mirrors the others:
-         …r2.dev/espalier-downloads/Espalier-1.0.0.dmg) and put the real
-         public URL in the enclosure below.
-      3) Run sign_update on the DMG to get edSignature + length:
-            .build/artifacts/sparkle/Sparkle/bin/sign_update build/Espalier-1.0.0.dmg
-         Paste both values in below.
-      4) Confirm Espalier's Info.plist:
-           - SUFeedURL = https://procestra.app/appcast-espalier.xml
-           - SUPublicEDKey = mo0o7kL086SRjjyTW1HabtgP0ep5ECR7biu30ZmTwEQ=
-             (the shared suite key — same as Seed and Provenance, by
-             design; sign_update must use the matching private key).
-           - minimumSystemVersion below matches its deployment target.
-      5) Set a real <pubDate>, finalize the release notes, and deploy.
+    Signing key: Espalier shares the suite EdDSA key pair by design.
+    SUPublicEDKey (in Espalier's Info.plist) = moOo7kLO86SRjjyTWlHabtgP0ep5ECR7biu30ZmTwEQ=
+    The edSignature below was produced by the matching private key.
+
+    To publish a new version later: bump sparkle:version + shortVersionString
+    + pubDate, upload the new DMG to R2, and update the enclosure url +
+    edSignature + length (from sign_update on the new DMG), then deploy this file:
+        Provenance/.build/artifacts/sparkle/Sparkle/bin/sign_update build/Espalier-<v>.dmg
 -->
 <rss version="2.0"
      xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
@@ -35,28 +25,26 @@
         <description>Updates for Espalier, the bench for thinking spatially.</description>
         <language>en</language>
 
-        <!--
-            Placeholder item for the first release. Uncomment-ready, but
-            every REPLACE_WITH_… value below must be set before this offers
-            a real update. Until then this item will not validate and
-            Sparkle will (correctly) ignore / reject it.
-        -->
         <item>
-            <title>Version 1.0.0</title>
-            <pubDate>REPLACE_WITH_REAL_PUBDATE</pubDate>
-            <sparkle:version>1</sparkle:version>
-            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <title>Version 1.0.2</title>
+            <pubDate>Sat, 20 Jun 2026 20:36:33 +0000</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
-                <h2>Welcome to Espalier 1.0.</h2>
-                <p>The first public release. A bench for thinking spatially —
-                lay ideas out as cards, cluster them into stacks, and snap
-                them into columns and rows. Boards you own, as plain files.</p>
+                <h2>Espalier 1.0.2</h2>
+                <ul>
+                  <li><b>Expand any card</b> — click a card's body to open it full-size, with a quick color picker.</li>
+                  <li><b>Columns and stacks</b> — reorder cards in a column, fan out a stack, and move a whole column to another board.</li>
+                  <li><b>Much faster on big boards</b> — scrolling large boards is now smooth.</li>
+                  <li><b>Templates and a welcome board</b> — every template opens with example cards, plus a guided welcome board.</li>
+                  <li><b>Choose your editor font</b> — in Settings, under Editor.</li>
+                </ul>
             ]]></description>
             <enclosure
-                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/espalier-downloads/Espalier-1.0.0.dmg"
-                sparkle:edSignature="REPLACE_WITH_SIGN_UPDATE_OUTPUT"
-                length="REPLACE_WITH_SIGN_UPDATE_LENGTH"
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/espalier-downloads/Espalier-1.0.2.dmg"
+                sparkle:edSignature="j6aiF5OnxBkZm4r+V2tBqRu4k55g9ADYH5k12S6gD4hR72+RP8M1Fk6RcNRoEHkTfM01mTrko6Nxuj7m+c6GCg=="
+                length="3761520"
                 type="application/octet-stream" />
         </item>
     </channel>

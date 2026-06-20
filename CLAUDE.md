@@ -14,7 +14,7 @@ Marketing site for the Procestra suite. **This `Website/` folder is its own git 
 - Each page carries its **own inline `<style>`** (no shared stylesheet) — when editing one app page, mirror the change across the others.
 
 ## The apps
-Three local-first macOS apps. (Rebrand history: "Scene Board" → **Espalier**, "Works" → **Manifest**; Manifest isn't built.)
+Three local-first macOS apps. (Rebrand history: "Scene Board" → **Espalier**. "Works" was retired and never shipped; the suite is exactly three apps, with no reserved fourth.)
 
 | App | Accent | Status | Buy URL (Lemon Squeezy) |
 |---|---|---|---|
@@ -22,7 +22,7 @@ Three local-first macOS apps. (Rebrand history: "Scene Board" → **Espalier**, 
 | Provenance | teal `#1D9E75` | $29, live | `…/checkout/buy/96974ca5-ca9d-49e8-94a3-bb36257f5799` |
 | Espalier | mauve `#A06878` | live (price TBD — `[CONFIRM PRICE]` placeholder on page) | `…/checkout/buy/0eb01a41-4ac9-420b-a8ea-c677c22bd297` |
 
-Suite logo circles (TL→clockwise): Seed clay, Espalier mauve, Provenance teal, Manifest slate `#5A6480`. Buy URLs change when LS products are recreated — use the latest the user gives.
+Suite logo circles (TL→clockwise): Seed clay, Espalier mauve, Provenance teal. Buy URLs change when LS products are recreated, so use the latest the user gives.
 
 ## Design + copy conventions
 - Palette: ochre-tan surface (`#F0E5CC`). Each app page sets a generic `--accent` to its app color. Fonts: Fraunces (headings) + DM Sans (UI).
@@ -37,7 +37,7 @@ Pattern: a hidden detection `<form name="notify-*" data-netlify="true" netlify-h
 ## Sparkle auto-update (appcasts)
 - Feeds served from here: `appcast-provenance.xml`, `appcast-seed.xml`, `appcast-espalier.xml` → live at `procestra.app/appcast-*.xml`. **The appcast is the source of truth, not the bucket.**
 - DMGs on Cloudflare R2: `https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/<app>-downloads/<App>-<ver>.dmg` (this `*.r2.dev` URL is used as production by choice).
-- **Shared EdDSA key across all apps (intentional):** `SUPublicEDKey = mo0o7kL086SRjjyTW1HabtgP0ep5ECR7biu30ZmTwEQ=`. Don't generate new keys.
+- **Shared EdDSA key across all apps (intentional):** `SUPublicEDKey = moOo7kLO86SRjjyTWlHabtgP0ep5ECR7biu30ZmTwEQ=`. Don't generate new keys.
 - **Ship a version:** in the `<item>`, bump `sparkle:version` (integer build — this triggers the update), `shortVersionString`, `pubDate`, the enclosure `url`, and `edSignature` + `length` (from `sign_update` on the new DMG; byte-specific). Then deploy. Before deploying, verify: `curl -sI <dmg-url>` is `200` and `content-length` equals the appcast `length`.
 - All three apps ship via these feeds (Espalier included). Check the appcast files for the current version — 1.0.2 / build 3 as of 2026-06. App-side runbooks: `../Provenance/RELEASE.md`, `../Provenance/UPDATES.md`.
 

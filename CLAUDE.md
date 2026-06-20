@@ -20,7 +20,7 @@ Three local-first macOS apps. (Rebrand history: "Scene Board" → **Espalier**, 
 |---|---|---|---|
 | Seed | clay `#C87B5A` | $19, live | `…/checkout/buy/9a4a27f5-c1a5-455c-a281-5d5f599131b7` |
 | Provenance | teal `#1D9E75` | $29, live | `…/checkout/buy/96974ca5-ca9d-49e8-94a3-bb36257f5799` |
-| Espalier | mauve `#A06878` | **not built** — notify form, no buy | `…/checkout/buy/0eb01a41-4ac9-420b-a8ea-c677c22bd297` (future) |
+| Espalier | mauve `#A06878` | live (price TBD — `[CONFIRM PRICE]` placeholder on page) | `…/checkout/buy/0eb01a41-4ac9-420b-a8ea-c677c22bd297` |
 
 Suite logo circles (TL→clockwise): Seed clay, Espalier mauve, Provenance teal, Manifest slate `#5A6480`. Buy URLs change when LS products are recreated — use the latest the user gives.
 
@@ -32,16 +32,17 @@ Suite logo circles (TL→clockwise): Seed clay, Espalier mauve, Provenance teal,
 - SEO on the four main pages: titles, meta descriptions/keywords, OG/Twitter tags, JSON-LD, `sitemap.xml`.
 
 ## Netlify notify forms
-Pattern: a hidden detection `<form name="notify-*" data-netlify="true" netlify-honeypot="bot-field" hidden>` near `<body>`, visible `.notify-form` forms, and a small JS handler. Currently only **Espalier** (and home `notify-suite`) use forms; Seed/Provenance use buy buttons.
+Pattern: a hidden detection `<form name="notify-*" data-netlify="true" netlify-honeypot="bot-field" hidden>` near `<body>`, visible `.notify-form` forms, and a small JS handler. All three app pages now use **buy buttons**; only the home page keeps a `notify-suite` newsletter form.
 
 ## Sparkle auto-update (appcasts)
 - Feeds served from here: `appcast-provenance.xml`, `appcast-seed.xml`, `appcast-espalier.xml` → live at `procestra.app/appcast-*.xml`. **The appcast is the source of truth, not the bucket.**
 - DMGs on Cloudflare R2: `https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/<app>-downloads/<App>-<ver>.dmg` (this `*.r2.dev` URL is used as production by choice).
 - **Shared EdDSA key across all apps (intentional):** `SUPublicEDKey = mo0o7kL086SRjjyTW1HabtgP0ep5ECR7biu30ZmTwEQ=`. Don't generate new keys.
 - **Ship a version:** in the `<item>`, bump `sparkle:version` (integer build — this triggers the update), `shortVersionString`, `pubDate`, the enclosure `url`, and `edSignature` + `length` (from `sign_update` on the new DMG; byte-specific). Then deploy. Before deploying, verify: `curl -sI <dmg-url>` is `200` and `content-length` equals the appcast `length`.
-- Current: Provenance + Seed at **1.0.1 (build 2)**, live. Espalier appcast is a not-live placeholder. App-side runbooks: `../Provenance/RELEASE.md`, `../Provenance/UPDATES.md`.
+- All three apps ship via these feeds (Espalier included). Check the appcast files for the current version — 1.0.2 / build 3 as of 2026-06. App-side runbooks: `../Provenance/RELEASE.md`, `../Provenance/UPDATES.md`.
 
 ## Open items
-- Appcast 1.0.1 release notes are a generic placeholder — swap in a real changelog when available.
-- Espalier: when built, capture real screenshots (currently a CSS "bench" mock), switch notify→buy, fill its appcast.
+- Appcast release notes are a generic placeholder ("A maintenance update with fixes and refinements") — swap in a real changelog when available.
+- **Espalier price** is a `[CONFIRM PRICE]` placeholder on the page (buy button is live) — fill in the real price before relying on it.
+- Espalier hero still uses a CSS "bench" mock — replace with a real app screenshot when available.
 - Some unused/dead CSS remains on a few pages (harmless).

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Sparkle appcast for Draught (the writing surface).
+
+    Served at: https://procestra.app/appcast-draught.xml
+    (Draught's SUFeedURL in Info.plist points here. On launch the app GETs
+    this file and compares each <sparkle:version> against the installed
+    CFBundleVersion; a higher number triggers an update prompt.)
+
+    STATUS: Draught is not released yet. This feed is STAGED and intentionally
+    has NO <item> — Sparkle sees nothing newer, so no update is ever offered.
+    That's correct until the first public build ships.
+
+    Signing key: Draught shares the suite EdDSA key pair by design.
+    SUPublicEDKey (in Draught's Info.plist) = moOo7kLO86SRjjyTWlHabtgP0ep5ECR7biu30ZmTwEQ=
+    (Seed / Provenance / Espalier use the same key — this is intentional.)
+
+    To ship the first version: add an <item> below with sparkle:version (the
+    integer build), shortVersionString, minimumSystemVersion, a release-note
+    <description>, and an <enclosure> pointing at the DMG on R2 with the
+    edSignature + length from sign_update:
+
+        .build/artifacts/sparkle/Sparkle/bin/sign_update build/Draught-<v>.dmg
+        → prints sparkle:edSignature="…" length="…"
+
+    then deploy this file. See ../Provenance/RELEASE.md for the runbook.
+-->
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Draught</title>
+        <link>https://procestra.app/draught.html</link>
+        <description>Updates for Draught, the writing surface.</description>
+        <language>en</language>
+
+        <item>
+            <title>Version 1.0.0</title>
+            <pubDate>Thu, 17 Jul 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <!-- 14.0, NOT 13.0: Draught builds against the macOS 14 SDK floor.
+                 A 13.0 value would offer macOS 13 users a build that can't
+                 launch (the appcast min-OS trap). -->
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Draught 1.0.0</h2>
+                <p>The writing surface: a stupidly simple prose and screenplay
+                app that quietly remembers everything and exports beautifully.</p>
+                <ul>
+                  <li><b>A calm page</b> — a centered reading column on a quiet sheet, a block caret, and nothing else.</li>
+                  <li><b>Screenplay lens</b> — Fountain formatting that falls out of typing; the file stays plain text.</li>
+                  <li><b>Quiet memory</b> — projects keep every version; history, scraps, and notes are one click away.</li>
+                  <li><b>Beautiful exports</b> — Reading, Manuscript, Book, and Screenplay PDFs.</li>
+                </ul>
+            ]]></description>
+            <!-- TODO(sign-at-release): edSignature + length come from
+                 sign_update over the FINAL signed/notarized DMG:
+                 .build/artifacts/sparkle/Sparkle/bin/sign_update build/Draught-1.0.0.dmg -->
+            <enclosure
+                url="https://pub-db9995825af14961a74cb646cccf5ac2.r2.dev/draught-downloads/Draught-1.0.0.dmg"
+                sparkle:edSignature="SIGN-AT-RELEASE"
+                length="0"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Sparkle appcast for Manifest (the home for finished work).
+
+    Served at: https://procestra.app/appcast-manifest.xml
+    (Manifest's SUFeedURL in Info.plist points here. On launch the app GETs
+    this file and compares each <sparkle:version> against the installed
+    CFBundleVersion; a higher number triggers an update prompt.)
+
+    STATUS: Manifest is not released yet. This feed is STAGED and intentionally
+    has NO <item> — Sparkle sees nothing newer, so no update is ever offered.
+    That's correct until the first public build ships.
+
+    Signing key: Manifest shares the suite EdDSA key pair by design.
+    SUPublicEDKey (in Manifest's Info.plist) = moOo7kLO86SRjjyTWlHabtgP0ep5ECR7biu30ZmTwEQ=
+    (Seed / Provenance / Espalier / Draught use the same key — this is intentional.)
+
+    To ship the first version: add an <item> below with sparkle:version (the
+    integer build), shortVersionString, minimumSystemVersion, a release-note
+    <description>, and an <enclosure> pointing at the DMG on R2 with the
+    edSignature + length from sign_update:
+
+        .build/artifacts/sparkle/Sparkle/bin/sign_update build/Manifest-<v>.dmg
+        → prints sparkle:edSignature="…" length="…"
+
+    then deploy this file. See ../Provenance/RELEASE.md for the runbook.
+-->
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Manifest</title>
+        <link>https://procestra.app/manifest.html</link>
+        <description>Updates for Manifest, the home for finished work.</description>
+        <language>en</language>
+        <!-- No items yet — Manifest has not shipped. Add the first <item> here at release. -->
+    </channel>
+</rss>

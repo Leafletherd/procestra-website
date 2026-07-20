@@ -38,7 +38,7 @@ Pattern: a hidden detection `<form name="notify-*" data-netlify="true" netlify-h
 
 ## Sparkle auto-update (appcasts)
 - Feeds served from here: `appcast-provenance.xml`, `appcast-seed.xml`, `appcast-espalier.xml`, `appcast-draught.xml` (+ staged item-less `appcast-manifest.xml`) → live at `procestra.app/appcast-*.xml`. **The appcast is the source of truth, not the bucket.**
-- DMGs on Cloudflare R2: `https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/<app>-downloads/<App>-<ver>.dmg` for Seed/Espalier/Provenance; Draught uses its own bucket `https://pub-db9995825af14961a74cb646cccf5ac2.r2.dev/draught-downloads/`. (`*.r2.dev` URLs are production by choice.)
+- DMGs on Cloudflare R2: `https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/<app>-downloads/<App>-<ver>.dmg` for ALL FOUR apps (Draught's `draught-downloads/` lives in the same bucket — the separate pub-db99… bucket was never publicly enabled and is unused). (`*.r2.dev` URLs are production by choice.)
 - **Min-OS trap:** every item from the 2.0.0/1.1.0/1.0.0(Draught) wave onward must say `minimumSystemVersion` **14.0** — a 13.0 value offers macOS 13 users builds that can't launch.
 - **Shared EdDSA key across all apps (intentional):** `SUPublicEDKey = moOo7kLO86SRjjyTWlHabtgP0ep5ECR7biu30ZmTwEQ=`. Don't generate new keys.
 - **Ship a version:** in the `<item>`, bump `sparkle:version` (integer build — this triggers the update), `shortVersionString`, `pubDate`, the enclosure `url`, and `edSignature` + `length` (from `sign_update` on the new DMG; byte-specific). Then deploy. Before deploying, verify: `curl -sI <dmg-url>` is `200` and `content-length` equals the appcast `length`.

@@ -35,4 +35,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url><loc>https://procestra.app/draught.html</loc></url>
+  <url><loc>https://procestra.app/draught-releases.html</loc></url>
+  <url><loc>https://procestra.app/seed-releases.html</loc></url>
+  <url><loc>https://procestra.app/espalier-releases.html</loc></url>
+  <url><loc>https://procestra.app/provenance-releases.html</loc></url>
 </urlset>

@@ -413,7 +413,7 @@
   .badge-save    { background: var(--accent-dim); color: var(--accent); }
   .badge-note    { background: rgba(192,168,122,0.15); color: var(--ochre-800); }
   .badge-paste   { background: rgba(28,26,20,0.06); color: var(--ink-60); }
-  .badge-source  { background: rgba(90,100,128,0.12); color: #5A6480; }
+  .badge-source  { background: rgba(90,100,128,0.12); color: #3F6585; }
   .entry-content {
     font-family: var(--font-ui);
     font-size: 11.5px;
@@ -770,6 +770,34 @@
     .signup-form button { width: 100%; }
     footer { flex-direction: column; gap: 1rem; }
   }
+
+  /* Apps dropdown (suite nav) */
+  .nav-apps { position: relative; }
+  .nav-apps-btn {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: var(--font-ui); font-size: 12px; letter-spacing: 0.04em;
+    background: none; border: none; padding: 0; cursor: pointer;
+  }
+  .nav-apps-btn svg { transition: transform 0.15s ease; }
+  .nav-apps.open .nav-apps-btn svg { transform: rotate(180deg); }
+  .nav-apps-menu {
+    display: none;
+    position: absolute; right: 0; top: calc(100% + 10px);
+    width: 200px; background: #FAF6EF;
+    border: 0.5px solid var(--border, #DFD0B0); border-radius: 12px;
+    padding: 8px; z-index: 40;
+    box-shadow: 0 18px 50px rgba(28,26,20,0.16);
+  }
+  .nav-apps.open .nav-apps-menu { display: block; }
+  .nav-apps-label { font-size: 11px; letter-spacing: 0.08em; color: #888780; padding: 8px 10px 6px; }
+  .nav-apps-menu a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 10px; border-radius: 8px;
+    font-size: 14px; color: #1C1A14 !important; text-decoration: none;
+    letter-spacing: 0;
+  }
+  .nav-apps-menu a:hover, .nav-apps-menu a.current { background: #EFE7D4; }
+  .nav-apps-menu .dot9 { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -780,14 +808,24 @@
       <circle cx="5.5" cy="5.5" r="4.5" fill="#C87B5A"/>
       <circle cx="16.5" cy="5.5" r="4.5" fill="#A06878"/>
       <circle cx="5.5" cy="16.5" r="4.5" fill="#1D9E75"/>
-      <circle cx="16.5" cy="16.5" r="4.5" fill="#5A6480"/>
+      <circle cx="16.5" cy="16.5" r="4.5" fill="#3F6585"/>
     </svg>
     <span class="nav-wordmark-text">Procestra</span>
   </a>
   <div class="nav-links">
-    <a href="/espalier.html">Espalier</a>
-    <a href="/provenance.html">Provenance</a>
-    <a href="/draught.html">Draught</a>
+    <div class="nav-apps" id="navApps">
+      <button class="nav-apps-btn" type="button" aria-haspopup="true" aria-expanded="false" style="color:var(--ochre-600)">
+        Apps
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav-apps-menu">
+        <div class="nav-apps-label">APPS</div>
+      <a href="/seed.html" class="current"><span class="dot9" style="background:#C87B5A"></span>Seed</a>
+      <a href="/espalier.html"><span class="dot9" style="background:#A06878"></span>Espalier</a>
+      <a href="/draught.html"><span class="dot9" style="background:#2D5A3D"></span>Draught</a>
+      <a href="/provenance.html"><span class="dot9" style="background:#1D9E75"></span>Provenance</a>
+      </div>
+    </div>
     <a href="/privacy.html">Privacy</a>
     <a href="/contact.html">Contact</a>
   </div>
@@ -919,6 +957,7 @@
       One-time purchase, no subscription
     </span>
   </div>
+  <p style="margin-top:1.25rem; font-size:12px;"><a href="/seed-releases.html" style="color: #C87B5A;">Release notes →</a></p>
 </section>
 
 <footer>
@@ -932,5 +971,24 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var apps = document.getElementById('navApps');
+  if (!apps) return;
+  var btn = apps.querySelector('.nav-apps-btn');
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = apps.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('click', function () {
+    apps.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { apps.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  });
+})();
+</script>
 </body>
 </html>

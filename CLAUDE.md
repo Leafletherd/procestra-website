@@ -9,20 +9,22 @@ Marketing site for the Procestra suite. **This `Website/` folder is its own git 
 - Preview locally with headless Chrome: `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --screenshot=/tmp/x.png --window-size=1280,2000 "file://$PWD/index.html"`. Use relative asset paths (`img/…`, not `/img/…`) so `file://` previews work.
 
 ## Structure
-- Pages: `index.html` (home), `seed.html`, `espalier.html`, `provenance.html`, `privacy.html`, `contact.html`, `pricing.html`, plus internal `process_suite_brand_guidelines.html`.
+- Pages: `index.html` (home), `seed.html`, `espalier.html`, `provenance.html`, `draught.html`, `privacy.html`, `contact.html`, `pricing.html`, per-app release notes (`{app}-releases.html` × 4, linked from each app page's get section AND from the in-app What's New "See everything" links), plus internal `process_suite_brand_guidelines.html`.
+- Nav: an **Apps dropdown** (four color-dot rows, current page highlighted) on every page; Privacy and Contact stay top-level. The dropdown CSS/JS is inlined per page like everything else.
 - `img/` screenshots + app icons · `icons/` SVG marks for home cards · favicons/manifest at root · `sample/` a real exported Process Record (HTML + PDF) linked from the Provenance page.
 - Each page carries its **own inline `<style>`** (no shared stylesheet) — when editing one app page, mirror the change across the others.
 
 ## The apps
-Three local-first macOS apps. (Rebrand history: "Scene Board" → **Espalier**. "Works" was retired and never shipped; the suite is exactly three apps, with no reserved fourth.)
+Four shipped/shipping local-first macOS apps (a fifth, Manifest, is in development and has no page). (Rebrand history: "Scene Board" → **Espalier**; "Works" → **Manifest**, revived.)
 
 | App | Accent | Status | Buy URL (Lemon Squeezy) |
 |---|---|---|---|
 | Seed | clay `#C87B5A` | $19, live | `…/checkout/buy/9a4a27f5-c1a5-455c-a281-5d5f599131b7` |
 | Provenance | teal `#1D9E75` | $29, live | `…/checkout/buy/96974ca5-ca9d-49e8-94a3-bb36257f5799` |
 | Espalier | mauve `#A06878` | live (price TBD — `[CONFIRM PRICE]` placeholder on page) | `…/checkout/buy/0eb01a41-4ac9-420b-a8ea-c677c22bd297` |
+| Draught | forest `#2D5A3D` | $29, first release staged | `…/checkout/buy/9566f418-530c-46c1-a2a2-e71074200825` |
 
-Suite logo circles (TL→clockwise): Seed clay, Espalier mauve, Provenance teal. Buy URLs change when LS products are recreated, so use the latest the user gives.
+Wordmark dots: clay, mauve, teal, slate-blue `#3F6585`. Buy URLs change when LS products are recreated, so use the latest the user gives.
 
 ## Design + copy conventions
 - Palette: ochre-tan surface (`#F0E5CC`). Each app page sets a generic `--accent` to its app color. Fonts: Fraunces (headings) + DM Sans (UI).
@@ -35,11 +37,12 @@ Suite logo circles (TL→clockwise): Seed clay, Espalier mauve, Provenance teal.
 Pattern: a hidden detection `<form name="notify-*" data-netlify="true" netlify-honeypot="bot-field" hidden>` near `<body>`, visible `.notify-form` forms, and a small JS handler. All three app pages now use **buy buttons**; only the home page keeps a `notify-suite` newsletter form.
 
 ## Sparkle auto-update (appcasts)
-- Feeds served from here: `appcast-provenance.xml`, `appcast-seed.xml`, `appcast-espalier.xml` → live at `procestra.app/appcast-*.xml`. **The appcast is the source of truth, not the bucket.**
-- DMGs on Cloudflare R2: `https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/<app>-downloads/<App>-<ver>.dmg` (this `*.r2.dev` URL is used as production by choice).
+- Feeds served from here: `appcast-provenance.xml`, `appcast-seed.xml`, `appcast-espalier.xml`, `appcast-draught.xml` (+ staged item-less `appcast-manifest.xml`) → live at `procestra.app/appcast-*.xml`. **The appcast is the source of truth, not the bucket.**
+- DMGs on Cloudflare R2: `https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/<app>-downloads/<App>-<ver>.dmg` for Seed/Espalier/Provenance; Draught uses its own bucket `https://pub-db9995825af14961a74cb646cccf5ac2.r2.dev/draught-downloads/`. (`*.r2.dev` URLs are production by choice.)
+- **Min-OS trap:** every item from the 2.0.0/1.1.0/1.0.0(Draught) wave onward must say `minimumSystemVersion` **14.0** — a 13.0 value offers macOS 13 users builds that can't launch.
 - **Shared EdDSA key across all apps (intentional):** `SUPublicEDKey = moOo7kLO86SRjjyTWlHabtgP0ep5ECR7biu30ZmTwEQ=`. Don't generate new keys.
 - **Ship a version:** in the `<item>`, bump `sparkle:version` (integer build — this triggers the update), `shortVersionString`, `pubDate`, the enclosure `url`, and `edSignature` + `length` (from `sign_update` on the new DMG; byte-specific). Then deploy. Before deploying, verify: `curl -sI <dmg-url>` is `200` and `content-length` equals the appcast `length`.
-- All three apps ship via these feeds (Espalier included). Check the appcast files for the current version — 1.0.2 / build 3 as of 2026-06. App-side runbooks: `../Provenance/RELEASE.md`, `../Provenance/UPDATES.md`.
+- All four apps ship via these feeds. Check the appcast files for the current version — 1.0.2 / build 3 as of 2026-06. App-side runbooks: `../Provenance/RELEASE.md`, `../Provenance/UPDATES.md`.
 
 ## Open items
 - Appcast release notes are a generic placeholder ("A maintenance update with fixes and refinements") — swap in a real changelog when available.

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seed — Release notes</title>
+<style>
+  :root{--paper:#f7f3ea;--raised:#fffdf8;--hair:#e7e0d0;--ink:#2a2724;--ink-dim:#6f695e;--ink-faint:#a8a094;--accent:#a95f3f;
+    --new:#a95f3f;--imp:#8a7d3f;--fix:#9a6b53;
+    --sans:-apple-system,"SF Pro Text",system-ui,sans-serif;--serif:"Iowan Old Style","New York",Georgia,serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:680px;margin:0 auto;padding:76px 32px 120px}
+  .brand{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink-dim);margin-bottom:60px}
+  .brand a{color:inherit;text-decoration:none}
+  .brand .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:1px}
+  .rel{display:flex;gap:48px;padding-bottom:56px;margin-bottom:56px;border-bottom:1px solid var(--hair)}
+  .rel:last-child{border-bottom:none}
+  .meta{width:120px;flex-shrink:0;padding-top:4px}
+  .ver{font-family:var(--serif);font-size:22px;font-weight:600}
+  .date{font-size:12.5px;color:var(--ink-faint);margin-top:4px}
+  .body{flex:1}
+  .lede{font-family:var(--serif);font-size:18px;line-height:1.5;margin-bottom:30px}
+  .grp{margin-bottom:24px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:12px}
+  .tag.new{color:var(--new)} .tag.imp{color:var(--imp)} .tag.fix{color:var(--fix)}
+  .item{display:flex;gap:11px;font-size:14.5px;padding:5px 0;color:var(--ink)}
+  .item .b{color:var(--ink-faint);flex-shrink:0}
+  .item b{font-weight:600}
+  .item .k{color:var(--ink-dim)}
+  @media (max-width:560px){.rel{flex-direction:column;gap:14px}}
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span><a href="seed.html">Seed</a> · Release notes</div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">2.0.0</div>
+        <div class="date">Jul 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Notes open in place, status becomes a sort, and every note keeps its history.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>Notes open in place.</b> <span class="k">A note expands right where it sits in the list and collapses back when you close it. The editor keeps one compact size at every length; the open note carries a faint wash of its own stage color.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Version history.</b> <span class="k">Open a note’s own history from the word count, see how it grew over time, read any past version, and revert to one with a single click (undo with ⌘Z).</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Compost.</b> <span class="k">One quiet place for finished notes: Pruned on top, the ones you might want back, and Harvested below, the ones that graduated onward. A harvested note says where it went.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Transplant to a Draught project.</b> <span class="k">Grow a note into its own writing project — a folder with its own history, the note as the first draft, opened in Draught.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Garden Backup.</b> <span class="k">Point a garden at a folder and Seed keeps one complete, safe copy of everything, backing up automatically whenever that folder is connected.</span></span></div>
+        </div>
+        <div class="grp">
+          <div class="tag imp">Improved</div>
+        <div class="item"><span class="b">·</span><span><b>Status is a sort.</b> <span class="k">The stage-pill row is gone. Choose Status in the sort menu and the list groups by stage in lifecycle order, Dormant sinking to the bottom.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Editor polish.</b> <span class="k">The writing area fills the whole card, the word count counts your writing rather than file details, and a fresh note reads as a Sprout again.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.2</div>
+        <div class="date">Jun 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Easier to navigate, safer to trust.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>Recent gardens.</b> <span class="k">File ▸ Open Garden now lists the gardens you’ve used recently, so switching is one click.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Tidier New menu.</b> <span class="k">New ▸ New Seed / New Garden, with Open and Close Garden grouped just below.</span></span></div>
+        </div>
+        <div class="grp">
+          <div class="tag fix">Fixed</div>
+        <div class="item"><span class="b">·</span><span><b>Safer saves.</b> <span class="k">Under-the-hood fixes keep edits from being lost when notes reload, or when a pruned note is restored.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.1</div>
+        <div class="date">Jun 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Runs anywhere, no setup.</div>
+        <div class="grp">
+          <div class="tag fix">Fixed</div>
+        <div class="item"><span class="b">·</span><span><b>No developer tools needed.</b> <span class="k">Garden history now works on any Mac out of the box, with no command-line tools to install.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.0</div>
+        <div class="date">Jun 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Welcome to Seed.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>Search-first capture.</b> <span class="k">The search bar is the app: type to find a note, or press ⏎ to plant a new one with what you typed.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Living categories.</b> <span class="k">Seeds sort themselves into Sprout, Growing, Rooted, Wilting, and Dormant, each with its own colour, based on how you tend them.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Transplant anywhere.</b> <span class="k">Send notes to an Espalier board, or export them as TXT, Markdown, or Word (.docx).</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Your files, your folder.</b> <span class="k">Notes are plain text files in a garden folder you choose. Open them in any editor, anytime.</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body></html>

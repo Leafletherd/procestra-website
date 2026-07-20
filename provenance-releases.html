@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Provenance — Release notes</title>
+<style>
+  :root{--paper:#f7f3ea;--raised:#fffdf8;--hair:#e7e0d0;--ink:#2a2724;--ink-dim:#6f695e;--ink-faint:#a8a094;--accent:#3f8f6b;
+    --new:#3f8f6b;--imp:#8a7d3f;--fix:#9a6b53;
+    --sans:-apple-system,"SF Pro Text",system-ui,sans-serif;--serif:"Iowan Old Style","New York",Georgia,serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:680px;margin:0 auto;padding:76px 32px 120px}
+  .brand{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink-dim);margin-bottom:60px}
+  .brand a{color:inherit;text-decoration:none}
+  .brand .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:1px}
+  .rel{display:flex;gap:48px;padding-bottom:56px;margin-bottom:56px;border-bottom:1px solid var(--hair)}
+  .rel:last-child{border-bottom:none}
+  .meta{width:120px;flex-shrink:0;padding-top:4px}
+  .ver{font-family:var(--serif);font-size:22px;font-weight:600}
+  .date{font-size:12.5px;color:var(--ink-faint);margin-top:4px}
+  .body{flex:1}
+  .lede{font-family:var(--serif);font-size:18px;line-height:1.5;margin-bottom:30px}
+  .grp{margin-bottom:24px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:12px}
+  .tag.new{color:var(--new)} .tag.imp{color:var(--imp)} .tag.fix{color:var(--fix)}
+  .item{display:flex;gap:11px;font-size:14.5px;padding:5px 0;color:var(--ink)}
+  .item .b{color:var(--ink-faint);flex-shrink:0}
+  .item b{font-weight:600}
+  .item .k{color:var(--ink-dim)}
+  @media (max-width:560px){.rel{flex-direction:column;gap:14px}}
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span><a href="provenance.html">Provenance</a> · Release notes</div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">2.0.0</div>
+        <div class="date">Jul 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">A calmer look, one weighted ledger, and a safe copy of your whole project.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>Weighted ledger.</b> <span class="k">A run of saves collapses into one session entry, named for the file it touched, with a grid of times and word changes underneath.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Three roles.</b> <span class="k">Every tracked file is a Manuscript, a Source, or an Artifact. The role is what the ledger records; format is read from the file.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Whole-project backup.</b> <span class="k">Point at a folder and Provenance mirrors the project automatically, verifying after each sync. Remove it any time without deleting the copy.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Process Record.</b> <span class="k">A shareable summary of how the work was made — sessions, span, density, and verification — one click from the timeline.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Capture panel.</b> <span class="k">One Add surface: type a check-in, or drop a file as an artifact or source. Import and triage move to the Inbox.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Feedback, end to end.</b> <span class="k">Request a clean reading page from any version — a reviewer comments offline with nothing installed and returns one small file. Provenance logs their notes against the exact version that answered them.</span></span></div>
+        </div>
+        <div class="grp">
+          <div class="tag imp">Improved</div>
+        <div class="item"><span class="b">·</span><span><b>Unified header.</b> <span class="k">A project switcher replaces the tabs and title; the process summary sits in the titlebar.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Centered timeline.</b> <span class="k">The ledger reads down a calm central column, capped at both ends.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Native menus.</b> <span class="k">System menus everywhere, flat unified ground, search moved to ⌘F.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Honest placement.</b> <span class="k">An old file imported today lands at today; its artifact shows both created and imported dates.</span></span></div>
+        </div>
+        <div class="grp">
+          <div class="tag fix">Fixed</div>
+        <div class="item"><span class="b">·</span><span><b>Arrival no longer logs a ledger event.</b> <span class="k">Importing a manuscript is triage, not a recorded moment.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>“Project connected” shows a real date.</b> <span class="k">instead of a null value.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Backup no longer accumulates numbered folders.</b> <span class="k">— the swap replaces the prior copy in place.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.2</div>
+        <div class="date">Jun 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Stronger, calmer integrity.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>Stronger tamper detection.</b> <span class="k">The integrity check now compares full commit identities, so a rewritten or pruned history can’t slip past verification.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Crash-safe ledger.</b> <span class="k">The hash-chained ledger now heals a save that was interrupted mid-write, instead of reading as tampered.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Rollback witness.</b> <span class="k">Provenance keeps a private, on-device high-water mark, so quietly rolling history back is caught — no network, ever.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.1</div>
+        <div class="date">Jun 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Runs anywhere, no setup.</div>
+        <div class="grp">
+          <div class="tag fix">Fixed</div>
+        <div class="item"><span class="b">·</span><span><b>No developer tools needed.</b> <span class="k">Version history now works on any Mac out of the box. Provenance no longer relies on the command-line git that only ships with Xcode.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.0</div>
+        <div class="date">Jun 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Welcome to Provenance.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>Tamper-evident ledger.</b> <span class="k">Every save, source, and check-in is hashed into a chain that detects after-the-fact edits.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Process Records.</b> <span class="k">Export an HTML or PDF report that walks a reader through how a piece of work came to be.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Paste sources, when you want them.</b> <span class="k">Paste text in and log where it came from — always by hand, never automatic.</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body></html>

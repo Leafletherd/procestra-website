@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draught — Release notes</title>
+<style>
+  :root{--paper:#f7f3ea;--raised:#fffdf8;--hair:#e7e0d0;--ink:#2a2724;--ink-dim:#6f695e;--ink-faint:#a8a094;--accent:#2D5A3D;
+    --new:#2D5A3D;--imp:#8a7d3f;--fix:#9a6b53;
+    --sans:-apple-system,"SF Pro Text",system-ui,sans-serif;--serif:"Iowan Old Style","New York",Georgia,serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:680px;margin:0 auto;padding:76px 32px 120px}
+  .brand{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink-dim);margin-bottom:60px}
+  .brand a{color:inherit;text-decoration:none}
+  .brand .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:1px}
+  .rel{display:flex;gap:48px;padding-bottom:56px;margin-bottom:56px;border-bottom:1px solid var(--hair)}
+  .rel:last-child{border-bottom:none}
+  .meta{width:120px;flex-shrink:0;padding-top:4px}
+  .ver{font-family:var(--serif);font-size:22px;font-weight:600}
+  .date{font-size:12.5px;color:var(--ink-faint);margin-top:4px}
+  .body{flex:1}
+  .lede{font-family:var(--serif);font-size:18px;line-height:1.5;margin-bottom:30px}
+  .grp{margin-bottom:24px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:12px}
+  .tag.new{color:var(--new)} .tag.imp{color:var(--imp)} .tag.fix{color:var(--fix)}
+  .item{display:flex;gap:11px;font-size:14.5px;padding:5px 0;color:var(--ink)}
+  .item .b{color:var(--ink-faint);flex-shrink:0}
+  .item b{font-weight:600}
+  .item .k{color:var(--ink-dim)}
+  @media (max-width:560px){.rel{flex-direction:column;gap:14px}}
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span><a href="draught.html">Draught</a> · Release notes</div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.0</div>
+        <div class="date">Jul 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Welcome to Draught.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>A near-empty canvas.</b> <span class="k">One centered column, a quiet header, and the word count as the only visible control. The writing is the interface.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>It quietly remembers.</b> <span class="k">Make a file a project and Draught keeps versions as you write. Click the word count to see how the work grew, read any past version, or bring one back.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>The folder is your tabs.</b> <span class="k">Every file in the folder sits on the top line, so you can see what you’re working on without going looking. A green dot means the folder is tracked.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>A screenplay lens.</b> <span class="k">Fountain formatting that falls out of typing — the file stays plain text, and Tab is only the escape hatch.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Scraps and Notes.</b> <span class="k">Cut text lands in a per-manuscript drawer to reuse later; a Notes panel keeps the thoughts beside the draft.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Exports beautifully.</b> <span class="k">A clean reading page, a submittable manuscript, a book, or a proper screenplay, each as a PDF.</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body></html>

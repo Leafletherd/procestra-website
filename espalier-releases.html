@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espalier — Release notes</title>
+<style>
+  :root{--paper:#f7f3ea;--raised:#fffdf8;--hair:#e7e0d0;--ink:#2a2724;--ink-dim:#6f695e;--ink-faint:#a8a094;--accent:#a06878;
+    --new:#a06878;--imp:#8a7d3f;--fix:#9a6b53;
+    --sans:-apple-system,"SF Pro Text",system-ui,sans-serif;--serif:"Iowan Old Style","New York",Georgia,serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:680px;margin:0 auto;padding:76px 32px 120px}
+  .brand{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink-dim);margin-bottom:60px}
+  .brand a{color:inherit;text-decoration:none}
+  .brand .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:1px}
+  .rel{display:flex;gap:48px;padding-bottom:56px;margin-bottom:56px;border-bottom:1px solid var(--hair)}
+  .rel:last-child{border-bottom:none}
+  .meta{width:120px;flex-shrink:0;padding-top:4px}
+  .ver{font-family:var(--serif);font-size:22px;font-weight:600}
+  .date{font-size:12.5px;color:var(--ink-faint);margin-top:4px}
+  .body{flex:1}
+  .lede{font-family:var(--serif);font-size:18px;line-height:1.5;margin-bottom:30px}
+  .grp{margin-bottom:24px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:12px}
+  .tag.new{color:var(--new)} .tag.imp{color:var(--imp)} .tag.fix{color:var(--fix)}
+  .item{display:flex;gap:11px;font-size:14.5px;padding:5px 0;color:var(--ink)}
+  .item .b{color:var(--ink-faint);flex-shrink:0}
+  .item b{font-weight:600}
+  .item .k{color:var(--ink-dim)}
+  @media (max-width:560px){.rel{flex-direction:column;gap:14px}}
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span><a href="espalier.html">Espalier</a> · Release notes</div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.1.0</div>
+        <div class="date">Jul 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Boards as tabs, and a bench that behaves.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>Your boards are tabs.</b> <span class="k">Boards sit on the titlebar now — click to switch, + for a new one, right-click for Rename, Export, Reveal, and Remove. The sidebar is retired and the canvas gets the whole window.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>A new icon and calmer chrome.</b> <span class="k">An icon that follows macOS’s Icon &amp; widget style, including dark, and one calm titlebar matching the rest of the suite.</span></span></div>
+        </div>
+        <div class="grp">
+          <div class="tag fix">Fixed</div>
+        <div class="item"><span class="b">·</span><span><b>Cards stay put.</b> <span class="k">A column growing to receive a drop could quietly claim a neighbouring card, and reopening a board could pile untouched cards in the corner. Placed is placed now.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>The bench really is endless.</b> <span class="k">Dragging a card to the window’s edge scrolls the bench with it, and you can always scroll a full screen past your farthest card.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.2</div>
+        <div class="date">Jun 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Sharper, faster, easier to learn.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>Expand any card.</b> <span class="k">Click a card’s body to open it full-size for focused writing, with a quick color picker right on the card.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Templates &amp; a welcome board.</b> <span class="k">Every template now opens with example cards, and a new Welcome board walks you through the basics (revisit it from the Help menu).</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Choose your editor font.</b> <span class="k">Pick the writing font you like in Settings → Editor.</span></span></div>
+        </div>
+        <div class="grp">
+          <div class="tag imp">Improved</div>
+        <div class="item"><span class="b">·</span><span><b>Columns &amp; stacks.</b> <span class="k">Reorder cards inside a column, fan out a stack, and move a whole column — notes and all — to another board.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Much faster on big boards.</b> <span class="k">Scrolling large boards is now smooth, with off-screen cards culled as you pan.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.1</div>
+        <div class="date">Jun 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Runs anywhere, no setup.</div>
+        <div class="grp">
+          <div class="tag fix">Fixed</div>
+        <div class="item"><span class="b">·</span><span><b>No developer tools needed.</b> <span class="k">Board history now works on any Mac out of the box, with no command-line tools to install.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0.0</div>
+        <div class="date">Jun 2026</div>
+      </div>
+      <div class="body">
+        <div class="lede">Welcome to Espalier.</div>
+        <div class="grp">
+          <div class="tag new">New</div>
+        <div class="item"><span class="b">·</span><span><b>A spatial board.</b> <span class="k">Arrange cards on a pannable dot-grid surface. Drag them freely, or snap them into labeled columns and rows.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Stacks and containers.</b> <span class="k">Gather cards into stacks, or drop them into columns and rows that auto-size and clean up without overlaps.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Grows from Seed.</b> <span class="k">Pull ripe ideas from a Seed garden onto the board as cards, then shape them into sequence.</span></span></div>
+        <div class="item"><span class="b">·</span><span><b>Export anywhere.</b> <span class="k">Send a board out as Markdown, PDF, CSV, OPML, or plain text.</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body></html>

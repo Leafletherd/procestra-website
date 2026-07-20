@@ -26,6 +26,28 @@
         <language>en</language>
 
         <item>
+            <title>Version 1.1.0</title>
+            <pubDate>Mon, 20 Jul 2026 15:23:19 +0000</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Espalier 1.1.0</h2>
+                <ul>
+                  <li><b>Your boards are tabs</b> — boards sit on the titlebar; the sidebar is retired and the canvas gets the whole window.</li>
+                  <li><b>Cards stay put</b> — placed is placed: columns no longer claim neighbours, reopened boards keep their layout.</li>
+                  <li><b>The bench really is endless</b> — dragging to the window's edge scrolls with you.</li>
+                </ul>
+                <p><a href="https://procestra.app/espalier-releases.html">See everything in 1.1.0</a></p>
+            ]]></description>
+            <enclosure
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/espalier-downloads/Espalier-1.1.0.dmg"
+                sparkle:edSignature="vna3DfTtWUu4D1DqiOOvJPiGgHLN2jPhqXZeET6tiridjvaiRRJ3/TnjwZj8eQBlPshlj+q17XTnaKJJafQxDw=="
+                length="4526438"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.0.2</title>
             <pubDate>Sat, 20 Jun 2026 20:36:33 +0000</pubDate>
             <sparkle:version>3</sparkle:version>

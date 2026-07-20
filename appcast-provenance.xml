@@ -26,6 +26,28 @@
         <language>en</language>
 
         <item>
+            <title>Version 2.0.0</title>
+            <pubDate>Mon, 20 Jul 2026 15:23:19 +0000</pubDate>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>2.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Provenance 2.0.0</h2>
+                <ul>
+                  <li><b>A calmer look</b> — a cleaner surface, a slim top bar, a quiet centered timeline. One Add button records everything; files that arrive wait in the Inbox.</li>
+                  <li><b>Feedback, end to end</b> — request a clean reading page from any version; the returned notes log against the exact version that answered them.</li>
+                  <li><b>Project Backup, automatic</b> — point at a folder and Provenance mirrors the whole project, verified after each sync.</li>
+                </ul>
+                <p><a href="https://procestra.app/provenance-releases.html">See everything in 2.0.0</a></p>
+            ]]></description>
+            <enclosure
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/provenance-downloads/Provenance-2.0.0.dmg"
+                sparkle:edSignature="ErJ39rso3Z+o6IdDlOeCNnyNQiyDd9WK19oZHIG7F9NK7l7Qo3CXUi5abJnds/Svf2KN9lAF9E+V9+faAh5XDg=="
+                length="5212523"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.0.2</title>
             <pubDate>Sat, 20 Jun 2026 20:36:33 +0000</pubDate>
             <sparkle:version>3</sparkle:version>

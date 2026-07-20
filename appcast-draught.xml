@@ -36,7 +36,7 @@
 
         <item>
             <title>Version 1.0.0</title>
-            <pubDate>Thu, 17 Jul 2026 00:00:00 +0000</pubDate>
+            <pubDate>Mon, 20 Jul 2026 15:23:19 +0000</pubDate>
             <sparkle:version>1</sparkle:version>
             <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
             <!-- 14.0, NOT 13.0: Draught builds against the macOS 14 SDK floor.
@@ -54,13 +54,10 @@
                   <li><b>Beautiful exports</b> — Reading, Manuscript, Book, and Screenplay PDFs.</li>
                 </ul>
             ]]></description>
-            <!-- TODO(sign-at-release): edSignature + length come from
-                 sign_update over the FINAL signed/notarized DMG:
-                 .build/artifacts/sparkle/Sparkle/bin/sign_update build/Draught-1.0.0.dmg -->
             <enclosure
                 url="https://pub-db9995825af14961a74cb646cccf5ac2.r2.dev/draught-downloads/Draught-1.0.0.dmg"
-                sparkle:edSignature="SIGN-AT-RELEASE"
-                length="0"
+                sparkle:edSignature="wK2zmAHc+VHSFKNiSJ4zRliXYvvoN87NtsLvD3NDUQ4xpUz1y6D8Qomji55Q+rb67mxfymUhy44XbAjHHU1+CQ=="
+                length="3837974"
                 type="application/octet-stream" />
         </item>
     </channel>

@@ -34,6 +34,28 @@
         <language>en</language>
 
         <item>
+            <title>Version 2.0.0</title>
+            <pubDate>Mon, 20 Jul 2026 15:23:19 +0000</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>2.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Seed 2.0.0</h2>
+                <ul>
+                  <li><b>Notes open in place</b> — a note expands right where it sits in the list and collapses back when you close it.</li>
+                  <li><b>Version history</b> — see how a note grew, read any past version, revert with one click.</li>
+                  <li><b>Garden Backup</b> — point a garden at a folder and Seed keeps one complete, safe copy automatically.</li>
+                </ul>
+                <p><a href="https://procestra.app/seed-releases.html">See everything in 2.0.0</a></p>
+            ]]></description>
+            <enclosure
+                url="https://pub-df65c2e764ca4985aed9f3e6d775dcf1.r2.dev/seed-downloads/Seed-2.0.0.dmg"
+                sparkle:edSignature="9ewSSrnfcuWUG2YGWsp6xDdND3DbJz0eq9kWsXexau6enwgR9SSxGoPNUD/X0/mqmvZIo8J8PYHwUruewo4tCg=="
+                length="5955834"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.0.2</title>
             <pubDate>Sat, 20 Jun 2026 20:36:33 +0000</pubDate>
             <sparkle:version>3</sparkle:version>
